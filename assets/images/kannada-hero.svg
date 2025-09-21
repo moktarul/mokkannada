@@ -1,0 +1,7 @@
+<svg width="500" height="300" viewBox="0 0 500 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="300" rx="10" fill="#F0F4FF"/>
+  <path d="M100 150C100 121.716 122.716 99 151 99H349C377.284 99 400 121.716 400 150C400 178.284 377.284 201 349 201H151C122.716 201 100 178.284 100 150Z" fill="#E2E8F0"/>
+  <path d="M150 130C150 123.373 155.373 118 162 118H338C344.627 118 350 123.373 350 130V170C350 176.627 344.627 182 338 182H162C155.373 182 150 176.627 150 170V130Z" fill="#C7D2FE"/>
+  <text x="250" y="155" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#4F46E5">ಕನ್ನಡ</text>
+  <text x="250" y="185" font-family="Arial" font-size="16" text-anchor="middle" fill="#4F46E5">Learn Kannada with Ease</text>
+</svg>

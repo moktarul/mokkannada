@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+# Kannada Speaking App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform mobile application built with React Native and Expo that helps users learn and practice the Kannada language. The app works on Android, iOS, and web platforms.
 
-## Get started
+## Features
 
-1. Install dependencies
+- Learn basic Kannada phrases and vocabulary
+- Practice speaking with voice recognition
+- Interactive lessons and quizzes
+- Works on Android, iOS, and web
 
+## Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+
+## Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd kannadaspeakingapp
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
+   # or
+   yarn install
    ```
 
-2. Start the app
-
+3. **Start the development server**
    ```bash
-   npx expo start
+   npm start
+   # or
+   yarn start
    ```
 
-In the output, you'll find options to open the app in a
+## Running the App
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Android
+- Connect an Android device or start an emulator
+- Run `npm run android` or scan the QR code with the Expo Go app
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### iOS
+- Requires a Mac with Xcode installed
+- Run `npm run ios` or scan the QR code with the Expo Go app
 
-## Get a fresh project
+### Web
+- Run `npm run web`
+- Open your browser to `http://localhost:19006`
 
-When you're ready, run:
+## Project Structure
 
-```bash
-npm run reset-project
-```
+- `/screens` - Contains all the app screens
+- `/components` - Reusable UI components
+- `/assets` - Images, fonts, and other static files
+- `/navigation` - Navigation configuration
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Contributing
 
-## Learn more
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-To learn more about developing your project with Expo, look at the following resources:
+## License
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
