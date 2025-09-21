@@ -1,0 +1,130 @@
+
+{
+    "lesson": 2,
+    "conversations": [
+      {
+        "id": 1,
+        "lines": [
+          {"A": "namaskaara, Mr. Naidu."},
+          {"B": "oohoo, namaskaara. banni kuutkoli → Hello! Good morning; please come, be seated."},
+          {"A": "ivaru Mr. Prakaash. → He is Mr. Prakash."},
+          {"B": "namaskaara kuutkoli. ivaru nimma snehitraa? → Hello, please sit down. Is he your friend?"},
+          {"A": "alla, ivaru namma anna. → No, he is my elder brother."},
+          {"B": "ivaru laayaraa? → Is he a lawyer?"},
+          {"A": "alla, ivaru kavi. → No, he is a poet."}
+        ]
+      },
+      {
+        "id": 2,
+        "lines": [
+          {"A": "Mr. Naidu, adu eenu? → Mr. Naidu, what is that?"},
+          {"B": "idu kate pustaka. → This is a story book."},
+          {"A": "idu nimma pustakaa? → Is this your book?"},
+          {"B": "alla, idu nanna pustaka alla. → No, this is not my book."},
+          {"A": "adara hesaru eenu? → What is its name?"},
+          {"B": "idara hesaru Milana. → Its name is Milana. idu keṭṭa pustaka → It’s a bad book."},
+          {"A": "nimma pustaka yaavudu? → Which is your book?"},
+          {"B": "idu nanna hosa pustaka → This is my new book. idu oḷḷe pustaka → This is a good book. nimma hosa pustaka yaavudu → Which is your new book?"},
+          {"A": "Prema nanna hosa pustaka → Prema is my new book. adu tumba doḍḍa pustaka → This is a very big book."}
+        ]
+      },
+      {
+        "id": 3,
+        "lines": [
+          {"A": "Mr. Shekhar, nimma mane yaavudu? → Mr. Shekhar, which is your house?"},
+          {"B": "adu namma mane → That is my house."},
+          {"A": "yaavudu? aa doḍḍa manee naa? → Which one? That big house?"},
+          {"B": "alla, cikkamane → No, the small house."},
+          {"A": "ivara mane yaavudu? → Which is his house?"},
+          {"B": "adu ivara mane → That is his house. adu tumba doḍḍa mane → That is a very big house."}
+        ]
+      }
+    ],
+    "vocabulary": {
+      "oḷḷe": "good",
+      "keṭṭa": "bad",
+      "hosa": "new",
+      "hale": "old",
+      "doḍḍa": "big",
+      "cikka": "small",
+      "tumba": "much / very",
+      "idu": "this",
+      "idara": "its",
+      "snehitru": "friend",
+      "kate": "story",
+      "mane": "house",
+      "pustaka": "book",
+      "naataka": "play",
+      "anna": "elder brother",
+      "yaavudu": "which one",
+      "bangle": "bungalow"
+    },
+    "exercises": {
+      "1": {
+        "instruction": "Transform pronouns into possessive forms",
+        "model": "naanu → nanna = idu nanna mane",
+        "items": {
+          "naanu": "nanna",
+          "avaḷu": "avaḷa",
+          "adu": "adara",
+          "ivaru": "avara",
+          "naavu": "namma",
+          "ivaḷu": "avaḷa",
+          "niivu": "nimma",
+          "niinu": "ninna"
+        }
+      },
+      "2": {
+        "instruction": "Substitute words",
+        "model": "Saalini nanna oḷḷe pustaka",
+        "items": {
+          "set1": [
+            "Saalini avara oḷḷe pustaka",
+            "Saalini avara oḷḷe naataka",
+            "Jeevana avara oḷḷe naataka",
+            "Jeevana avara keṭṭa naataka"
+          ],
+          "set2": [
+            "ivaru avara oḷḷe snehitru",
+            "ivaru nanna hale snehitru",
+            "Raamu nanna oḷḷe snehitru",
+            "meesṭru nanna oḷḷe snehitru"
+          ],
+          "set3": [
+            "nimma cikka pustaka yaavudu?",
+            "avara doḍḍa pustaka yaavudu?",
+            "nimma doḍḍa naataka yaavudu?"
+          ],
+          "set4": [
+            "idu tumba hosa mane",
+            "adu tumba hosa bangle",
+            "adu tumba hale mane"
+          ]
+        }
+      },
+      "3": {
+        "instruction": "Make sentences from word columns",
+        "examples": [
+          "avaru nanna oḷḷe mane",
+          "idu avara hosa pustaka",
+          "Milana nimma keṭṭa snehitru",
+          "hale pustaka",
+          "hale mane",
+          "hale naataka"
+        ]
+      },
+      "4": {
+        "instruction": "Answer the questions",
+        "model": "idu oḷḷe pustakaa naa?",
+        "items": [
+          "haudu, idu tumba oḷḷe pustaka",
+          "alla, idu tumba keṭṭa pustaka",
+          "Jeevana keṭṭa naatakaa naa?",
+          "avaru oḷḷe ḍaakṭraa?",
+          "idu hosa manee naa?",
+          "adu doḍḍa banglee naa?"
+        ]
+      }
+    }
+  }
+  

@@ -1,0 +1,334 @@
+
+{
+    "lesson": 3,
+    "language": "Kannada",
+    "conversations": [
+      {
+        "id": 1,
+        "turns": [
+          {
+            "speaker": "A",
+            "kannada": "banni, vaasu, kuutukoli; cennagiddiraa?",
+            "english": "Please come Vasu, be seated. How do you do?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "cennagiddiini saar",
+            "english": "Fine sir."
+          },
+          {
+            "speaker": "B",
+            "kannada": "namaskaara; niivu cennagiddiraa?",
+            "english": "Good morning; how do you do sir?"
+          },
+          {
+            "speaker": "A",
+            "kannada": "cennagiddini",
+            "english": "Fine, thank you."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "turns": [
+          {
+            "speaker": "A",
+            "kannada": "raaju, idu yaava klaasu?",
+            "english": "Raju, which class is this?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "idu kannada klaasu",
+            "english": "This is a Kannada class."
+          },
+          {
+            "speaker": "A",
+            "kannada": "idu yaara kannada klaasu?",
+            "english": "Whose Kannada class is this?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "idu namma kannada klaasu",
+            "english": "This is our Kannada class."
+          },
+          {
+            "speaker": "A",
+            "kannada": "vaasu, aa klaasu yaavdu?",
+            "english": "Vaasu, which is that class?"
+          },
+          {
+            "speaker": "C",
+            "kannada": "adu tamil klaasu",
+            "english": "That is a Tamil class."
+          },
+          {
+            "speaker": "C",
+            "kannada": "aa klaasu avardu",
+            "english": "That class is theirs."
+          },
+          {
+            "speaker": "C",
+            "kannada": "ii klaasu namdu",
+            "english": "This class is ours."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "turns": [
+          {
+            "speaker": "A",
+            "kannada": "nimma pustaka yaavdu?",
+            "english": "Which is your book?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "ii chikka pustaka nandu",
+            "english": "This small book is mine."
+          },
+          {
+            "speaker": "A",
+            "kannada": "yaava pustaka avardu?",
+            "english": "Which book is his?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "adu avardu",
+            "english": "That one is his."
+          },
+          {
+            "speaker": "A",
+            "kannada": "raaju, ii pennu yaardu?",
+            "english": "Raju, whose pen is this?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "aa pennu nimdu, saar",
+            "english": "That pen is yours, sir."
+          },
+          {
+            "speaker": "A",
+            "kannada": "alla, aa pennu nandalla",
+            "english": "No, that pen is not mine."
+          },
+          {
+            "speaker": "A",
+            "kannada": "idu avara pennu",
+            "english": "This is his pen."
+          },
+          {
+            "speaker": "A",
+            "kannada": "ii hosa pennu nandu",
+            "english": "This new pen is mine."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "turns": [
+          {
+            "speaker": "A",
+            "kannada": "ravi, aa haLe pennu nimmadaa?",
+            "english": "Ravi, is that pen yours?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "haudu, saar",
+            "english": "Yes, sir."
+          },
+          {
+            "speaker": "B",
+            "kannada": "aa haLe pennu nandu",
+            "english": "That old pen is mine."
+          },
+          {
+            "speaker": "B",
+            "kannada": "aa baal pennu nandu",
+            "english": "That ball pen is also mine."
+          }
+        ]
+      }
+    ],
+    "additional_conversation": [
+      {
+        "turns": [
+          {
+            "speaker": "A",
+            "kannada": "ii hosa pennu nimdalvaa?",
+            "english": "Isn’t this new pen yours?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "aduu nandu",
+            "english": "That is also mine."
+          },
+          {
+            "speaker": "B",
+            "kannada": "aa ella pennugaLu nandu",
+            "english": "All those pens are mine."
+          },
+          {
+            "speaker": "A",
+            "kannada": "avu avara pustakagaLalvaa?",
+            "english": "Aren’t those books theirs?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "aa eraDu pustakagaLu avardu",
+            "english": "Those two are his books."
+          },
+          {
+            "speaker": "B",
+            "kannada": "ii chikka nootbuku nimdaa?",
+            "english": "Is this small notebook yours?"
+          },
+          {
+            "speaker": "A",
+            "kannada": "alla, idu nandalla",
+            "english": "No, this is not mine."
+          },
+          {
+            "speaker": "A",
+            "kannada": "nanna nootbuku doDDu",
+            "english": "My notebook is big."
+          }
+        ]
+      }
+    ],
+    "vocabulary": {
+      "aa": "that",
+      "ii": "this",
+      "siire": "sari",
+      "yaara": "whose",
+      "eraDu": "two",
+      "nandu": "mine",
+      "avaLdu": "hers",
+      "yaava": "which",
+      "yaardu": "whose one"
+    },
+    "exercises": [
+      {
+        "number": 1,
+        "instruction": "Substitute the words following each sentence in appropriate places",
+        "items": [
+          {
+            "base": "ii hosa mane nandu",
+            "substitutions": ["haLe", "aa", "avaLdu", "pennu"]
+          },
+          {
+            "base": "avaLa saikal tumba doDDu",
+            "substitutions": ["haLeedu", "nanna", "skuutaru"]
+          },
+          {
+            "base": "aa ella pustakagaLu nandu",
+            "substitutions": ["manegaLu", "ii", "avardu"]
+          },
+          {
+            "base": "aa hosa pennu nandalla",
+            "substitutions": ["vaacu", "haLe", "ii", "avandu"]
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "instruction": "Negate the following",
+        "items": [
+          "aa saartu nandu",
+          "nanna pensilu hosdu",
+          "ii klaasu namdu",
+          "aa ellaa pustakagaLu avaLdu"
+        ]
+      },
+      {
+        "number": 3,
+        "instruction": "Transform the following sentences as per the model (Model: adu namma mane → aa mane nandu)",
+        "items": [
+          {
+            "original": "idu avara kaaru"
+          },
+          {
+            "original": "adu avaLa siire"
+          },
+          {
+            "original": "idu nimma klaasu"
+          },
+          {
+            "original": "idu hosa bangle"
+          },
+          {
+            "original": "adu chikka pennu"
+          },
+          {
+            "original": "idu avara maneyalla"
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "instruction": "Frame questions interrogating different parts of each sentence (Model provided). Examples to convert:",
+        "examples": [
+          {
+            "source": "idu namma kannada klaasu",
+            "questions": [
+              "yaavdu nimma hosa kaaru?",
+              "adu yaara hosa kaaru?",
+              "adu eenu?",
+              "adu nimma hosa kaara?"
+            ]
+          },
+          {
+            "source": "ii chikka pennu nandalla",
+            "questions": []
+          },
+          {
+            "source": "nanna doDDa mane hosdu",
+            "questions": []
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "instruction": "Rewrite these sentences with plural forms of nouns and pronouns",
+        "items": [
+          "idu kaaru",
+          "ii mane nandu",
+          "aa cikka pennu nandu",
+          "aa mane tumba doDDu"
+        ]
+      },
+      {
+        "number": 6,
+        "instruction": "Fill in the gaps in the columns",
+        "table": {
+          "columns": ["naanu", "nanna", "nandu", "nandalla"],
+          "rows": [
+            ["—", "avara", "—", "—"],
+            ["niinu", "—", "—", "nindalla"],
+            ["—", "avana", "—", "—"],
+            ["idu", "—", "—", "—"],
+            ["naavu", "—", "namdu", "—"],
+            ["yaaru", "—", "—", "yaardalla"],
+            ["hosa", "hosadu", "hosdalla", ""],
+            ["—", "cikkadu", "—", ""],
+            ["doDDa", "—", "—", ""],
+            ["aLe", "—", "—", ""],
+            ["oLe", "—", "—", ""],
+            ["—", "keTTdu", "—", ""]
+          ],
+          "notes": "Use em-dash or empty string to represent blanks; table rows correspond to provided sequence in the lesson."
+        }
+      },
+      {
+        "number": 7,
+        "instruction": "Answer the following",
+        "questions": [
+          "nim hesreenu?",
+          "nim aafisu yaavudu?",
+          "nim pyaanTu hosdaa?",
+          "avara kaaru tumba doDDalvaa?",
+          "yaara pennu cikkdu?"
+        ]
+      }
+    ]
+  }
+  

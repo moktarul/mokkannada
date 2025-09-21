@@ -1,0 +1,146 @@
+
+{
+    "id": "lesson-1",
+    "title": "Lesson 1 — Greetings & Introductions",
+    "description": "Basic greetings, introductions, family words",
+    "conversations": [
+      {
+        "id": "conv1",
+        "title": "Conversation 1",
+        "lines": [
+          {"speaker":"A","kannada":"namaskaara","english":"Good Morning"},
+          {"speaker":"B","kannada":"Namaskaara","english":"Good Morning"},
+          {"speaker":"A","kannada":"Naanu raju","english":"I am Raju."},
+          {"speaker":"B","kannada":"ivaru moohan","english":"He is Mohan"},
+          {"speaker":"A","kannada":"niivu yaaru?","english":"Who are you?"},
+          {"speaker":"B","kannada":"Naanu seekhar","english":"I am Shekhar"},
+          {"speaker":"A","kannada":"Avaru yaaru?","english":"Who is she?"},
+          {"speaker":"B","kannada":"avaru shiila","english":"She is Sheela."},
+          {"speaker":"", "kannada":"ivaru shankar","english":"He is Shankar."}
+        ]
+      },
+      {
+        "id": "conv2",
+        "title": "Conversation 2",
+        "lines": [
+          {"speaker":"A","kannada":"nanna hesaru raaju","english":"My name is Raju."},
+          {"speaker":"A","kannada":"naanu kannada meeṣtru","english":"I am a Kannada teacher."},
+          {"speaker":"A","kannada":"ivaru nanna snehitru","english":"He is my Friend."},
+          {"speaker":"A","kannada":"ivara hesaru moohan","english":"His name is Mohan."},
+          {"speaker":"A","kannada":"niivu yaaru?","english":"Who are you?"},
+          {"speaker":"B","kannada":"naanu daaktar","english":"I am a doctor."},
+          {"speaker":"A","kannada":"nimma hesaru eenu?","english":"What is your name?"},
+          {"speaker":"B","kannada":"nanna hesaru seekhar","english":"My name is Shekhar."},
+          {"speaker":"A","kannada":"avara hesaru lalitaanaa?","english":"Is her name Lalitha?"},
+          {"speaker":"B","kannada":"haudu","english":"Yes"},
+          {"speaker":"B","kannada":"avara hesaru lalitaa","english":"Her name is Lalita."},
+          {"speaker":"A","kannada":"avaru daaktraa?","english":"Is she a doctor?"},
+          {"speaker":"B","kannada":"alla, avaru daaktralla","english":"No, she is not a doctor."},
+          {"speaker":"B","kannada":"avaru nurse","english":"She is nurse."}
+        ]
+      },
+      {
+        "id": "conv3",
+        "title": "Conversation 3",
+        "lines": [
+          {"speaker":"A","kannada":"ninna hesaru eenu, magu?","english":"What’s your name, child?"},
+          {"speaker":"B","kannada":"nanna hesaru kiran","english":"My name is Kiran."},
+          {"speaker":"A","kannada":"avaru nimma tandeenaa?","english":"Is he your father?"},
+          {"speaker":"B","kannada":"haudu, avaru namma tande","english":"Yes, he is my father."},
+          {"speaker":"A","kannada":"avaḷa hesaru, saroojanaa?","english":"Is her name Saroja?"},
+          {"speaker":"B","kannada":"alla","english":"No"},
+          {"speaker":"B","kannada":"avaḷa hesaru sarooja alla","english":"Her name is not Saroja."},
+          {"speaker":"A","kannada":"avaḷu yaaru?","english":"Who is she?"},
+          {"speaker":"B","kannada":"avaḷu nanna tangi","english":"She is my younger sister."},
+          {"speaker":"A","kannada":"avaḷa hesaru eenu?","english":"What is her name?"},
+          {"speaker":"B","kannada":"avaḷa hesaru manju","english":"Her name is Manju."}
+        ]
+      }
+    ],
+    "vocabulary": [
+      {"kannada":"naanu","english":"I"},
+      {"kannada":"naavu","english":"we"},
+      {"kannada":"niinu","english":"you (sg)"},
+      {"kannada":"niivu","english":"you"},
+      {"kannada":"ivanu","english":"he"},
+      {"kannada":"ivaḷu","english":"she"},
+      {"kannada":"ivaru","english":"they / he / she"},
+      {"kannada":"hesaru","english":"name"},
+      {"kannada":"magu","english":"child"},
+      {"kannada":"maga","english":"son"},
+      {"kannada":"yaaru","english":"who"},
+      {"kannada":"nanna","english":"my"},
+      {"kannada":"namma","english":"our"},
+      {"kannada":"ninna","english":"your (sg)"},
+      {"kannada":"nimma","english":"your"},
+      {"kannada":"avana","english":"his"},
+      {"kannada":"avaḷa","english":"her"},
+      {"kannada":"avara","english":"their / his / her"},
+      {"kannada":"tangi","english":"sister (younger)"},
+      {"kannada":"tande","english":"father"},
+      {"kannada":"eenu","english":"what"},
+      {"kannada":"snehitru","english":"friends"}
+    ],
+    "exercises": [
+      {
+        "id":"ex1",
+        "type":"fill_blanks",
+        "parts": {
+          "A": [
+            {"q":"________ yaaru?","answer":"niivu"},
+            {"q":"________ shiila","answer":"avaḷu"},
+            {"q":"Ivaru ________ tande","answer":"namma"},
+            {"q":"________ hesaru murty","answer":"nanna"},
+            {"q":"nimma hesaru ______?","answer":"eenu"},
+            {"q":"________ shankar","answer":"avanu"},
+            {"q":"________ daaktru","answer":"naanu"},
+            {"q":"niivu ________?","answer":"yaaru"}
+          ],
+          "B": [
+            {"q":"Ivaru nanna ________","answer":"snehitru"},
+            {"q":"nanna ________ moona","answer":"hesaru"},
+            {"q":"ivaru nanna ________","answer":"meeṣtru"},
+            {"q":"Sarooja avana ________","answer":"tangi"},
+            {"q":"avaru namma ________","answer":"tande"}
+          ]
+        }
+      },
+      {
+        "id":"ex2",
+        "type":"transform",
+        "items":[
+          {"input":"naanu shiila.","output_model":"nanna hesaru shiila."},
+          {"input":"avaru raaju.","output_model":"ivaru hesaru raaju."},
+          {"input":"avanu ramesa.","output_model":"avara hesaru ramesa."},
+          {"input":"avaḷu manju.","output_model":"avaḷa hesaru manju."}
+        ]
+      },
+      {
+        "id":"ex3",
+        "type":"yes_no_answers",
+        "items":[
+          {"q":"shankar nimma snehitaraa?","answers":["haudu","alla"]},
+          {"q":"shiila daaktraa?","answers":["haudu","alla"]},
+          {"q":"avaḷu ninna tanginaa?","answers":["haudu","alla"]},
+          {"q":"avara hesaru sitaanaa?","answers":["haudu","alla"]},
+          {"q":"avaru laayaraa?","answers":["haudu","alla"]}
+        ]
+      },
+      {
+        "id":"ex4",
+        "type":"short_answers",
+        "items":[
+          {"q":"niivu yaaru?","modelAnswer":"naanu ..."},
+          {"q":"nimma hesaru eenu?","modelAnswer":"nanna hesaru ..."},
+          {"q":"nimma meeṣtru yaaru?","modelAnswer":"meeṣtru ..."},
+          {"q":"niivu daaktraa?","modelAnswer":"haudu/alla"},
+          {"q":"moohan meeṣtraa?","modelAnswer":"haudu/alla"}
+        ]
+      }
+    ],
+    "meta": {
+      "level":"beginner",
+      "estimatedTimeMin": 12
+    }
+  }
+  
