@@ -1,8 +1,7 @@
 import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import { Dimensions, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
@@ -92,29 +91,24 @@ const HomeScreen = () => {
   );
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <LinearGradient
-        colors={['#FF3333', '#FF6B6B']}
-        style={styles.gradientBackground}
-      >
-        <View style={styles.headerContent}>
-          <Text style={styles.appName}>ಕನ್ನಡ ಕಲಿಯಿರಿ</Text>
-          <Text style={styles.headerTitle}>Learn to Speak Kannada</Text>
-          <Text style={styles.headerSubtitle}>Start your language journey today</Text>
-        </View>
-        <Image 
-          source={{ uri: 'https://img.icons8.com/color/96/000000/india.png' }} 
-          style={styles.flagIcon}
-        />
-      </LinearGradient>
-      
+    <View style={styles.safeArea}>
       <ScrollView 
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
       >
-        <MainContent />
+        <View style={styles.headerContainer}>
+          <Image 
+            source={require('../assets/images/header.jpg')}
+            style={styles.headerImage}
+            resizeMode="cover"
+          />
+        </View>
+        <View style={styles.contentWrapper}>
+          <MainContent />
+        </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -122,17 +116,31 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: COLORS.background,
+    paddingHorizontal: 0,
+    marginHorizontal: 0,
   },
-  gradientBackground: {
-    paddingTop: 50,
+  headerContainer: {
+    width: '100%',
+    height: 300,
+    marginBottom: 10,
+  },
+  headerImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+  scrollContent: {
+    flexGrow: 1,
+    paddingHorizontal: 0,
+  },
+  contentWrapper: {
     paddingBottom: 30,
-    paddingHorizontal: 20,
-    borderBottomLeftRadius: 30,
-    borderBottomRightRadius: 30,
+    paddingHorizontal: 0,
   },
   scrollView: {
     flex: 1,
     backgroundColor: COLORS.background,
+    marginHorizontal: 0,
   },
   headerContent: {
     position: 'relative',
@@ -146,25 +154,38 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     marginBottom: 5,
     fontFamily: 'KannadaSangamMN-Bold',
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3,
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: '600',
     color: COLORS.white,
     marginBottom: 5,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   headerSubtitle: {
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.9)',
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   flagIcon: {
-    width: 50,
-    height: 50,
-    marginLeft: 15,
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 3,
+    borderColor: 'rgba(255,255,255,0.8)',
+    marginRight: 10,
   },
   mainContent: {
-    padding: 20,
-    paddingTop: 30,
+    paddingTop: 20,
+    paddingBottom: 30,
+    paddingHorizontal: 0,
   },
   sectionTitle: {
     fontSize: 22,
