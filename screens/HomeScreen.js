@@ -1,491 +1,138 @@
-import { MaterialIcons } from '@expo/vector-icons';
-import React, { useState } from 'react';
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Svg, { Circle, Path } from 'react-native-svg';
+import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { Dimensions, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-// Karnataka flag colors
+const { width } = Dimensions.get('window');
+
+// Colors
 const COLORS = {
-  red: '#FF3333',
-  yellow: '#FFFF00',
+  primary: '#FF3333',
+  secondary: '#FF6B6B',
+  accent: '#4CAF50',
+  background: '#F8F9FA',
   white: '#FFFFFF',
   black: '#000000',
-  gray: '#F0F0F0',
+  gray: '#6C757D',
+  lightGray: '#E9ECEF',
 };
 
-// Sample data
-const lessons = [
-  { id: 1, title: 'Greetings', level: 'Beginner' },
-  { id: 2, title: 'Common Phrases', level: 'Beginner' },
-  { id: 3, title: 'Food & Dining', level: 'Intermediate' },
-  { id: 4, title: 'Shopping', level: 'Intermediate' },
-  { id: 5, title: 'Travel', level: 'Advanced' },
+// Navigation Cards Data
+const navCards = [
+  {
+    id: 'lessons',
+    title: 'Lessons',
+    description: 'Learn basic to advanced Kannada',
+    icon: 'book',
+    color: '#FF6B6B',
+    screen: 'LessonList',
+  },
+  {
+    id: 'basics',
+    title: 'Basics',
+    description: 'Essential words and phrases',
+    icon: 'language',
+    color: '#4CAF50',
+    screen: 'Basics',
+  },
+  {
+    id: 'numbers',
+    title: 'Numbers',
+    description: 'Learn to count in Kannada',
+    icon: 'sort-numeric-up',
+    color: '#2196F3',
+    screen: 'Numbers',
+  },
 ];
 
-const numbers = {
-  '1-10': [
-    { english: '1', kannada: 'ಒಂದು', pronunciation: 'Ondu' },
-    { english: '2', kannada: 'ಎರಡು', pronunciation: 'Eradu' },
-    { english: '3', kannada: 'ಮೂರು', pronunciation: 'Mooru' },
-    { english: '4', kannada: 'ನಾಲ್ಕು', pronunciation: 'Nalku' },
-    { english: '5', kannada: 'ಐದು', pronunciation: 'Aidu' },
-    { english: '6', kannada: 'ಆರು', pronunciation: 'Aaru' },
-    { english: '7', kannada: 'ಏಳು', pronunciation: 'ELu' },
-    { english: '8', kannada: 'ಎಂಟು', pronunciation: 'EnTu' },
-    { english: '9', kannada: 'ಒಂಬತ್ತು', pronunciation: 'Ombattu' },
-    { english: '10', kannada: 'ಹತ್ತು', pronunciation: 'Hattu' },
-  ],
-  '11-20': [
-    { english: '11', kannada: 'ಹನ್ನೊಂದು', pronunciation: 'Hannondu' },
-    { english: '12', kannada: 'ಹನ್ನೆರಡು', pronunciation: 'Hanneradu' },
-    { english: '13', kannada: 'ಹದಿಮೂರು', pronunciation: 'Hadimooru' },
-    { english: '14', kannada: 'ಹದಿನಾಲ್ಕು', pronunciation: 'Hadinalku' },
-    { english: '15', kannada: 'ಪದಿನೈದು', pronunciation: 'Padinainu' },
-    { english: '16', kannada: 'ಹದಿನಾರು', pronunciation: 'Hadināru' },
-    { english: '17', kannada: 'ಹದಿನೇಳು', pronunciation: 'Hadinēḷu' },
-    { english: '18', kannada: 'ಹದಿನೆಂಟು', pronunciation: 'Hadinenṭu' },
-    { english: '19', kannada: 'ಹತ್ತೊಂಬತ್ತು', pronunciation: 'Hattombattu' },
-    { english: '20', kannada: 'ಇಪ್ಪತ್ತು', pronunciation: 'Ippattu' },
-  ],
-  '21-50': [
-    { english: '21', kannada: 'ಇಪ್ಪತ್ತೊಂದು', pronunciation: 'Ippattondu' },
-    { english: '30', kannada: 'ಮೂವತ್ತು', pronunciation: 'Mūvattu' },
-    { english: '40', kannada: 'ನಲವತ್ತು', pronunciation: 'Nalavattu' },
-    { english: '50', kannada: 'ಐವತ್ತು', pronunciation: 'Aivattu' },
-  ],
-  '51-100': [
-    { english: '51', kannada: 'ಐವತ್ತೊಂದು', pronunciation: 'Aivattondhu' },
-    { english: '60', kannada: 'ಅರವತ್ತು', pronunciation: 'Aravattu' },
-    { english: '70', kannada: 'ಎಪ್ಪತ್ತು', pronunciation: 'Eppattu' },
-    { english: '80', kannada: 'ಎಂಬತ್ತು', pronunciation: 'Embattu' },
-    { english: '90', kannada: 'ತೊಂಬತ್ತು', pronunciation: 'Thombattu' },
-    { english: '100', kannada: 'ನೂರು', pronunciation: 'Nooru' },
-  ]
-};
-
-const basics = {
-  pronouns: [
-    { english: 'I', kannada: 'ನಾನು', pronunciation: 'Naanu' },
-    { english: 'You', kannada: 'ನೀನು', pronunciation: 'Neenu' },
-    { english: 'He', kannada: 'ಅವನು', pronunciation: 'Avanu' },
-    { english: 'She', kannada: 'ಅವಳು', pronunciation: 'AvaLu' },
-    { english: 'We', kannada: 'ನಾವು', pronunciation: 'Naavu' },
-    { english: 'They', kannada: 'ಅವರು', pronunciation: 'Avaru' },
-  ],
-  days: [
-    { english: 'Sunday', kannada: 'ಭಾನುವಾರ', pronunciation: 'Bhaanuvaara' },
-    { english: 'Monday', kannada: 'ಸೋಮವಾರ', pronunciation: 'Somavaara' },
-    { english: 'Tuesday', kannada: 'ಮಂಗಳವಾರ', pronunciation: 'Mangalavaara' },
-    { english: 'Wednesday', kannada: 'ಬುಧವಾರ', pronunciation: 'Budhavaara' },
-    { english: 'Thursday', kannada: 'ಗುರುವಾರ', pronunciation: 'Guruvaara' },
-    { english: 'Friday', kannada: 'ಶುಕ್ರವಾರ', pronunciation: 'Shukravaara' },
-    { english: 'Saturday', kannada: 'ಶನಿವಾರ', pronunciation: 'Shanivaara' },
-  ],
-  months: [
-    { english: 'January', kannada: 'ಜನವರಿ', pronunciation: 'Janavari' },
-    { english: 'February', kannada: 'ಫೆಬ್ರವರಿ', pronunciation: 'February' },
-    { english: 'March', kannada: 'ಮಾರ್ಚ್', pronunciation: 'March' },
-    { english: 'April', kannada: 'ಏಪ್ರಿಲ್', pronunciation: 'April' },
-    { english: 'May', kannada: 'ಮೇ', pronunciation: 'May' },
-    { english: 'June', kannada: 'ಜೂನ್', pronunciation: 'June' },
-    { english: 'July', kannada: 'ಜುಲೈ', pronunciation: 'July' },
-    { english: 'August', kannada: 'ಆಗಸ್ಟ್', pronunciation: 'August' },
-    { english: 'September', kannada: 'ಸೆಪ್ಟೆಂಬರ್', pronunciation: 'September' },
-    { english: 'October', kannada: 'ಅಕ್ಟೋಬರ್', pronunciation: 'October' },
-    { english: 'November', kannada: 'ನವೆಂಬರ್', pronunciation: 'November' },
-    { english: 'December', kannada: 'ಡಿಸೆಂಬರ್', pronunciation: 'December' },
-  ],
-};
-
 const HomeScreen = () => {
-  const [activeTab, setActiveTab] = useState('lessons');
-  const [expandedCategory, setExpandedCategory] = useState(null);
-  const [showKannadaChars, setShowKannadaChars] = useState(true);
+  const navigation = useNavigation();
 
-  const toggleCategory = (category) => {
-    setExpandedCategory(expandedCategory === category ? null : category);
-  };
+  const renderNavCard = (item) => (
+    <TouchableOpacity 
+      key={item.id}
+      style={[styles.navCard, { backgroundColor: item.color }]}
+      onPress={() => navigation.navigate(item.screen)}
+      activeOpacity={0.8}
+    >
+      <View style={styles.cardIconContainer}>
+        {item.id === 'lessons' && (
+          <Feather name={item.icon} size={32} color="white" />
+        )}
+        {item.id === 'basics' && (
+          <MaterialIcons name={item.icon} size={32} color="white" />
+        )}
+        {item.id === 'numbers' && (
+          <FontAwesome5 name={item.icon} size={28} color="white" style={{ marginTop: 2 }} />
+        )}
+      </View>
+      <View style={styles.cardTextContainer}>
+        <Text style={styles.cardTitle}>{item.title}</Text>
+        <Text style={styles.cardDescription}>{item.description}</Text>
+      </View>
+      <MaterialIcons name="chevron-right" size={24} color="white" style={{ opacity: 0.9 }} />
+    </TouchableOpacity>
+  );
 
-  // AI-generated image of a person speaking Kannada with creative flag integration
-  const SpeakingPerson = () => (
-    <View style={styles.personContainer}>
-      {/* Flag colors as background elements */}
-      <View style={[styles.flagStripe, styles.redStripe]} />
-      <View style={[styles.flagStripe, styles.yellowStripe]}>
-        <View style={styles.flagEmblemContainer}>
-          <Svg width="40" height="40" viewBox="0 0 100 100" style={styles.flagEmblem}>
-            <Circle cx="50" cy="50" r="45" fill={COLORS.red} stroke="#000" strokeWidth="1.5"/>
-            <Path d="M50 15 L60 40 L85 40 L65 55 L75 80 L50 65 L25 80 L35 55 L15 40 L40 40 Z" fill={COLORS.yellow} stroke="#000" strokeWidth="1"/>
-          </Svg>
-        </View>
+  // Main Content
+  const MainContent = () => (
+    <View style={styles.mainContent}>
+      <Text style={styles.sectionTitle}>What would you like to learn?</Text>
+      
+      <View style={styles.cardsContainer}>
+        {navCards.map((item) => renderNavCard(item))}
       </View>
       
-      {/* Main person image */}
-      <View style={styles.personImageWrapper}>
-        <Image 
-          source={{ uri: 'https://images.unsplash.com/photo-1594744803329-e58b31de8a8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80' }}
-          style={styles.aiPersonImage}
-          resizeMode="cover"
-        />
-        
-        {/* Speech animation effect */}
-        <View style={styles.speechEffect}>
-          <View style={[styles.speechDot, styles.speechDot1]} />
-          <View style={[styles.speechDot, styles.speechDot2]} />
-          <View style={[styles.speechDot, styles.speechDot3]} />
-        </View>
-        
-        {/* Speech bubble with Kannada text */}
-        <View style={styles.speechBubble}>
-          <Text style={styles.speechText}>ನಾನು ಕನ್ನಡ ಮಾತನಾಡುತ್ತೇನೆ</Text>
-        </View>
+      <View style={styles.quoteContainer}>
+        <Text style={styles.quoteText}>"A different language is a different vision of life."</Text>
+        <Text style={styles.quoteAuthor}>- Federico Fellini</Text>
       </View>
     </View>
   );
-
-  const Header = () => (
-    <View style={styles.header}>
-      <View style={styles.headerContent}>
-        {/* App Title and Tagline */}
-        <View style={styles.headerText}>
-          <Text style={styles.appName}>ಕನ್ನಡ ಕಲಿಯಿರಿ</Text>
-          <Text style={styles.headerTitle}>Speak Kannada with Confidence</Text>
-          <Text style={styles.headerSubtitle}>Start speaking like a local from day one!</Text>
-        </View>
-        
-        {/* Character and Speech Bubble Container */}
-        <View style={styles.characterSpeechContainer}>
-          {/* Speech Bubble */}
-          <View style={styles.speechBubble}>
-            <Text style={styles.speechText}>ನಾನು ಕನ್ನಡ ಮಾತನಾಡುತ್ತೇನೆ!</Text>
-            <View style={styles.speechTail}></View>
-          </View>
-          
-          {/* Character */}
-          <View style={styles.character}>
-            {/* Head */}
-            <View style={styles.characterHead}>
-              {/* Eyes */}
-              <View style={styles.characterEyes}>
-                <View style={styles.characterEye}></View>
-                <View style={styles.characterEye}></View>
-              </View>
-              {/* Smile */}
-              <View style={styles.characterSmile}>
-                <View style={styles.characterMouth}></View>
-              </View>
-              
-              {/* Speech Animation */}
-              <View style={styles.speechEffect}>
-                <View style={[styles.speechWave, styles.wave1]}></View>
-                <View style={[styles.speechWave, styles.wave2]}></View>
-                <View style={[styles.speechWave, styles.wave3]}></View>
-              </View>
-            </View>
-            
-            {/* Body */}
-            <View style={styles.characterBody}>
-              <View style={styles.characterShirt}></View>
-            </View>
-          </View>
-          
-          {/* Language Display */}
-          <View style={styles.languageContainer}>
-            <Text style={styles.kannadaPhrase}>"ನಾನು ಕನ್ನಡ ಮಾತನಾಡುತ್ತೇನೆ!"</Text>
-            <Text style={styles.englishTranslation}>(I speak Kannada!)</Text>
-          </View>
-        </View>
-        
-        {/* App Features */}
-        <View style={styles.featuresContainer}>
-          <View style={styles.feature}>
-            <MaterialIcons name="mic" size={24} color={COLORS.red} />
-            <Text style={styles.featureText}>Speak</Text>
-          </View>
-          <View style={styles.feature}>
-            <MaterialIcons name="headset" size={24} color={COLORS.red} />
-            <Text style={styles.featureText}>Listen</Text>
-          </View>
-          <View style={styles.feature}>
-            <MaterialIcons name="translate" size={24} color={COLORS.red} />
-            <Text style={styles.featureText}>Learn</Text>
-          </View>
-        </View>
-      </View>
-      
-      {activeTab === 'basics' || activeTab === 'numbers' ? (
-        <View style={styles.toggleContainer}>
-          <Text style={styles.toggleText}>Show Kannada Script:</Text>
-          <TouchableOpacity 
-            style={[styles.toggleButton, showKannadaChars && styles.toggleButtonActive]}
-            onPress={() => setShowKannadaChars(true)}
-          >
-            <Text style={[styles.toggleButtonText, showKannadaChars && styles.toggleButtonTextActive]}>
-              ON
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity 
-            style={[styles.toggleButton, !showKannadaChars && styles.toggleButtonActive]}
-            onPress={() => setShowKannadaChars(false)}
-          >
-            <Text style={[styles.toggleButtonText, !showKannadaChars && styles.toggleButtonTextActive]}>
-              OFF
-            </Text>
-          </TouchableOpacity>
-        </View>
-      ) : null}
-    </View>
-  );
-
-  const renderContent = () => {
-    switch (activeTab) {
-      case 'lessons':
-        return (
-          <View style={styles.contentContainer}>
-            <Text style={styles.sectionTitle}>Lessons</Text>
-            {lessons.map((lesson) => (
-              <View key={lesson.id} style={styles.card}>
-                <Text style={styles.lessonTitle}>{lesson.title}</Text>
-                <View style={styles.lessonFooter}>
-                  <Text style={styles.lessonLevel}>{lesson.level}</Text>
-                  <MaterialIcons name="arrow-forward-ios" size={16} color={COLORS.red} />
-                </View>
-              </View>
-            ))}
-          </View>
-        );
-      
-      case 'basics':
-        return (
-          <View style={styles.contentContainer}>
-            <Text style={styles.sectionTitle}>Basics</Text>
-            
-            <TouchableOpacity 
-              style={styles.categoryHeader}
-              onPress={() => toggleCategory('pronouns')}
-            >
-              <Text style={styles.categoryTitle}>Pronouns</Text>
-              <MaterialIcons 
-                name={expandedCategory === 'pronouns' ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} 
-                size={24} 
-                color={COLORS.black} 
-              />
-            </TouchableOpacity>
-            {expandedCategory === 'pronouns' && (
-              <View style={styles.categoryContent}>
-                {basics.pronouns.map((item, index) => (
-                  <View key={index} style={styles.basicItem}>
-                    <Text style={styles.englishText}>{item.english}</Text>
-                    <Text style={styles.pronunciationText}>{item.pronunciation}</Text>
-                    <Text style={styles.kannadaText}>
-                      {showKannadaChars ? item.kannada : item.pronunciation}
-                    </Text>
-                  </View>
-                ))}
-              </View>
-            )}
-            
-            <TouchableOpacity 
-              style={styles.categoryHeader}
-              onPress={() => toggleCategory('days')}
-            >
-              <Text style={styles.categoryTitle}>Days of the Week</Text>
-              <MaterialIcons 
-                name={expandedCategory === 'days' ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} 
-                size={24} 
-                color={COLORS.black} 
-              />
-            </TouchableOpacity>
-            {expandedCategory === 'days' && (
-              <View style={styles.categoryContent}>
-                {basics.days.map((item, index) => (
-                  <View key={index} style={styles.basicItem}>
-                    <Text style={styles.englishText}>{item.english}</Text>
-                    <Text style={styles.pronunciationText}>{item.pronunciation}</Text>
-                    <Text style={styles.kannadaText}>
-                      {showKannadaChars ? item.kannada : item.pronunciation}
-                    </Text>
-                  </View>
-                ))}
-              </View>
-            )}
-            
-            <TouchableOpacity 
-              style={styles.categoryHeader}
-              onPress={() => toggleCategory('months')}
-            >
-              <Text style={styles.categoryTitle}>Months</Text>
-              <MaterialIcons 
-                name={expandedCategory === 'months' ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} 
-                size={24} 
-                color={COLORS.black} 
-              />
-            </TouchableOpacity>
-            {expandedCategory === 'months' && (
-              <View style={styles.categoryContent}>
-                {basics.months.map((item, index) => (
-                  <View key={index} style={styles.basicItem}>
-                    <Text style={styles.englishText}>{item.english}</Text>
-                    <Text style={styles.pronunciationText}>{item.pronunciation}</Text>
-                    <Text style={styles.kannadaText}>
-                      {showKannadaChars ? item.kannada : item.pronunciation}
-                    </Text>
-                  </View>
-                ))}
-              </View>
-            )}
-          </View>
-        );
-        
-      case 'numbers':
-        return (
-          <View style={styles.contentContainer}>
-            <Text style={styles.sectionTitle}>Numbers</Text>
-            {Object.entries(numbers).map(([range, numberList]) => (
-              <View key={range} style={styles.numberRangeContainer}>
-                <Text style={styles.rangeTitle}>{range}</Text>
-                <View style={styles.numbersGrid}>
-                  {numberList.map((number, index) => (
-                    <View key={`${range}-${index}`} style={styles.numberCard}>
-                      <View style={styles.numberContent}>
-                        <Text style={styles.numberEnglish}>{number.english}</Text>
-                        <Text style={styles.pronunciationText}>
-                          {showKannadaChars ? number.kannada : number.pronunciation}
-                        </Text>
-                      </View>
-                    </View>
-                  ))}
-                </View>
-              </View>
-            ))}
-          </View>
-        );
-        
-      default:
-        return null;
-    }
-  };
 
   return (
-    <View style={styles.container}>
-      <Header />
+    <SafeAreaView style={styles.safeArea}>
+      <LinearGradient
+        colors={['#FF3333', '#FF6B6B']}
+        style={styles.gradientBackground}
+      >
+        <View style={styles.headerContent}>
+          <Text style={styles.appName}>ಕನ್ನಡ ಕಲಿಯಿರಿ</Text>
+          <Text style={styles.headerTitle}>Learn to Speak Kannada</Text>
+          <Text style={styles.headerSubtitle}>Start your language journey today</Text>
+        </View>
+        <Image 
+          source={{ uri: 'https://img.icons8.com/color/96/000000/india.png' }} 
+          style={styles.flagIcon}
+        />
+      </LinearGradient>
       
-      {/* Tabs */}
-      <View style={styles.tabs}>
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'lessons' && styles.activeTab]}
-          onPress={() => setActiveTab('lessons')}
-        >
-          <MaterialIcons 
-            name="menu-book" 
-            size={20} 
-            color={activeTab === 'lessons' ? COLORS.white : COLORS.red} 
-          />
-          <Text style={[styles.tabText, activeTab === 'lessons' && styles.activeTabText]}>
-            Lessons
-          </Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'basics' && styles.activeTab]}
-          onPress={() => setActiveTab('basics')}
-        >
-          <MaterialIcons 
-            name="translate" 
-            size={20} 
-            color={activeTab === 'basics' ? COLORS.white : COLORS.red} 
-          />
-          <Text style={[styles.tabText, activeTab === 'basics' && styles.activeTabText]}>
-            Basics
-          </Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={[styles.tab, activeTab === 'numbers' && styles.activeTab]}
-          onPress={() => setActiveTab('numbers')}
-        >
-          <MaterialIcons 
-            name="looks-3" 
-            size={20} 
-            color={activeTab === 'numbers' ? COLORS.white : COLORS.red} 
-          />
-          <Text style={[styles.tabText, activeTab === 'numbers' && styles.activeTabText]}>
-            Numbers
-          </Text>
-        </TouchableOpacity>
-      </View>
-      
-      {/* Content */}
-      <ScrollView style={styles.scrollView}>
-        {renderContent()}
+      <ScrollView 
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
+        <MainContent />
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
-};
-
-// Add keyframes for speech animation
-const pulse = {
-  '0%': { transform: [{ scale: 1 }], opacity: 0.6 },
-  '50%': { transform: [{ scale: 1.5 }], opacity: 1 },
-  '100%': { transform: [{ scale: 1 }], opacity: 0.6 },
-};
-
-// Add keyframes for animations
-const wave = {
-  '0%': { height: 10 },
-  '50%': { height: 30 },
-  '100%': { height: 10 },
 };
 
 const styles = StyleSheet.create({
-  // Animation keyframes
-  '@keyframes wave': wave,
-  '@keyframes pulse': {
-    '0%': { transform: [{ scale: 1 }], opacity: 0.6 },
-    '50%': { transform: [{ scale: 1.5 }], opacity: 1 },
-  },
-  '@keyframes float': {
-    '0%, 100%': { transform: [{ translateY: 0 }] },
-    '50%': { transform: [{ translateY: -5 }] },
-  },
-  '@keyframes wave1': {
-    '0%': { transform: [{ scale: 1 }], opacity: 0.4 },
-    '50%': { transform: [{ scale: 1.5 }], opacity: 0.8 },
-    '100%': { transform: [{ scale: 1 }], opacity: 0.4 },
-  },
-  '@keyframes wave2': {
-    '0%': { transform: [{ scale: 1.2 }], opacity: 0.5 },
-    '50%': { transform: [{ scale: 1.7 }], opacity: 0.9 },
-    '100%': { transform: [{ scale: 1.2 }], opacity: 0.5 },
-  },
-  '@keyframes wave3': {
-    '0%': { transform: [{ scale: 0.8 }], opacity: 0.3 },
-    '50%': { transform: [{ scale: 1.3 }], opacity: 0.7 },
-    '100%': { transform: [{ scale: 0.8 }], opacity: 0.3 },
-  },
-  
-  container: {
+  safeArea: {
     flex: 1,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.background,
   },
-  header: {
-    backgroundColor: COLORS.white,
-    padding: 15,
-    paddingTop: 20,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 8,
-    marginBottom: 10,
+  gradientBackground: {
+    paddingTop: 50,
+    paddingBottom: 30,
+    paddingHorizontal: 20,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
   },
-  waveBackground: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: '100%',
+  scrollView: {
+    flex: 1,
+    backgroundColor: COLORS.background,
   },
   headerContent: {
     position: 'relative',
@@ -493,178 +140,81 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     alignItems: 'center',
   },
-  headerText: {
-    alignItems: 'center',
-    marginBottom: 10,
+  appName: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: COLORS.white,
+    marginBottom: 5,
+    fontFamily: 'KannadaSangamMN-Bold',
   },
   headerTitle: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: '600',
-    color: COLORS.black,
-    marginBottom: 2,
-    textAlign: 'center',
+    color: COLORS.white,
+    marginBottom: 5,
   },
   headerSubtitle: {
-    fontSize: 12,
-    color: '#666',
-    textAlign: 'center',
-    lineHeight: 14,
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.9)',
   },
-  speakingContainer: {
-    backgroundColor: 'white',
-    borderRadius: 30,
-    padding: 25,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.1,
-    shadowRadius: 15,
-    elevation: 5,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0.8)',
+  flagIcon: {
+    width: 50,
+    height: 50,
+    marginLeft: 15,
   },
-  characterSpeechContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-    position: 'relative',
-    width: '100%',
-    minHeight: 120, // Ensure minimum height for the container
+  mainContent: {
+    padding: 20,
+    paddingTop: 30,
   },
-  speechText: {
-    color: COLORS.red,
-    textAlign: 'center',
+  sectionTitle: {
+    fontSize: 22,
     fontWeight: 'bold',
-    fontSize: 20,
-    lineHeight: 28,
+    color: COLORS.black,
+    marginBottom: 25,
   },
-  character: {
-    width: 80,
-    height: 120,
-    position: 'relative',
-    alignItems: 'center',
-    marginLeft: 10,
-    animationName: 'float',
-    animationDuration: '3s',
-    animationIterationCount: 'infinite',
-    animationTimingFunction: 'ease-in-out',
+  cardsContainer: {
+    marginBottom: 30,
   },
-  characterHead: {
-    width: 60,
-    height: 60,
-    backgroundColor: '#FFD5B0',
-    borderRadius: 30,
-    position: 'relative',
-    zIndex: 10,
-    borderWidth: 2,
-    borderColor: '#E5BFA0',
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.15,
-    shadowRadius: 3,
-    elevation: 3,
-  },
-  characterEyes: {
+  navCard: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '60%',
-    marginTop: 20,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  characterEye: {
-    width: 10,
-    height: 10,
-    backgroundColor: COLORS.black,
-    borderRadius: 5,
-    marginTop: 5,
-  },
-  characterSmile: {
-    width: 25,
-    height: 12,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-    borderWidth: 2,
-    borderTopWidth: 0,
-    borderColor: COLORS.black,
-    marginTop: 8,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    overflow: 'hidden',
-  },
-  characterMouth: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#FF6B6B',
-    marginTop: 3,
-  },
-  characterBody: {
-    marginTop: -5,
     alignItems: 'center',
-  },
-  characterShirt: {
-    width: 70,
-    height: 80,
-    backgroundColor: COLORS.red,
-    borderBottomLeftRadius: 35,
-    borderBottomRightRadius: 35,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    position: 'relative',
-    zIndex: 5,
-  },
-  speechBubble: {
     backgroundColor: COLORS.white,
     borderRadius: 15,
-    padding: 10,
-    maxWidth: '60%',
-    marginRight: 8,
+    padding: 20,
+    marginBottom: 15,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.08,
-    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
     elevation: 3,
-    position: 'relative',
-    borderWidth: 1,
-    borderColor: '#f0f0f0',
   },
-  speechTail: {
-    position: 'absolute',
-    right: -10,
-    top: '50%',
-    width: 0,
-    height: 0,
-    borderTopWidth: 10,
-    borderRightWidth: 0,
-    borderBottomWidth: 10,
-    borderLeftWidth: 15,
-    borderTopColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderBottomColor: 'transparent',
-    borderLeftColor: COLORS.white,
-    transform: [{ translateY: -10 }],
-  },
-  speechText: {
-    fontSize: 14,
-    color: COLORS.black,
-    textAlign: 'center',
-    fontFamily: 'KannadaSangamMN-Bold',
-    lineHeight: 18,
-  },
-  languageContainer: {
-    position: 'absolute',
-    bottom: -30,
-    width: '100%',
+  cardIconContainer: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 15,
   },
-  kannadaPhrase: {
-    fontSize: 13,
-    fontFamily: 'KannadaSangamMN-Bold',
-    color: COLORS.red,
-    textAlign: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+  cardTextContainer: {
+    flex: 1,
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: COLORS.white,
+    marginBottom: 3,
+  },
+  cardDescription: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.9)',
+  },
+  quoteContainer: {
+    backgroundColor: COLORS.white,
+    borderRadius: 15,
+    padding: 20,
+    marginTop: 20,
     paddingHorizontal: 10,
     paddingVertical: 3,
     borderRadius: 12,
