@@ -1,39 +1,61 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList, Image } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import ConversationBubble from '../components/ConversationBubble';
 
 const LessonDetail = ({ route, navigation }) => {
   const { lesson } = route.params;
   const [activeTab, setActiveTab] = useState('conversations');
+  const [showEnglish, setShowEnglish] = useState(true);
+  const [showKannada, setShowKannada] = useState(true);
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   const renderConversation = (conversation) => {
     const lines = conversation.lines || conversation.turns || [];
     
+    // Skip rendering if both languages are hidden
+    if ((!showEnglish && !showKannada) || !lines || lines.length === 0) {
+      return null;
+    }
+
     return (
       <View key={conversation.id || conversation.title} style={styles.conversationContainer}>
         {conversation.title && (
           <Text style={styles.conversationTitle}>{conversation.title}</Text>
         )}
         
-        {lines.map((line, index) => {
-          const speaker = line.speaker || (typeof line === 'object' ? Object.keys(line)[0] : '');
-          const text = line.kannada || (typeof line === 'object' ? line[speaker] : line);
-          const english = line.english || '';
-          
-          return (
-            <View key={index} style={styles.conversationLine}>
-              {speaker && (
-                <View style={styles.speakerContainer}>
-                  <Text style={styles.speaker}>{speaker}:</Text>
-                </View>
-              )}
-              <View style={styles.textContainer}>
-                <Text style={styles.kannadaText}>{text}</Text>
-                {english && <Text style={styles.englishText}>{english}</Text>}
-              </View>
-            </View>
-          );
-        })}
+        <View style={styles.chatContainer}>
+          {lines.map((line, index) => {
+            const speaker = line.speaker || (typeof line === 'object' ? Object.keys(line)[0] : '');
+            const isRightAligned = index % 2 === 1; // Alternate between left and right
+            const showName = !isRightAligned && (index === 0 || 
+              (lines[index-1]?.speaker || (typeof lines[index-1] === 'object' ? Object.keys(lines[index-1] || {})[0] : '')) !== speaker);
+            
+            const messageText = line.kannada || (typeof line === 'object' ? line[speaker] : line);
+            const englishText = line.english || '';
+            
+            // Skip this line if the required language is hidden
+            if ((!showEnglish && !englishText) || (!showKannada && !messageText)) {
+              return null;
+            }
+            
+            return (
+              <ConversationBubble
+                key={index}
+                message={{
+                  ...line,
+                  text: messageText,
+                  english: englishText
+                }}
+                isRightAligned={isRightAligned}
+                showName={showName}
+                showEnglish={showEnglish}
+                showKannada={showKannada}
+                senderName={speaker.replace(':', '')}
+              />
+            );
+          })}
+        </View>
       </View>
     );
   };
@@ -122,8 +144,68 @@ const LessonDetail = ({ route, navigation }) => {
     );
   };
 
+  const toggleLanguageMenu = () => {
+    setShowLanguageMenu(!showLanguageMenu);
+  };
+
+  const toggleLanguage = (language) => {
+    if (language === 'english') {
+      setShowEnglish(!showEnglish);
+    } else if (language === 'kannada') {
+      setShowKannada(!showKannada);
+    }
+  };
+
+  const renderLanguageMenu = () => (
+    <View style={styles.languageMenu}>
+      <TouchableOpacity 
+        style={[styles.languageOption, !showEnglish && styles.languageOptionInactive]}
+        onPress={() => toggleLanguage('english')}
+      >
+        <MaterialIcons 
+          name={showEnglish ? 'check-box' : 'check-box-outline-blank'} 
+          size={20} 
+          color={showEnglish ? '#4CAF50' : '#666'} 
+        />
+        <Text style={styles.languageOptionText}>English</Text>
+      </TouchableOpacity>
+      <TouchableOpacity 
+        style={[styles.languageOption, !showKannada && styles.languageOptionInactive]}
+        onPress={() => toggleLanguage('kannada')}
+      >
+        <MaterialIcons 
+          name={showKannada ? 'check-box' : 'check-box-outline-blank'} 
+          size={20} 
+          color={showKannada ? '#4CAF50' : '#666'} 
+        />
+        <Text style={styles.languageOptionText}>ಕನ್ನಡ</Text>
+      </TouchableOpacity>
+    </View>
+  );
+
   return (
     <View style={styles.container}>
+      {/* Language Toggle Button */}
+      {activeTab === 'conversations' && (
+        <View style={styles.languageButtonContainer}>
+          <TouchableOpacity 
+            style={styles.languageButton}
+            onPress={toggleLanguageMenu}
+          >
+            <MaterialCommunityIcons name="translate" size={24} color="#fff" />
+          </TouchableOpacity>
+          {showLanguageMenu && (
+            <>
+              <TouchableOpacity 
+                style={styles.overlay}
+                activeOpacity={1}
+                onPress={toggleLanguageMenu}
+              />
+              {renderLanguageMenu()}
+            </>
+          )}
+        </View>
+      )}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <MaterialIcons name="arrow-back" size={24} color="#333" />
@@ -202,6 +284,57 @@ const LessonDetail = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  languageButtonContainer: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    zIndex: 100,
+    elevation: 5,
+  },
+  languageButton: {
+    backgroundColor: '#4CAF50',
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  languageMenu: {
+    position: 'absolute',
+    bottom: 60,
+    right: 0,
+    backgroundColor: 'white',
+    borderRadius: 8,
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    minWidth: 150,
+    zIndex: 101,
+  },
+  languageOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+    borderRadius: 4,
+  },
+  languageOptionInactive: {
+    opacity: 0.6,
+  },
+  languageOptionText: {
+    marginLeft: 8,
+    fontSize: 16,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 99,
+  },
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
@@ -284,19 +417,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#f0f0f0',
   },
-  conversationLine: {
-    flexDirection: 'row',
-    marginBottom: 12,
-  },
-  speakerContainer: {
-    width: 60,
-  },
-  speaker: {
-    fontWeight: '600',
-    color: '#FF3333',
-  },
-  textContainer: {
-    flex: 1,
+  chatContainer: {
+    marginTop: 8,
+    paddingHorizontal: 8,
   },
   kannadaText: {
     fontSize: 16,

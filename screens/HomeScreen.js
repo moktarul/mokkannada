@@ -28,6 +28,14 @@ const navCards = [
     screen: 'LessonList',
   },
   {
+    id: 'conversations',
+    title: 'Conversations',
+    description: 'Practice speaking with a friend',
+    icon: 'chat',
+    color: '#9C27B0',
+    screen: 'ConversationList',
+  },
+  {
     id: 'basics',
     title: 'Basics',
     description: 'Essential words and phrases',
@@ -58,6 +66,9 @@ const HomeScreen = () => {
       <View style={styles.cardIconContainer}>
         {item.id === 'lessons' && (
           <Feather name={item.icon} size={32} color="white" />
+        )}
+        {item.id === 'conversations' && (
+          <MaterialIcons name={item.icon} size={32} color="white" />
         )}
         {item.id === 'basics' && (
           <MaterialIcons name={item.icon} size={32} color="white" />

@@ -10,6 +10,8 @@ import QuizScreen from './screens/QuizScreen';
 import LessonList from './components/LessonList';
 import BasicsScreen from './screens/BasicsScreen';
 import NumbersScreen from './screens/NumbersScreen';
+import ConversationList from './screens/ConversationList';
+import ConversationDetail from './screens/ConversationDetail';
 
 const Stack = createNativeStackNavigator();
 
@@ -79,6 +81,23 @@ const App = () => {
             options={{
               title: 'Quiz',
               ...commonScreenOptions,
+            }}
+          />
+          <Stack.Screen 
+            name="ConversationList" 
+            component={ConversationList}
+            options={{
+              title: 'Conversations',
+              ...commonScreenOptions,
+            }}
+          />
+          <Stack.Screen 
+            name="ConversationDetail" 
+            component={ConversationDetail}
+            options={{
+              title: 'Conversation',
+              ...commonScreenOptions,
+              headerBackTitle: 'Back',
             }}
           />
         </Stack.Navigator>
