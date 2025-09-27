@@ -12,6 +12,7 @@ import BasicsScreen from './screens/BasicsScreen';
 import NumbersScreen from './screens/NumbersScreen';
 import ConversationList from './screens/ConversationList';
 import ConversationDetail from './screens/ConversationDetail';
+import ConversationPractice from './screens/ConversationPractice';
 
 const Stack = createNativeStackNavigator();
 
@@ -97,6 +98,16 @@ const App = () => {
             options={{
               title: 'Conversation',
               ...commonScreenOptions,
+              headerBackTitle: 'Back',
+            }}
+          />
+          <Stack.Screen 
+            name="ConversationPractice" 
+            component={ConversationPractice}
+            options={{
+              title: 'Practice Conversation',
+              ...commonScreenOptions,
+              headerShown: true,
               headerBackTitle: 'Back',
             }}
           />

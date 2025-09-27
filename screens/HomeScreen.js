@@ -1,4 +1,4 @@
-import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
+import { Feather, FontAwesome5, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -34,6 +34,14 @@ const navCards = [
     icon: 'chat',
     color: '#9C27B0',
     screen: 'ConversationList',
+  },
+  {
+    id: 'conversation-practice',
+    title: 'AI Practice',
+    description: 'Practice with AI in real scenarios',
+    icon: 'robot',
+    color: '#2196F3',
+    screen: 'ConversationPractice',
   },
   {
     id: 'basics',
