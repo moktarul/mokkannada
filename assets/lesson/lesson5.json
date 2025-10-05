@@ -1,0 +1,228 @@
+{
+  "id": "lesson-5",
+  "title": "Lesson 5",
+  "description": "Booking hotels, asking for dates, discussing news, and describing locations using days of the week and locative markers.",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Conversation 1",
+      "lines": [
+        { "speaker": "A", "kannada": "namaskaara svaami", "english": "Good morning, Sir;" },
+        { "speaker": "A", "kannada": "ii uuralli oḷḷee hooṭlu yaavdu?", "english": "Which is the good hotel in this town?" },
+        { "speaker": "B", "kannada": "illi sujaata oḷḷee hooṭlu", "english": "Sujaatha is a good hotel here." },
+        { "speaker": "A", "kannada": "adu tumba doḍḍdaa?", "english": "Is it very big?" },
+        { "speaker": "B", "kannada": "aṣṭu doḍḍadilla", "english": "It is not so big." },
+        { "speaker": "B", "kannada": "aadre tumba oḷḷe hooṭlu", "english": "but it is a very good hotel." },
+        { "speaker": "A", "kannada": "mayuura oḷḷee hooṭlalvaa?", "english": "Isn't Mayura a good hotel?" },
+        { "speaker": "B", "kannada": "aduu oḷḷee hooṭlu", "english": "It is also a good hotel." },
+        { "speaker": "B", "kannada": "aadre adu tumba duura", "english": "But it's very far." },
+        { "speaker": "A", "kannada": "sujaata illige hatraanaa?", "english": "Is sujatha near here?" },
+        { "speaker": "B", "kannada": "haudu, tumba hatra", "english": "Yes, it's very near." },
+        { "speaker": "A", "kannada": "sujaatadalli ond ruumige baḍige eṣṭu?", "english": "What is the rent for a room in Sujatha?" },
+        { "speaker": "B", "kannada": "singal ruumge sumaaru hattu. ruupaayi, ḍabbalge hadinaidu", "english": "About ten rupees for a single room. and fifteen for a double room." },
+        { "speaker": "A", "kannada": "aa hooṭlalli uuṭakke eṣṭu?", "english": "What does a meal cost there?" },
+        { "speaker": "B", "kannada": "ond uuṭakke eraḍu ruupaayi", "english": "Two rupees per meal." }
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Conversation 2",
+      "lines": [
+        { "speaker": "A", "kannada": "namaskaara saar", "english": "Good morning, sir" },
+        { "speaker": "A", "kannada": "ivattu aafiisige rajaanaa?", "english": "Is it a holiday for the office today?" },
+        { "speaker": "B", "kannada": "haudu, ivattuu bhaanuvaara alvaa?", "english": "Yes. Isn't it Sunday today?" },
+        { "speaker": "A", "kannada": "nim angḍige raja yaavattu?", "english": "What day is a holiday for your shop?" },
+        { "speaker": "B", "kannada": "nam angḍige mangaḷavaara raja", "english": "Tuesday is a holiday for our shop." },
+        { "speaker": "A", "kannada": "haudaa? mattenu viśeeṣa?", "english": "Is it so? What is news?" },
+        { "speaker": "B", "kannada": "eenuu illa.", "english": "Nothing." },
+        { "speaker": "A", "kannada": "ii biidiili rajaṇṇana mane eṣṭaneedu?", "english": "In this street, which is Rajanna's house?" },
+        { "speaker": "B", "kannada": "idee saalalli koneedu", "english": "Last one in this very row." },
+        { "speaker": "A", "kannada": "adara pakkada mane maṇiidallvaa?", "english": "Isn't the next house Mani's?" },
+        { "speaker": "B", "kannada": "adu maṇiidalla", "english": "That's not Mani's" },
+        { "speaker": "B", "kannada": "maṇi mane adara hindindu", "english": "Mani's house is the one behind it." },
+        { "speaker": "A", "kannada": "ivanu nimma muurane maga alvaa?", "english": "Is he not your thrid son?" },
+        { "speaker": "B", "kannada": "haudu", "english": "Yes." }
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Conversation 3",
+      "lines": [
+        { "speaker": "A", "kannada": "eenu magu?", "english": "Well, child?" },
+        { "speaker": "A", "kannada": "niinu eṣṭnee klaasu?", "english": "In what class are you studying?" },
+        { "speaker": "B", "kannada": "naanu naakane klaasu", "english": "I'm in the fourth class." },
+        { "speaker": "B", "kannada": "mundina varṣa aidanee klaasu", "english": "Next year I will go to the fifth class." },
+        { "speaker": "A", "kannada": "haudaa!", "english": "Is it so!" },
+        { "speaker": "A", "kannada": "ivanu nimma modalnee maganaa?", "english": "Is he your first son?" },
+        { "speaker": "B", "kannada": "alla,", "english": "No." },
+        { "speaker": "B", "kannada": "modalneyavaḷu magaḷu", "english": "The first child is a daughter." },
+        { "speaker": "A", "kannada": "ivanu eraḍaneyavanu", "english": "He is the second son." },
+        { "speaker": "A", "kannada": "ivane koneyavanaa?", "english": "Is he the last one?" },
+        { "speaker": "B", "kannada": "haudu, koneyavanu", "english": "Yes, the last one." }
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Conversation 4",
+      "lines": [
+        { "speaker": "A", "kannada": "adu ivattina peparaa?", "english": "Is it today's paper?" },
+        { "speaker": "A", "kannada": "ivattu taariikhu eṣṭu?", "english": "What is the date of today?" },
+        { "speaker": "B", "kannada": "ivattuu hattenee taarikhu", "english": "Today is the tenth." },
+        { "speaker": "A", "kannada": "idu ivattinadalla", "english": "This is not today's." },
+        { "speaker": "A", "kannada": "aa peepar yavattinadu ?", "english": "Which day's paper is that?" },
+        { "speaker": "B", "kannada": "ninnedu", "english": "It is yesterday's" },
+        { "speaker": "B", "kannada": "idu ivattinadu", "english": "This one is today's" },
+        { "speaker": "A", "kannada": "ivattina peeparalli een viśeeṣa?", "english": "What is special in today's paper?" },
+        { "speaker": "B", "kannada": "viśeeṣa eenuu illa", "english": "There is nothing special." },
+        { "speaker": "A", "kannada": "kannaḍadalli oḷḷe peeparu yaavdu?", "english": "Which newspaper is good in Kannada?" },
+        { "speaker": "B", "kannada": "'vaarta' kannaḍadalli oḷḷe peeparu", "english": "'Varta' is a good paper in Kannada." },
+        { "speaker": "A", "kannada": "'patrike' aṣṭu oḷḷedalvaa?", "english": "Isn't 'Patrike' that good?" },
+        { "speaker": "B", "kannada": "aduu oḷḷeedu", "english": "It is also good." },
+        { "speaker": "B", "kannada": "aa eraḍaralli 'vaartha' oḷḷeedu", "english": "Of the two 'Varta' is better." }
+      ]
+    }
+  ],
+  "vocabulary": [
+    { "kannada": "uuru", "english": "town, place" },
+    { "kannada": "duura", "english": "far" },
+    { "kannada": "hatra", "english": "near" },
+    { "kannada": "illi", "english": "here" },
+    { "kannada": "alli", "english": "there" },
+    { "kannada": "elli", "english": "where" },
+    { "kannada": "iṣṭu", "english": "this much" },
+    { "kannada": "aṣṭu", "english": "that much" },
+    { "kannada": "eṣṭu", "english": "how much" },
+    { "kannada": "haaḷe", "english": "sheet of paper" },
+    { "kannada": "aadre", "english": "but" },
+    { "kannada": "varṣa", "english": "year" },
+    { "kannada": "aacemonne", "english": "2 days before yesterday" },
+    { "kannada": "monne", "english": "day before yesterday" },
+    { "kannada": "ninne", "english": "yesterday" },
+    { "kannada": "ivattu", "english": "today" },
+    { "kannada": "naaḷe", "english": "tomorrow" },
+    { "kannada": "naaḷiddu", "english": "day after tomorrow" },
+    { "kannada": "aacee naaḷiddu", "english": "2 days after tomorrow" },
+    { "kannada": "bhaanuvaara", "english": "Sunday" },
+    { "kannada": "soomavaara", "english": "Monday" },
+    { "kannada": "mangaḷavaara", "english": "Tuesday" },
+    { "kannada": "budhavaara", "english": "Wednesday" },
+    { "kannada": "guruvaara", "english": "Thursday" },
+    { "kannada": "śukravaara", "english": "Friday" },
+    { "kannada": "śanivaara", "english": "Saturday" },
+    { "kannada": "sumaaru", "english": "about" },
+    { "kannada": "uuṭa", "english": "meal" },
+    { "kannada": "raja", "english": "holiday" },
+    { "kannada": "ivattu", "english": "today (this day)" },
+    { "kannada": "avattu", "english": "that day" },
+    { "kannada": "yaavattu", "english": "which day" },
+    { "kannada": "pakka", "english": "next to" },
+    { "kannada": "hinde", "english": "behind" },
+    { "kannada": "munde", "english": "in front of" },
+    { "kannada": "vaara", "english": "week day" },
+    { "kannada": "dina", "english": "day" }
+  ],
+  "exercises": [
+    {
+      "id": "ex1",
+      "type": "substitute_words",
+      "description": "Substitute the words given below each sentence in place of underlined words making necessary changes.",
+      "items": [
+        {
+          "base_sentence": "sujaata madduuraḷḷi oḷḷee hoṭlu",
+          "underlined_word": "madduuraḷḷi",
+          "substitutions": ["baḷḷāri", "kaḍuuru", "mandya", "beḷgaavi", "haasana"]
+        },
+        {
+          "base_sentence": "ii biidiili śankar mane naakaneedu",
+          "underlined_word": "naakaneedu",
+          "substitutions": ["raste", "saalu", "kaaloni", "rooḍu"]
+        },
+        {
+          "base_sentence": "nanna maga muurnee klaasu",
+          "underlined_word": "muurnee",
+          "substitutions": ["aaru", "erḍu", "ondu"]
+        }
+      ]
+    },
+    {
+      "id": "ex2",
+      "parts": [
+        {
+          "id": "2a",
+          "type": "classify_locative",
+          "description": "List the following words under the groups they belong to after adding locative marker.",
+          "groups": {
+            "Gp. A": "uuralli",
+            "Gp. B": "manneeli",
+            "Gp. C": "huḍuganalli",
+            "Gp. D": "maradalli",
+            "Gp. E": "guḍiyalli"
+          },
+          "words": ["vaara", "haṇṇu", "huḍugi", "aṇṇa", "raama", "tingaḷu", "uuṭa", "ṭaakiisu", "raja", "ruumu", "mane", "pustaka"]
+        },
+        {
+          "id": "2b",
+          "type": "create_sentences",
+          "description": "Use 5 of the above words with locative marker in realistic sentences."
+        }
+      ]
+    },
+    {
+      "id": "ex3",
+      "type": "transform",
+      "description": "Transform the following as per the model.",
+      "model": {
+        "input": "idu namma manee mara",
+        "output": "ii mara namma maneedu"
+      },
+      "items": [
+        { "input": "idu rameeśana pustaka." },
+        { "input": "idu ninne peeparu." },
+        { "input": "adu yava tingaḷa baaḍige?" },
+        { "input": "idu aa pustakada haaḷe." },
+        { "input": "adu avana snehitana pennu." },
+        { "input": "idu kaaśmiirada haṇṇaa?" }
+      ]
+    },
+    {
+      "id": "ex4",
+      "type": "describe_positions",
+      "description": "Write as many sentences as possible, describing the position of chairs (kurci) belonging to different persons.",
+      "people": ["raaju", "śafi", "uma", "ravi", "jaar j"],
+      "start_with": "raaju kurci modalneedu."
+    },
+    {
+      "id": "ex5",
+      "type": "fill_blanks_paired_list",
+      "description": "Fill in the column 'B' so that lead item remains always correct.",
+      "leads": [
+        {
+          "id": "lead_1",
+          "column_A": ["ivattu", "naaḷe", "aacenaaḷḍiddu", "monne", "aacemonne"],
+          "column_B_start": "śanivaara"
+        },
+        {
+          "id": "lead_2",
+          "column_A": ["naaḍiddu", "naaḷe", "...", "...", "...", "..."],
+          "column_B": ["budhavaara", "śanivaara", "bhaanuvaara", "guruvaara", "śukravaara", "soomavaara", "mangaḷavaara"]
+        }
+      ]
+    },
+    {
+      "id": "ex6",
+      "type": "translate_to_kannada",
+      "description": "Translate the following sentences into kannada.",
+      "items": [
+        { "english": "My younger sister's name is Usha." },
+        { "english": "Ravi's father's car is an old one." },
+        { "english": "The sixth house from here is mine." },
+        { "english": "This sweet mango is of that tree." },
+        { "english": "Is that paper yesterday's?" }
+      ]
+    }
+  ],
+  "meta": {
+    "level": "beginner",
+    "estimatedTimeMin": 20
+  }
+}

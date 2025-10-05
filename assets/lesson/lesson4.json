@@ -1,0 +1,421 @@
+{
+    "id": "lesson-4",
+    "title": "Lesson 4",
+    "description": "Discussing ownership, family members, counting, and asking for prices.",
+    "conversations": [
+      {
+        "id": "conv1",
+        "title": "Conversation 1",
+        "lines": [
+          {
+            "speaker": "A",
+            "kannada": "nimma mane ideena?",
+            "english": "Is this your house?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "haudu, idee nanna mane",
+            "english": "Yes, this is my house."
+          },
+          {
+            "speaker": "A",
+            "kannada": "svantaddaa?",
+            "english": "Is it your own?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "alla, baaḍige mane",
+            "english": "No, it is a rented house"
+          },
+          {
+            "speaker": "A",
+            "kannada": "mane tumba doḍḍadallava?",
+            "english": "Isn't the house too big?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "alla aṣṭu doḍḍadilla",
+            "english": "No, it is not so big"
+          },
+          {
+            "speaker": "A",
+            "kannada": "nimma manege baaḍige eṣṭu?",
+            "english": "What is the rent of your house?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "tingḷge nuura aivattu ruupaayi",
+            "english": "Rs. 150/- per month."
+          },
+          {
+            "speaker": "A",
+            "kannada": "tumba sundaravaada mane",
+            "english": "It is a very beautiful house."
+          },
+          {
+            "speaker": "A",
+            "kannada": "aa ettaravaada mara yaavdu?",
+            "english": "Which is that tall tree?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "adu raviyavara maavin mara",
+            "english": "It's Mr. Ravi's Mango tree."
+          },
+          {
+            "speaker": "A",
+            "kannada": "aa marada haṇṇu tumba sihiinaa?",
+            "english": "Are the fruits of that tree very sweet?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "haudu,",
+            "english": "Yes,"
+          },
+          {
+            "speaker": "B",
+            "kannada": "avu bahaḷa sihiyaada haṇṇugaḷu.",
+            "english": "Those are very sweet fruits."
+          }
+        ]
+      },
+      {
+        "id": "conv2",
+        "title": "Conversation 2",
+        "lines": [
+          {
+            "speaker": "A",
+            "kannada": "aa huḍugaru yaaru?",
+            "english": "Who are those boys?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "avaru namma aṇṇana makḷu",
+            "english": "They are my elder brother's children."
+          },
+          {
+            "speaker": "A",
+            "kannada": "nimge eṣṭu jana aṇṇandiru?",
+            "english": "How many elder brothers do you have?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "obbru aṇṇa, ibru tangiiru",
+            "english": "One elder brother, two younger sisters."
+          },
+          {
+            "speaker": "A",
+            "kannada": "aa huḍugaru ellruu obbra makkaḷaa?",
+            "english": "Are all those children of the same person?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "cee cee alla",
+            "english": "oh! no! not at all."
+          },
+          {
+            "speaker": "B",
+            "kannada": "aa muuru huḍugaru, obba huḍugi aṇṇana makkaḷu",
+            "english": "Those three boys and a girl are elder brother's children."
+          },
+          {
+            "speaker": "A",
+            "kannada": "aa huḍugiiru yaaru?",
+            "english": "Who are those girls?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "avaru nanna tangii makkaḷu",
+            "english": "They are my younger sister's children."
+          },
+          {
+            "speaker": "A",
+            "kannada": "nimge eṣṭu jana makkaḷu?",
+            "english": "How many children do you have?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "muuru jana",
+            "english": "Three"
+          },
+          {
+            "speaker": "B",
+            "kannada": "ibbru gaṇḍmakḷu obḷu magaḷu",
+            "english": "Two sons a daughter"
+          },
+          {
+            "speaker": "B",
+            "kannada": "obba magana hesaru sureeśa",
+            "english": "The name of one of my sons is Suresha"
+          }
+        ]
+      },
+      {
+        "id": "conv3",
+        "title": "Conversation 3",
+        "lines": [
+          {
+            "speaker": "B",
+            "kannada": "innobbana hesaru rameeśa magaḷa hesaru sarooja",
+            "english": "Another's name is Ramesha. Daughter's name is Saroja."
+          },
+          {
+            "speaker": "A",
+            "kannada": "ivu yaava pustakagaḷu, prasaadavaree?",
+            "english": "What are these books Mr. Prasad?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "ivu makkaḷa pustakagaḷu",
+            "english": "These are children's books."
+          },
+          {
+            "speaker": "A",
+            "kannada": "nimma makkaḷigeenaa?",
+            "english": "Are these books are for your children?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "haudu, nanna makkaḷige",
+            "english": "Yes, these books are for my children."
+          },
+          {
+            "speaker": "A",
+            "kannada": "ondu pustakakke bele eṣṭu?",
+            "english": "What is the price of one book?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "nuuru puṭada pustakakke eppattaidu paise ii eraḍakke erḍuvareruupaayi",
+            "english": "For a 100 page book, it is 75 paise. These two books cost 2 1/2 rupees."
+          },
+          {
+            "speaker": "A",
+            "kannada": "idakke aidukaalu ruupaayi",
+            "english": "This costs 5 1/4 rupees."
+          },
+          {
+            "speaker": "A",
+            "kannada": "yaavudakke aidukaalu ruupaayi?",
+            "english": "Which one costs 5 1/4 rupees?"
+          },
+          {
+            "speaker": "B",
+            "kannada": "ii pennige aidukaalu.",
+            "english": "For this pen 5 1/4 Rs."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      { "kannada": "ondu", "english": "one" },
+      { "kannada": "erḍu", "english": "two" },
+      { "kannada": "muuru", "english": "three" },
+      { "kannada": "obba", "english": "one person (male)" },
+      { "kannada": "obḷu", "english": "one person (female)" },
+      { "kannada": "ibbru", "english": "two persons" },
+      { "kannada": "innobba", "english": "another person" },
+      { "kannada": "eraḍukaalu", "english": "2 1/4" },
+      { "kannada": "muuruuvare", "english": "3 1/2" },
+      { "kannada": "naakuumukkaalu", "english": "4 3/4" },
+      { "kannada": "sihi", "english": "sweet" },
+      { "kannada": "baaḍige", "english": "rent" },
+      { "kannada": "tingaḷu", "english": "month" },
+      { "kannada": "mara", "english": "tree" },
+      { "kannada": "haṇṇu", "english": "fruit" },
+      { "kannada": "eṣṭu jana", "english": "How many persons" },
+      { "kannada": "aṇṇa", "english": "elder brother" },
+      { "kannada": "makkaḷu", "english": "children" },
+      { "kannada": "tangi", "english": "younger sister" },
+      { "kannada": "huḍuga", "english": "boy" },
+      { "kannada": "huḍugi", "english": "girl" },
+      { "kannada": "gaṇḍumakkaḷu", "english": "male children" },
+      { "kannada": "heṇṇumakkaḷu", "english": "female children" },
+      { "kannada": "bele", "english": "price" },
+      { "kannada": "dina", "english": "day" },
+      { "kannada": "sambaḷa", "english": "salary" },
+      { "kannada": "niiru", "english": "water" },
+      { "kannada": "uuru", "english": "town, place" },
+      { "kannada": "sundaravaada", "english": "beautiful" },
+      { "kannada": "ettaravaada", "english": "tall" },
+      { "kannada": "eṣṭu", "english": "how many/much" }
+    ],
+    "exercises": [
+      {
+        "id": "ex1",
+        "type": "pluralize_and_sentence",
+        "description": "Write the plural forms of the words given below and use them in your own sentences.",
+        "items": [
+          { "singular": "mara" },
+          { "singular": "huduga" },
+          { "singular": "aṇṇa" },
+          { "singular": "mane" },
+          { "singular": "huḍugi" },
+          { "singular": "haṇṇu" }
+        ]
+      },
+      {
+        "id": "ex2",
+        "type": "fill_blanks_multiple_choice",
+        "description": "Fill in the blanks choosing the correct word from the group given below each sentence.",
+        "items": [
+          {
+            "q": "ii ................ baadge eṣṭu?",
+            "options": ["manegaḷu", "manege", "mane"],
+            "answer": "manege"
+          },
+          {
+            "q": "avara obba ................ hesaru suuri",
+            "options": ["magana", "maga", "maganige"],
+            "answer": "magana"
+          },
+          {
+            "q": "maavina ................ bele estu?",
+            "options": ["haṇṇu", "haṇṇugaḷu", "haṇṇugala"],
+            "answer": "haṇṇugala"
+          },
+          {
+            "q": "aa muuru huḍugaru namma ................ makkaḷu",
+            "options": ["aṇṇandiru", "aṇṇana", "aṇṇanige"],
+            "answer": "aṇṇana"
+          },
+          {
+            "q": "baalpeṇṇu ................ onduuvare rupaayi",
+            "options": ["eraḍu", "eraḍara", "eraḍakke"],
+            "answer": "eraḍakke"
+          }
+        ]
+      },
+      {
+        "id": "ex3",
+        "type": "fill_blanks_possessive",
+        "description": "Fill in the blanks with possessive forms of nouns given in bracket.",
+        "model": {
+          "input": "adu namma ........ mara (mane)",
+          "output": "adu namma manee mara"
+        },
+        "items": [
+          {
+            "q": "namma ................ haṇṇu tumba sihi (mara)",
+            "answer": "marada"
+          },
+          {
+            "q": "ivanu namma ................ maga (aṇṇa)",
+            "answer": "aṇṇana"
+          },
+          {
+            "q": "nimma ................ hesaru eenu? (kaaru)",
+            "answer": "kaarina"
+          },
+          {
+            "q": "idu nimma ................ haṇṇaa? (uuru)",
+            "answer": "uurina"
+          },
+          {
+            "q": "................ hesaru manju (sudha, magaḷu)",
+            "answer": "sudhaḷa magaḷa"
+          },
+          {
+            "q": "................ haṇṇu tumba sihi (maavu)",
+            "answer": "maavina"
+          },
+          {
+            "q": "nuuru ................ pustakakke bele eṣṭu ? (puṭa)",
+            "answer": "puṭada"
+          }
+        ]
+      },
+      {
+        "id": "ex4",
+        "type": "fill_blanks_dative",
+        "description": "Fill in the blanks with dative case forms of the words given in bracket.",
+        "model": {
+          "input": "........ esṭu jana makkaḷu ? (niivu)",
+          "output": "nimage esṭu jana makkaḷu ?"
+        },
+        "items": [
+          {
+            "q": "................ baaḍige hattu ruupaayi (dina)",
+            "answer": "dinakke"
+          },
+          {
+            "q": "namma ................ ibbaru makkaḷu (aṇṇa)",
+            "answer": "aṇṇanige"
+          },
+          {
+            "q": "baaḷehaṇṇu ................ ondu ruupaayi (muuru)",
+            "answer": "muurakke"
+          },
+          {
+            "q": "nimma ................ sambḷa eṣṭu ? (tande)",
+            "answer": "tandege"
+          },
+          {
+            "q": "namma ................ ibbaru makkaḷu (siila)",
+            "answer": "siilage"
+          },
+          {
+            "q": "................ aidu ruupaayaa? (adu)",
+            "answer": "adakke"
+          },
+          {
+            "q": "................ baaḍige nuuru ? (yaavdu)",
+            "answer": "yaavadakke"
+          }
+        ]
+      },
+      {
+        "id": "ex5",
+        "type": "classify_dative",
+        "description": "Classify the following words in the appropriate columns in relation to dative case suffixes.",
+        "groups": {
+          "Gp - A": "appaṇige",
+          "Gp - B": "niirige",
+          "Gp - C": "manege",
+          "Gp - D": "marakke"
+        },
+        "words": [
+          "adu",
+          "kaaru",
+          "huḍuga",
+          "tande",
+          "tangi",
+          "meeṣṭru",
+          "maga",
+          "magaḷu",
+          "rameeśa",
+          "ondu",
+          "pustaka",
+          "kavi",
+          "nooṭbukku",
+          "puṭa"
+        ]
+      },
+      {
+        "id": "ex6",
+        "type": "frame_questions",
+        "description": "Frame 3 questions each, interrogating different parts of each sentence.",
+        "sentences": [
+          "namma aṇṇanige ibbaru makkaḷu",
+          "pennu ondakke bele nuuru ruppai",
+          "nanna tangi magaḷa hesaru naḷini"
+        ]
+      },
+      {
+        "id": "ex7",
+        "type": "short_answers",
+        "description": "Answer the following.",
+        "items": [
+          { "q": "nimma sneehitra hesaru eenu?" },
+          { "q": "aa daakṭra mane yaavdu?" },
+          { "q": "namma deeśada pradhaani yaaru?" },
+          { "q": "nimmadu yaava kampanii kaaru?" },
+          { "q": "nimma pennina bele eṣṭu?" }
+        ]
+      }
+    ],
+    "meta": {
+      "level": "beginner",
+      "estimatedTimeMin": 18
+    }
+  }

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ActivityIndicator, Dimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
@@ -17,11 +17,15 @@ const LessonList = () => {
         const lesson1 = require('../assets/lesson/lesson1.json');
         const lesson2 = require('../assets/lesson/lesson2.json');
         const lesson3 = require('../assets/lesson/lesson3.json');
+        const lesson4 = require('../assets/lesson/lesson4.json');
+        const lesson5 = require('../assets/lesson/lesson5.json');
         
         setLessons([
           { ...lesson1, id: '1' },
           { ...lesson2, id: '2' },
-          { ...lesson3, id: '3' }
+          { ...lesson3, id: '3' },
+          { ...lesson4, id: '4' },
+          { ...lesson5, id: '5' }
         ]);
       } catch (error) {
         console.error('Error loading lessons:', error);

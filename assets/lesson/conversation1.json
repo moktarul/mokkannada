@@ -1,0 +1,65 @@
+{
+  "lesson": 1,
+  "conversations": [
+    {
+      "id": 1,
+      "lines": [
+        {"A": "Hello, how are you?", "translation": "ನಮಸ್ಕಾರ, ನೀವು ಹೇಗಿದ್ದೀರಿ?"},
+        {"B": "I am fine, thank you. And you?", "translation": "ನಾನು ಚೆನ್ನಾಗಿದ್ದೇನೆ, ಧನ್ಯವಾದಗಳು. ಮತ್ತು ನೀವು?"}
+      ]
+    },
+    {
+      "id": 2,
+      "lines": [
+        {"A": "What is your name?", "translation": "ನಿಮ್ಮ ಹೆಸರೇನು?"},
+        {"B": "My name is...", "translation": "ನನ್ನ ಹೆಸರು..."}
+      ]
+    },
+    {
+      "id": 3,
+      "lines": [
+        {"A": "Nice to meet you", "translation": "ನಿಮ್ಮನ್ನು ಭೇಟಿಯಾಗಿ ಸಂತೋಷವಾಯಿತು"}
+      ]
+    },
+    {
+      "id": 4,
+      "lines": [
+        {"A": "How much does this cost?", "translation": "ಇದರ ಬೆಲೆ ಎಷ್ಟು?"}
+      ]
+    },
+    {
+      "id": 5,
+      "lines": [
+        {"A": "I don't understand", "translation": "ನನಗೆ ಅರ್ಥವಾಗಲಿಲ್ಲ"}
+      ]
+    },
+    {
+      "id": 6,
+      "lines": [
+        {"A": "Please speak slowly", "translation": "ದಯವಿಟ್ಟು ನಿಧಾನವಾಗಿ ಮಾತನಾಡಿ"}
+      ]
+    },
+    {
+      "id": 7,
+      "lines": [
+        {"A": "I'm learning Kannada", "translation": "ನಾನು ಕನ್ನಡ ಕಲಿಯುತ್ತಿದ್ದೇನೆ"}
+      ]
+    },
+    {
+      "id": 8,
+      "lines": [
+        {"A": "Thank you very much", "translation": "ತುಂಬಾ ಧನ್ಯವಾದಗಳು"}
+      ]
+    }
+  ],
+  "vocabulary": {
+    "namaskaara": "Hello/greetings",
+    "dhanyavaadagalu": "Thank you",
+    "hesaru": "Name",
+    "bele": "Price/cost",
+    "arthavaagalilla": "Don't understand",
+    "nidhaanavaagi": "Slowly",
+    "kaliyuttiddene": "Am learning",
+    "tumba": "Very much"
+  }
+}
