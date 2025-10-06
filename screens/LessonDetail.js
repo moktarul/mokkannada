@@ -1,6 +1,6 @@
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList, Image } from 'react-native';
-import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import ConversationBubble from '../components/ConversationBubble';
 
 const LessonDetail = ({ route, navigation }) => {
@@ -45,13 +45,49 @@ const LessonDetail = ({ route, navigation }) => {
     
     return (
       <View style={styles.conversationDetailContainer}>
-        <TouchableOpacity 
-          style={styles.backToListButton}
-          onPress={() => setSelectedConversation(null)}
-        >
-          <MaterialIcons name="arrow-back" size={20} color="#4CAF50" />
-          <Text style={styles.backToListText}>Back to list</Text>
-        </TouchableOpacity>
+        <View style={styles.conversationHeader}>
+          <View style={styles.headerLeft}>
+            <TouchableOpacity 
+              style={styles.backToListButton}
+              onPress={() => setSelectedConversation(null)}
+            >
+              <MaterialIcons name="arrow-back" size={20} color="#4CAF50" />
+              <Text style={styles.backToListText}>Back to list</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.languageToggleContainer}>
+            <TouchableOpacity 
+              style={[
+                styles.languageToggleButton, 
+                showEnglish && styles.languageToggleButtonActive
+              ]}
+              onPress={() => toggleLanguage('english')}
+            >
+              <Text style={[
+                styles.languageToggleText,
+                showEnglish && styles.languageToggleTextActive
+              ]}>
+                EN
+              </Text>
+            </TouchableOpacity>
+            <View style={styles.languageToggleDivider} />
+            <TouchableOpacity 
+              style={[
+                styles.languageToggleButton, 
+                showKannada && styles.languageToggleButtonActive
+              ]}
+              onPress={() => toggleLanguage('kannada')}
+            >
+              <Text style={[
+                styles.languageToggleText,
+                showKannada && styles.languageToggleTextActive,
+                { fontFamily: 'KannadaSangamMN' }
+              ]}>
+                ಕನ್ನಡ
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
         
         <View style={styles.conversationContainer}>
           <Text style={styles.conversationTitle}>
@@ -186,9 +222,25 @@ const LessonDetail = ({ route, navigation }) => {
 
   const toggleLanguage = (language) => {
     if (language === 'english') {
-      setShowEnglish(!showEnglish);
+      debugger
+      if (showEnglish && !showKannada) {
+        debugger
+        setShowEnglish(false);
+        // If trying to deselect the only active language (English), enable Kannada instead
+        setShowKannada(true);
+      } else {
+        // Toggle normally
+        setShowEnglish(!showEnglish);
+      }
     } else if (language === 'kannada') {
-      setShowKannada(!showKannada);
+      if (showKannada && !showEnglish) {
+        // If trying to deselect the only active language (Kannada), enable English instead
+        setShowEnglish(true);
+        setShowKannada(false);
+      } else {
+        // Toggle normally
+        setShowKannada(!showKannada);
+      }
     }
   };
 
@@ -219,29 +271,32 @@ const LessonDetail = ({ route, navigation }) => {
     </View>
   );
 
+  // Language Toggle Component
+  const LanguageToggle = () => (
+    <View style={styles.languageButtonContainer}>
+      <TouchableOpacity 
+        style={styles.languageButton}
+        onPress={toggleLanguageMenu}
+      >
+        <MaterialCommunityIcons name="translate" size={24} color="#fff" />
+      </TouchableOpacity>
+      {showLanguageMenu && (
+        <>
+          <TouchableOpacity 
+            style={styles.overlay}
+            activeOpacity={1}
+            onPress={toggleLanguageMenu}
+          />
+          {renderLanguageMenu()}
+        </>
+      )}
+    </View>
+  );
+
   return (
     <View style={styles.container}>
       {/* Language Toggle Button */}
-      {activeTab === 'conversations' && (
-        <View style={styles.languageButtonContainer}>
-          <TouchableOpacity 
-            style={styles.languageButton}
-            onPress={toggleLanguageMenu}
-          >
-            <MaterialCommunityIcons name="translate" size={24} color="#fff" />
-          </TouchableOpacity>
-          {showLanguageMenu && (
-            <>
-              <TouchableOpacity 
-                style={styles.overlay}
-                activeOpacity={1}
-                onPress={toggleLanguageMenu}
-              />
-              {renderLanguageMenu()}
-            </>
-          )}
-        </View>
-      )}
+      {activeTab === 'conversations' && !selectedConversation && <LanguageToggle />}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <MaterialIcons name="arrow-back" size={24} color="#333" />
@@ -356,16 +411,57 @@ const styles = StyleSheet.create({
     color: '#999',
     textAlign: 'center',
   },
+  conversationHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 12,
+    backgroundColor: '#f8f9fa',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e0e0e0',
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  languageToggleContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    overflow: 'hidden',
+  },
+  languageToggleButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  languageToggleButtonActive: {
+    backgroundColor: '#4CAF50',
+  },
+  languageToggleText: {
+    fontSize: 14,
+    color: '#666',
+  },
+  languageToggleTextActive: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  languageToggleDivider: {
+    width: 1,
+    backgroundColor: '#e0e0e0',
+  },
   backToListButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
-    paddingBottom: 8,
+    padding: 6,
+    borderRadius: 20,
   },
   backToListText: {
-    marginLeft: 8,
+    marginLeft: 6,
     color: '#4CAF50',
-    fontSize: 16,
+    fontSize: 15,
+    fontWeight: '500',
   },
   conversationDetailContainer: {
     flex: 1,
@@ -374,10 +470,11 @@ const styles = StyleSheet.create({
     marginVertical: 4,
   },
   languageButtonContainer: {
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    zIndex: 100,
+    position: 'relative',
+  },
+  conversationLanguageButton: {
+    position: 'relative',
+    zIndex: 10,
     elevation: 5,
   },
   languageButton: {
@@ -394,15 +491,17 @@ const styles = StyleSheet.create({
   },
   languageMenu: {
     position: 'absolute',
-    bottom: 60,
+    top: 40,
     right: 0,
     backgroundColor: 'white',
     borderRadius: 8,
     padding: 10,
+    elevation: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    zIndex: 100,
     elevation: 5,
     minWidth: 150,
     zIndex: 101,

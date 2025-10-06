@@ -118,7 +118,7 @@ const HomeScreen = () => {
       >
         <View style={styles.headerContainer}>
           <Image 
-            source={require('../assets/images/header1.jpg')}
+            source={require('../assets/images/header.jpg')}
             style={styles.headerImage}
             resizeMode="cover"
           />
