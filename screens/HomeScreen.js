@@ -1,4 +1,4 @@
-import { Feather, FontAwesome5, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather, FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
@@ -118,7 +118,7 @@ const HomeScreen = () => {
       >
         <View style={styles.headerContainer}>
           <Image 
-            source={require('../assets/images/header.jpg')}
+            source={require('../assets/images/header1.jpg')}
             style={styles.headerImage}
             resizeMode="cover"
           />
@@ -154,7 +154,8 @@ const styles = StyleSheet.create({
   },
   contentWrapper: {
     paddingBottom: 30,
-    paddingHorizontal: 0,
+    paddingHorizontal: 20,
+
   },
   scrollView: {
     flex: 1,
@@ -582,7 +583,6 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    paddingHorizontal: 20,
   },
   contentContainer: {
     paddingBottom: 30,
