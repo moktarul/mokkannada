@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TextInput, Alert, ActivityIndicator } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const QuizScreen = ({ route }) => {
   const { lesson } = route.params;
@@ -141,14 +142,21 @@ const QuizScreen = ({ route }) => {
   }
 
   const currentQ = questions[currentQuestion];
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.progress}>
-          Question {currentQuestion + 1}/{questions.length}
-        </Text>
-        <Text style={styles.score}>Score: {score}</Text>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
+          <MaterialIcons name="arrow-back" size={24} color="#333" />
+        </TouchableOpacity>
+        <View style={styles.headerContent}>
+          <Text style={styles.progress}>
+            Question {currentQuestion + 1}/{questions.length}
+          </Text>
+          <Text style={styles.score}>Score: {score}</Text>
+        </View>
+        <View style={styles.headerRight} />
       </View>
 
       <View style={styles.quizContainer}>
@@ -255,8 +263,23 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
+    alignItems: 'center',
+    padding: 15,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+  },
+  backButton: {
+    marginRight: 10,
+  },
+  headerContent: {
+    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    alignItems: 'center',
+  },
+  headerRight: {
+    width: 34,
   },
   progress: {
     fontSize: 16,
