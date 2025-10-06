@@ -9,52 +9,87 @@ const LessonDetail = ({ route, navigation }) => {
   const [showEnglish, setShowEnglish] = useState(true);
   const [showKannada, setShowKannada] = useState(true);
   const [showLanguageMenu, setShowLanguageMenu] = useState(false);
+  const [selectedConversation, setSelectedConversation] = useState(null);
 
-  const renderConversation = (conversation) => {
-    const lines = conversation.lines || conversation.turns || [];
-    
-    // Skip rendering if both languages are hidden
-    if ((!showEnglish && !showKannada) || !lines || lines.length === 0) {
-      return null;
+  const renderConversationList = () => {
+    if (!lesson.conversations || lesson.conversations.length === 0) {
+      return (
+        <View style={styles.emptyState}>
+          <Text style={styles.emptyStateText}>No conversations available</Text>
+        </View>
+      );
     }
 
     return (
-      <View key={conversation.id || conversation.title} style={styles.conversationContainer}>
-        {conversation.title && (
-          <Text style={styles.conversationTitle}>{conversation.title}</Text>
-        )}
+      <View style={styles.conversationList}>
+        {lesson.conversations.map((conversation, index) => (
+          <TouchableOpacity
+            key={conversation.id || index}
+            style={styles.conversationItem}
+            onPress={() => setSelectedConversation(conversation)}
+          >
+            <Text style={styles.conversationItemTitle}>
+              {conversation.title || `Conversation ${index + 1}`}
+            </Text>
+            <Text style={styles.conversationItemPreview} numberOfLines={1}>
+              {conversation.lines?.[0]?.A || conversation.lines?.[0]?.B || 'Start conversation...'}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    );
+  };
+
+  const renderConversationDetail = (conversation) => {
+    const lines = conversation.lines || conversation.turns || [];
+    
+    return (
+      <View style={styles.conversationDetailContainer}>
+        <TouchableOpacity 
+          style={styles.backToListButton}
+          onPress={() => setSelectedConversation(null)}
+        >
+          <MaterialIcons name="arrow-back" size={20} color="#4CAF50" />
+          <Text style={styles.backToListText}>Back to list</Text>
+        </TouchableOpacity>
         
-        <View style={styles.chatContainer}>
-          {lines.map((line, index) => {
-            const speaker = line.speaker || (typeof line === 'object' ? Object.keys(line)[0] : '');
-            const isRightAligned = index % 2 === 1; // Alternate between left and right
-            const showName = !isRightAligned && (index === 0 || 
-              (lines[index-1]?.speaker || (typeof lines[index-1] === 'object' ? Object.keys(lines[index-1] || {})[0] : '')) !== speaker);
-            
-            const messageText = line.kannada || (typeof line === 'object' ? line[speaker] : line);
-            const englishText = line.english || '';
-            
-            // Skip this line if the required language is hidden
-            if ((!showEnglish && !englishText) || (!showKannada && !messageText)) {
-              return null;
-            }
-            
-            return (
-              <ConversationBubble
-                key={index}
-                message={{
-                  ...line,
-                  text: messageText,
-                  english: englishText
-                }}
-                isRightAligned={isRightAligned}
-                showName={showName}
-                showEnglish={showEnglish}
-                showKannada={showKannada}
-                senderName={speaker.replace(':', '')}
-              />
-            );
-          })}
+        <View style={styles.conversationContainer}>
+          <Text style={styles.conversationTitle}>
+            {conversation.title || 'Conversation'}
+          </Text>
+          
+          <View style={styles.chatContainer}>
+            {lines.map((line, index) => {
+              const speaker = line.speaker || (typeof line === 'object' ? Object.keys(line)[0] : '');
+              const isRightAligned = index % 2 === 1;
+              const showName = !isRightAligned && (index === 0 || 
+                (lines[index-1]?.speaker || (typeof lines[index-1] === 'object' ? Object.keys(lines[index-1] || {})[0] : '')) !== speaker);
+              
+              const messageText = line.kannada || (typeof line === 'object' ? line[speaker] : line);
+              const englishText = line.english || line.translation || '';
+              
+              if ((!showEnglish && !englishText) || (!showKannada && !messageText)) {
+                return null;
+              }
+              
+              return (
+                <View key={index} style={styles.messageWrapper}>
+                  <ConversationBubble
+                    message={{
+                      ...line,
+                      text: messageText,
+                      english: englishText
+                    }}
+                    isRightAligned={isRightAligned}
+                    showName={showName}
+                    showEnglish={showEnglish}
+                    showKannada={showKannada}
+                    senderName={speaker.replace(':', '')}
+                  />
+                </View>
+              );
+            })}
+          </View>
         </View>
       </View>
     );
@@ -147,6 +182,7 @@ const LessonDetail = ({ route, navigation }) => {
   const toggleLanguageMenu = () => {
     setShowLanguageMenu(!showLanguageMenu);
   };
+
 
   const toggleLanguage = (language) => {
     if (language === 'english') {
@@ -261,15 +297,15 @@ const LessonDetail = ({ route, navigation }) => {
       </View>
 
       <ScrollView style={styles.content}>
-        {activeTab === 'conversations' && (
-          <View style={styles.conversationsContainer}>
-            {lesson.conversations?.map(renderConversation)}
-          </View>
+        {activeTab === 'conversations' ? (
+          selectedConversation 
+            ? renderConversationDetail(selectedConversation)
+            : renderConversationList()
+        ) : activeTab === 'vocabulary' ? (
+          renderVocabulary()
+        ) : (
+          renderExercises()
         )}
-        
-        {activeTab === 'vocabulary' && renderVocabulary()}
-        
-        {activeTab === 'exercises' && renderExercises()}
       </ScrollView>
 
       <TouchableOpacity 
@@ -284,6 +320,59 @@ const LessonDetail = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  // Conversation List Styles
+  conversationList: {
+    padding: 16,
+  },
+  conversationItem: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  conversationItemTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 4,
+  },
+  conversationItemPreview: {
+    fontSize: 14,
+    color: '#666',
+  },
+  emptyState: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 32,
+  },
+  emptyStateText: {
+    fontSize: 16,
+    color: '#999',
+    textAlign: 'center',
+  },
+  backToListButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    paddingBottom: 8,
+  },
+  backToListText: {
+    marginLeft: 8,
+    color: '#4CAF50',
+    fontSize: 16,
+  },
+  conversationDetailContainer: {
+    flex: 1,
+  },
+  messageWrapper: {
+    marginVertical: 4,
+  },
   languageButtonContainer: {
     position: 'absolute',
     bottom: 20,

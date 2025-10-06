@@ -60,7 +60,7 @@ const LessonList = () => {
           <MaterialIcons name="arrow-back" size={24} color="#FF3333" />
           <Text style={styles.backText}>Back</Text>
         </TouchableOpacity>
-        <Text style={styles.title}>Kannada Learning Path</Text>
+        <Text style={styles.title}>Lessons</Text>
         <View style={{ width: 60 }} />
       </View>
       

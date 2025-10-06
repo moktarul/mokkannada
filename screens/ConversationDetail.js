@@ -15,7 +15,7 @@ import ConversationBubble from '../components/ConversationBubble';
 
 const ConversationDetail = ({ route, navigation }) => {
   const { conversation, userName, friendName } = route.params;
-  const [messages, setMessages] = useState(conversation.messages || []);
+  const [messages, setMessages] = useState(conversation.lines || []);
   const [newMessage, setNewMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showEnglish, setShowEnglish] = useState(true);
@@ -41,31 +41,9 @@ const ConversationDetail = ({ route, navigation }) => {
   const handleSend = () => {
     if (newMessage.trim() === '') return;
 
-    // Add user message
-    const userMessage = {
-      id: Date.now().toString(),
-      sender: 'user',
-      text: newMessage,
-      english: newMessage, // In a real app, this would be the translated text
-      timestamp: new Date().toISOString(),
-    };
-
-    setMessages([...messages, userMessage]);
+    // In a real app, you would add the new message to the conversation
+    // For now, we'll just clear the input
     setNewMessage('');
-    
-    // Simulate friend's response after a delay
-    setIsLoading(true);
-    setTimeout(() => {
-      const friendMessage = {
-        id: (Date.now() + 1).toString(),
-        sender: 'friend',
-        text: getResponseMessage(newMessage),
-        english: getEnglishTranslation(newMessage),
-        timestamp: new Date().toISOString(),
-      };
-      setMessages(prev => [...prev, friendMessage]);
-      setIsLoading(false);
-    }, 1000);
   };
 
   // Simple response logic - in a real app, this would be more sophisticated
@@ -173,27 +151,45 @@ const ConversationDetail = ({ route, navigation }) => {
     </View>
   );
 
-  const renderMessage = (message, index) => {
-    const isRightAligned = index % 2 === 1;
-    const showName = !isRightAligned && (index === 0 || index % 2 === 0);
+  const renderMessage = (line, index) => {
+    const [speaker] = Object.keys(line);
+    const text = line[speaker];
+    const translation = line.translation;
+    const isRightAligned = speaker === 'A'; // Assuming 'A' is the user and 'B' is the friend
     
     // Skip rendering if both languages are hidden
     if ((!showEnglish && !showKannada) || 
-        (!showEnglish && !message.text) || 
-        (!showKannada && !message.english)) {
+        (!showEnglish && !text) || 
+        (!showKannada && !translation)) {
       return null;
     }
     
     return (
-      <ConversationBubble
-        key={message.id}
-        message={message}
-        isRightAligned={isRightAligned}
-        showName={showName}
-        showEnglish={showEnglish}
-        showKannada={showKannada}
-        senderName={isRightAligned ? userName : friendName}
-      />
+      <View 
+        key={index} 
+        style={[
+          styles.messageContainer, 
+          isRightAligned ? styles.rightMessageContainer : styles.leftMessageContainer
+        ]}
+      >
+        <View 
+          style={[
+            styles.messageBubble,
+            isRightAligned ? styles.rightMessageBubble : styles.leftMessageBubble
+          ]}
+        >
+          {showEnglish && text && (
+            <Text style={isRightAligned ? styles.rightMessageText : styles.leftMessageText}>
+              {text}
+            </Text>
+          )}
+          {showKannada && translation && (
+            <Text style={styles.englishTranslation}>
+              {translation}
+            </Text>
+          )}
+        </View>
+      </View>
     );
   };
 

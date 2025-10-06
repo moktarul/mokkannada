@@ -15,28 +15,55 @@ const ConversationList = ({ navigation }) => {
         id: '1',
         title: 'Greetings',
         preview: 'Hello! How are you?',
-        messages: [
-          { id: '1', sender: 'friend', text: 'Hello! How are you?', english: 'Hello! How are you?' },
-          { id: '2', sender: 'user', text: 'ನನಗೆ ಚೆನ್ನಾಗಿದೆ, ಧನ್ಯವಾದಗಳು!', english: 'I am fine, thank you!' },
-          { id: '3', sender: 'friend', text: 'ನೀವು ಏನು ಮಾಡುತ್ತಿದ್ದೀರಿ?', english: 'What are you doing?' },
+        lines: [
+          { A: 'Hello! How are you?', translation: 'ನಮಸ್ಕಾರ! ನೀವು ಹೇಗಿದ್ದೀರಿ?' },
+          { B: 'ನನಗೆ ಚೆನ್ನಾಗಿದೆ, ಧನ್ಯವಾದಗಳು!', translation: 'I am fine, thank you!' },
+          { A: 'What is your name?', translation: 'ನಿಮ್ಮ ಹೆಸರೇನು?' },
+          { B: 'ನನ್ನ ಹೆಸರು ರಾಜ್', translation: 'My name is Raj' },
         ]
       },
       {
         id: '2',
         title: 'At the Restaurant',
-        preview: 'I would like to order...',
-        messages: [
-          { id: '1', sender: 'friend', text: 'ನಾನು ಆರ್ಡರ್ ಮಾಡಲು ಬಯಸುತ್ತೇನೆ', english: 'I would like to order' },
-          { id: '2', sender: 'user', text: 'ನೀವು ಏನು ತೆಗೆದುಕೊಳ್ಳುತ್ತೀರಿ?', english: 'What would you like to have?' },
+        preview: 'Ordering food...',
+        lines: [
+          { A: 'I would like to order', translation: 'ನಾನು ಆರ್ಡರ್ ಮಾಡಲು ಬಯಸುತ್ತೇನೆ' },
+          { B: 'What would you like to have?', translation: 'ನೀವು ಏನು ತೆಗೆದುಕೊಳ್ಳುತ್ತೀರಿ?' },
+          { A: 'Idli and Dosa, please', translation: 'ಇಡ್ಲಿ ಮತ್ತು ದೋಸೆ, ದಯವಿಟ್ಟು' },
+          { B: 'Anything else?', translation: 'ಬೇರೆ ಏನಾದರೂ ಬೇಕೇ?' },
         ]
       },
       {
         id: '3',
         title: 'Shopping',
         preview: 'How much does this cost?',
-        messages: [
-          { id: '1', sender: 'user', text: 'ಇದರ ಬೆಲೆ ಎಷ್ಟು?', english: 'How much does this cost?' },
-          { id: '2', sender: 'friend', text: 'ಇದು ೫೦೦ ರೂಪಾಯಿ', english: 'It is 500 rupees' },
+        lines: [
+          { A: 'How much does this cost?', translation: 'ಇದರ ಬೆಲೆ ಎಷ್ಟು?' },
+          { B: 'It is 500 rupees', translation: 'ಇದು ೫೦೦ ರೂಪಾಯಿ' },
+          { A: 'That\'s too expensive', translation: 'ಅದು ತುಂಬಾ ದುಬಾರಿಯಾಗಿದೆ' },
+          { B: 'I can give you for 400', translation: 'ನಾನು ನಿಮಗೆ ೪೦೦ ಕ್ಕೆ ಕೊಡುತ್ತೇನೆ' },
+        ]
+      },
+      {
+        id: '4',
+        title: 'Directions',
+        preview: 'How do I get to...',
+        lines: [
+          { A: 'How do I get to MG Road?', translation: 'ನಾನು ಎಂಜಿ ರಸ್ತೆಗೆ ಹೇಗೆ ಹೋಗಬಹುದು?' },
+          { B: 'Go straight and take the second left', translation: 'ನೇರವಾಗಿ ಹೋಗಿ ಎಡಕ್ಕೆ ಎರಡನೇ ತಿರುವು ತೆಗೆದುಕೊಳ್ಳಿ' },
+          { A: 'Is it far from here?', translation: 'ಇದು ಇಲ್ಲಿಂದ ದೂರವೇ?' },
+          { B: 'No, it\'s just 5 minutes walk', translation: 'ಇಲ್ಲ, ಇದು ಕೇವಲ 5 ನಿಮಿಷಗಳ ನಡಿಗೆ ದೂರದಲ್ಲಿದೆ' },
+        ]
+      },
+      {
+        id: '5',
+        title: 'At the Hotel',
+        preview: 'I would like to check in...',
+        lines: [
+          { A: 'I would like to check in', translation: 'ನಾನು ಚೆಕ್ ಇನ್ ಮಾಡಲು ಬಯಸುತ್ತೇನೆ' },
+          { B: 'Do you have a reservation?', translation: 'ನಿಮಗೆ ಮುಂಗಡ ಪುಸ್ತಕವಿದೆಯೇ?' },
+          { A: 'Yes, under the name Smith', translation: 'ಹೌದು, ಸ್ಮಿತ್ ಎಂಬ ಹೆಸರಿನಲ್ಲಿ' },
+          { B: 'Here is your room key', translation: 'ಇದು ನಿಮ್ಮ ಕೋಣೆಯ ಕೀಲಿ' },
         ]
       },
     ];
