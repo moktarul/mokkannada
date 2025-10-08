@@ -351,7 +351,7 @@ const LessonDetail = ({ route, navigation }) => {
         style={styles.quizButton}
         onPress={() => navigation.navigate('Quiz', { lesson })}
       >
-        <MaterialIcons name="quiz" size={24} color="white" />
+        <MaterialIcons name="help-outline" size={24} color="white" />
         <Text style={styles.quizButtonText}>Take Quiz</Text>
       </TouchableOpacity>
     </View>

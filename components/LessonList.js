@@ -110,7 +110,8 @@ const LessonList = () => {
               style={[styles.button, styles.quizButton]}
               onPress={() => navigateToQuiz(lesson)}
             >
-              <MaterialIcons name="quiz" size={18} color="#FF3333" />
+              
+              <MaterialIcons name="help-outline" size={18} color="#FF3333" />
               <Text style={[styles.buttonText, {color: '#FF3333'}]}>Quiz</Text>
             </TouchableOpacity>
           </View>
