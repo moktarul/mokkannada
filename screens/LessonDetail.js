@@ -335,20 +335,6 @@ const LessonDetail = ({ route, navigation }) => {
             Vocabulary
           </Text>
         </TouchableOpacity>
-        
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'exercises' && styles.activeTab]}
-          onPress={() => setActiveTab('exercises')}
-        >
-          <MaterialIcons 
-            name="assignment" 
-            size={20} 
-            color={activeTab === 'exercises' ? '#FF3333' : '#666'} 
-          />
-          <Text style={[styles.tabText, activeTab === 'exercises' && styles.activeTabText]}>
-            Exercises
-          </Text>
-        </TouchableOpacity>
       </View>
 
       <ScrollView style={styles.content}>
@@ -356,10 +342,8 @@ const LessonDetail = ({ route, navigation }) => {
           selectedConversation 
             ? renderConversationDetail(selectedConversation)
             : renderConversationList()
-        ) : activeTab === 'vocabulary' ? (
-          renderVocabulary()
         ) : (
-          renderExercises()
+          renderVocabulary()
         )}
       </ScrollView>
 
