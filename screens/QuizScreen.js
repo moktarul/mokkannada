@@ -1,17 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, Alert, ActivityIndicator } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import * as Speech from 'expo-speech';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  ActivityIndicator,
+  Animated,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
+
+const { width } = Dimensions.get('window');
 
 const QuizScreen = ({ route }) => {
   const { lesson } = route.params;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [userAnswer, setUserAnswer] = useState('');
   const [showResult, setShowResult] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [quizType, setQuizType] = useState('kannadaToEnglish'); // or 'englishToKannada'
+  const [showKannada, setShowKannada] = useState(true);
+  const [showEnglish, setShowEnglish] = useState(true);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+  const navigation = useNavigation();
 
   useEffect(() => {
     generateQuestions();
@@ -19,53 +34,55 @@ const QuizScreen = ({ route }) => {
 
   const generateQuestions = () => {
     try {
-      const generatedQuestions = [];
+      let generatedQuestions = [];
       
-      // Generate questions from vocabulary
+      // Add vocabulary questions
       if (lesson.vocabulary) {
         const vocab = Array.isArray(lesson.vocabulary) 
           ? lesson.vocabulary 
-          : Object.entries(lesson.vocabulary).map(([kannada, english]) => ({ kannada, english }));
+          : Object.entries(lesson.vocabulary).map(([kannada, english]) => ({
+              kannada,
+              english: typeof english === 'string' ? english : english.translation || '',
+              pronunciation: english.pronunciation || '',
+              type: 'vocabulary'
+            }));
         
-        vocab.forEach((item, index) => {
-          if (index < 5) { // Limit to 5 vocabulary questions per type
-            generatedQuestions.push({
-              type: 'vocabulary',
-              question: quizType === 'kannadaToEnglish' ? item.kannada : item.english,
-              answer: quizType === 'kannadaToEnglish' ? item.english : item.kannada,
-              options: generateOptions(vocab, item, quizType === 'kannadaToEnglish' ? 'english' : 'kannada')
-            });
-          }
-        });
+        generatedQuestions = [...generatedQuestions, ...vocab];
       }
 
-      // Generate questions from conversations
+      // Add conversation lines
       if (lesson.conversations) {
-        let convIndex = 0;
         lesson.conversations.forEach(conv => {
-          const lines = conv.lines || conv.turns || [];
-          lines.forEach((line, i) => {
-            if (typeof line === 'object' && line.kannada && line.english) {
-              if (convIndex < 5) { // Limit to 5 conversation questions
-                generatedQuestions.push({
-                  type: 'conversation',
-                  question: `Translate: ${quizType === 'kannadaToEnglish' ? line.kannada : line.english}`,
-                  answer: quizType === 'kannadaToEnglish' ? line.english : line.kannada,
-                  context: lines.slice(Math.max(0, i-1), i+2).map(l => ({
-                    kannada: l.kannada || (typeof l === 'object' ? l[Object.keys(l)[0]] : ''),
-                    english: l.english || ''
-                  }))
-                });
-                convIndex++;
-              }
+          const lines = conv.lines || [];
+          lines.forEach(line => {
+            if (typeof line === 'object' && (line.kannada || line.english)) {
+              generatedQuestions.push({
+                type: 'conversation',
+                kannada: line.kannada || '',
+                english: line.english || '',
+                pronunciation: line.pronunciation || '',
+                context: line.context
+              });
             }
           });
         });
       }
 
-      // Shuffle questions
-      const shuffledQuestions = generatedQuestions.sort(() => Math.random() - 0.5).slice(0, 10);
-      setQuestions(shuffledQuestions);
+      // Add phrases if available
+      if (lesson.phrases) {
+        lesson.phrases.forEach(phrase => {
+          generatedQuestions.push({
+            type: 'phrase',
+            kannada: phrase.kannada,
+            english: phrase.english,
+            pronunciation: phrase.pronunciation || '',
+            usage: phrase.usage
+          });
+        });
+      }
+
+      // Shuffle and set questions
+      setQuestions(generatedQuestions.sort(() => Math.random() - 0.5));
     } catch (error) {
       console.error('Error generating questions:', error);
     } finally {
@@ -73,182 +90,487 @@ const QuizScreen = ({ route }) => {
     }
   };
 
-  const generateOptions = (vocab, correctItem, key) => {
-    const options = [correctItem[key]];
-    const otherItems = vocab.filter(item => item !== correctItem);
-    
-    while (options.length < 4 && otherItems.length > 0) {
-      const randomIndex = Math.floor(Math.random() * otherItems.length);
-      const option = otherItems.splice(randomIndex, 1)[0][key];
-      if (!options.includes(option)) {
-        options.push(option);
-      }
-    }
-    
-    return options.sort(() => Math.random() - 0.5);
-  };
+  // Removed generateOptions as we're not using multiple choice anymore
 
-  const handleAnswer = (selectedAnswer) => {
-    const currentQ = questions[currentQuestion];
-    const isCorrect = selectedAnswer === currentQ.answer;
-    
-    if (isCorrect) {
-      setScore(score + 1);
+  const speakText = async (text) => {
+    if (isSpeaking) {
+      await Speech.stop();
+      setIsSpeaking(false);
+      return;
     }
     
-    setShowResult(true);
+    setIsSpeaking(true);
     
-    // Move to next question after a delay
-    setTimeout(() => {
-      if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(currentQuestion + 1);
-        setUserAnswer('');
-        setShowResult(false);
-      } else {
-        // Quiz completed
-        Alert.alert(
-          'Quiz Completed!',
-          `Your score: ${score + (isCorrect ? 1 : 0)}/${questions.length}`,
-          [
-            { text: 'Try Again', onPress: resetQuiz },
-            { 
-              text: 'Switch Mode', 
-              onPress: () => {
-                setQuizType(prev => prev === 'kannadaToEnglish' ? 'englishToKannada' : 'kannadaToEnglish');
-                resetQuiz();
-              } 
-            }
-          ]
-        );
-      }
-    }, 1500);
+    Animated.sequence([
+      Animated.timing(scaleAnim, {
+        toValue: 1.3,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    try {
+      await Speech.speak(text, { 
+        language: 'kn-IN',
+        onDone: () => setIsSpeaking(false),
+        onStopped: () => setIsSpeaking(false),
+        onError: () => setIsSpeaking(false)
+      });
+    } catch (error) {
+      console.log('Error speaking:', error);
+      setIsSpeaking(false);
+    }
   };
 
   const resetQuiz = () => {
     setCurrentQuestion(0);
-    setScore(0);
-    setUserAnswer('');
-    setShowResult(false);
+    setShowAnswer(false);
     generateQuestions();
+  };
+
+  const handleNext = () => {
+    setShowAnswer(false);
+    setCurrentQuestion(prev => 
+      prev < questions.length - 1 ? prev + 1 : 0
+    );
+  };
+
+  const handlePrevious = () => {
+    setShowAnswer(false);
+    setCurrentQuestion(prev => 
+      prev > 0 ? prev - 1 : questions.length - 1
+    );
   };
 
   if (loading || questions.length === 0) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#FF3333" />
-        <Text style={styles.loadingText}>Preparing your quiz...</Text>
+        <Text style={styles.loadingText}>Loading content...</Text>
       </View>
     );
   }
 
   const currentQ = questions[currentQuestion];
-  const navigation = useNavigation();
+  const hasPronunciation = !!currentQ.pronunciation;
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <MaterialIcons name="arrow-back" size={24} color="#333" />
+          <MaterialIcons name="arrow-back" size={24} color="#FF3333" />
+          <Text style={styles.backText}>Back</Text>
         </TouchableOpacity>
-        <View style={styles.headerContent}>
-          <Text style={styles.progress}>
-            Question {currentQuestion + 1}/{questions.length}
-          </Text>
-          <Text style={styles.score}>Score: {score}</Text>
-        </View>
-        <View style={styles.headerRight} />
-      </View>
-
-      <View style={styles.quizContainer}>
-        <Text style={styles.quizMode}>
-          {quizType === 'kannadaToEnglish' ? 'Kannada to English' : 'English to Kannada'}
-        </Text>
-        
-        {currentQ.context && (
-          <View style={styles.contextContainer}>
-            <Text style={styles.contextTitle}>Context:</Text>
-            {currentQ.context.map((line, i) => (
-              <View key={i} style={styles.contextLine}>
-                <Text style={styles.kannadaText}>{line.kannada}</Text>
-                <Text style={styles.englishText}>{line.english}</Text>
-              </View>
-            ))}
-          </View>
-        )}
-
-        <View style={styles.questionContainer}>
-          <Text style={styles.questionText}>
-            {currentQ.type === 'vocabulary' 
-              ? `What is the ${quizType === 'kannadaToEnglish' ? 'English' : 'Kannada'} for:`
-              : ''}
-          </Text>
-          <Text style={styles.question}>
-            {currentQ.question}
-          </Text>
-        </View>
-
-        {currentQ.options ? (
-          <View style={styles.optionsContainer}>
-            {currentQ.options.map((option, index) => (
-              <TouchableOpacity
-                key={index}
-                style={[
-                  styles.optionButton,
-                  showResult && option === currentQ.answer && styles.correctOption,
-                  showResult && option !== currentQ.answer && styles.incorrectOption,
-                ]}
-                onPress={() => !showResult && handleAnswer(option)}
-                disabled={showResult}
-              >
-                <Text style={styles.optionText}>{option}</Text>
-                {showResult && option === currentQ.answer && (
-                  <MaterialIcons name="check-circle" size={20} color="#4CAF50" style={styles.resultIcon} />
-                )}
-                {showResult && option !== currentQ.answer && (
-                  <MaterialIcons name="cancel" size={20} color="#F44336" style={styles.resultIcon} />
-                )}
-              </TouchableOpacity>
-            ))}
-          </View>
-        ) : (
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.input}
-              value={userAnswer}
-              onChangeText={setUserAnswer}
-              placeholder={`Type the ${quizType === 'kannadaToEnglish' ? 'English' : 'Kannada'} translation`}
-              placeholderTextColor="#999"
-              autoCapitalize="none"
-              autoCorrect={false}
-              onSubmitEditing={() => handleAnswer(userAnswer.trim())}
-            />
+        <Text style={styles.title}>Lesson {lesson.lesson || 1}</Text>
+        <View style={styles.headerRight}>
+          <View style={styles.languageToggleContainer}>
             <TouchableOpacity 
-              style={styles.submitButton}
-              onPress={() => handleAnswer(userAnswer.trim())}
-              disabled={!userAnswer.trim()}
+              style={[styles.languageToggleButton, showKannada && styles.languageToggleActive]}
+              onPress={() => setShowKannada(!showKannada)}
             >
-              <Text style={styles.submitButtonText}>Submit</Text>
+              <Text style={styles.languageToggleText}>ಕ</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={[styles.languageToggleButton, showEnglish && styles.languageToggleActive]}
+              onPress={() => setShowEnglish(!showEnglish)}
+            >
+              <Text style={styles.languageToggleText}>En</Text>
             </TouchableOpacity>
           </View>
-        )}
+        </View>
       </View>
 
-      {showResult && (
-        <View style={styles.resultContainer}>
-          <Text style={styles.resultText}>
-            {userAnswer === currentQ.answer ? 'Correct! 🎉' : `Incorrect. The answer is: ${currentQ.answer}`}
-          </Text>
+      <View style={styles.progressContainer}>
+        <View style={[styles.progressBar, { width: `${((currentQuestion + 1) / questions.length) * 100}%` }]} />
+        <Text style={styles.progressText}>
+          {currentQuestion + 1} / {questions.length}
+        </Text>
+      </View>
+
+      <View style={styles.content}>
+        <View style={styles.card}>
+          <View style={styles.cardHeader}>
+            <Text style={styles.cardTitle}>
+              {currentQ.type === 'vocabulary' ? 'Vocabulary' : 
+               currentQ.type === 'conversation' ? 'Conversation' : 'Phrase'}
+            </Text>
+          </View>
+          
+          <View style={styles.cardContent}>
+            {showKannada && currentQ.kannada && (
+              <View style={styles.textRow}>
+                <Text style={styles.kannadaText}>{currentQ.kannada}</Text>
+                <TouchableOpacity 
+                  style={[styles.speakerButton, isSpeaking && styles.speakerButtonActive]}
+                  onPress={() => speakText(currentQ.kannada)}
+                >
+                  <Ionicons 
+                    name={isSpeaking ? 'volume-high' : 'volume-high-outline'} 
+                    size={24} 
+                    color={isSpeaking ? 'white' : '#666'} 
+                  />
+                </TouchableOpacity>
+              </View>
+            )}
+            
+            {showEnglish && currentQ.english && (
+              <View style={styles.textRow}>
+                <Text style={styles.englishText}>{currentQ.english}</Text>
+              </View>
+            )}
+            
+            {currentQ.pronunciation && (
+              <Text style={styles.pronunciationText}>
+                {currentQ.pronunciation}
+              </Text>
+            )}
+            
+            {currentQ.usage && (
+              <View style={styles.usageContainer}>
+                <Text style={styles.usageLabel}>Usage:</Text>
+                <Text style={styles.usageText}>{currentQ.usage}</Text>
+              </View>
+            )}
+          </View>
+          
+          <View style={styles.cardFooter}>
+            <TouchableOpacity 
+              style={styles.navButton}
+              onPress={handlePrevious}
+            >
+              <Ionicons name="arrow-back" size={20} color="#FF3333" />
+              <Text style={styles.navButtonText}>Previous</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity 
+              style={[styles.navButton, {flexDirection: 'row-reverse'}]}
+              onPress={handleNext}
+            >
+              <Ionicons name="arrow-forward" size={20} color="#FF3333" />
+              <Text style={styles.navButtonText}>Next</Text>
+            </TouchableOpacity>
+          </View>
+
+          {currentQ.context && currentQ.context.length > 0 && (
+            <View style={styles.contextContainer}>
+              <Text style={styles.contextTitle}>Context:</Text>
+              {currentQ.context.map((line, i) => (
+                <View key={i} style={styles.contextLine}>
+                  {line.kannada && <Text style={styles.kannadaText}>{line.kannada}</Text>}
+                  {line.english && <Text style={styles.englishText}>{line.english}</Text>}
+                </View>
+              ))}
+            </View>
+          )}
+
+          {currentQ.options && (
+            <View style={styles.optionsContainer}>
+              {currentQ.options.map((option, index) => (
+                <View key={index}>
+                  <TouchableOpacity
+                    style={[
+                      styles.optionButton,
+                      showResult && (option === currentQ.answer ? styles.correctOption : styles.incorrectOption),
+                    ]}
+                    onPress={() => !showResult && handleAnswer(option)}
+                    disabled={showResult}
+                  >
+                    <Text style={[
+                      styles.optionText,
+                      showResult && (option === currentQ.answer ? styles.correctOptionText : styles.incorrectOptionText),
+                    ]}>
+                      {option}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
+          )}
         </View>
-      )}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
+  },
+  content: {
+    flex: 1,
+    padding: 15,
+  },
+  card: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  cardHeader: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+    padding: 15,
+  },
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#666',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+  },
+  cardContent: {
+    padding: 20,
+  },
+  cardFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    borderTopWidth: 1,
+    borderTopColor: '#eee',
+    padding: 15,
+  },
+  textRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  kannadaText: {
+    fontSize: 28,
+    marginBottom: 10,
+    color: '#333',
+    textAlign: 'center',
+    flex: 1,
+  },
+  englishText: {
+    fontSize: 20,
+    color: '#666',
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  pronunciationText: {
+    fontSize: 16,
+    color: '#888',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginBottom: 15,
+  },
+  usageContainer: {
+    marginTop: 20,
+    padding: 15,
+    backgroundColor: '#f8f9fa',
+    borderRadius: 8,
+  },
+  usageLabel: {
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#555',
+  },
+  usageText: {
+    color: '#666',
+    lineHeight: 22,
+  },
+  navButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 8,
+  },
+  navButtonText: {
+    color: '#FF3333',
+    marginHorizontal: 5,
+    fontWeight: '500',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 15,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  backButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+  },
+  backText: {
+    marginLeft: 5,
+    color: '#FF3333',
+    fontSize: 16,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#333',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+    zIndex: -1,
+  },
+  headerRight: {
+    width: 60,
+    alignItems: 'flex-end',
+  },
+  languageToggle: {
+    padding: 6,
+    borderRadius: 20,
+    backgroundColor: '#f0f0f0',
+  },
+  languageText: {
+    color: '#FF3333',
+    fontWeight: 'bold',
+  },
+  progressContainer: {
+    height: 4,
+    backgroundColor: '#e0e0e0',
+    marginBottom: 10,
+  },
+  progressBar: {
+    height: '100%',
+    backgroundColor: '#FF3333',
+  },
+  progressText: {
+    textAlign: 'center',
+    color: '#666',
+    fontSize: 12,
+    marginTop: 5,
+  },
+  quizContainer: {
+    flex: 1,
+    padding: 15,
+  },
+  questionCard: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  questionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+    paddingBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+  },
+  questionType: {
+    color: '#FF3333',
+    fontWeight: '600',
+    textTransform: 'uppercase',
+    fontSize: 12,
+    letterSpacing: 1,
+  },
+  scoreContainer: {
+    backgroundColor: '#f8f9fa',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  scoreText: {
+    color: '#333',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
+  questionContent: {
+    marginBottom: 10,
+  },
+  promptText: {
+    color: '#666',
+    marginBottom: 15,
+    fontSize: 16,
+  },
+  questionTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  questionText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
+    flex: 1,
+    marginRight: 10,
+  },
+  speakerButton: {
+    padding: 8,
+    borderRadius: 20,
+    backgroundColor: '#f0f0f0',
+  },
+  speakerButtonActive: {
+    backgroundColor: '#FF3333',
+  },
+  contextContainer: {
+    backgroundColor: '#f8f9fa',
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 15,
+  },
+  contextTitle: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 8,
+    fontWeight: '500',
+  },
+  contextLine: {
+    marginBottom: 6,
+  },
+  kannadaText: {
+    fontSize: 16,
+    color: '#333',
+    fontWeight: '500',
+  },
+  englishText: {
+    fontSize: 14,
+    color: '#666',
+    fontStyle: 'italic',
+  },
+  optionsContainer: {
+    marginTop: 10,
+  },
+  optionButton: {
+    backgroundColor: 'white',
+    borderRadius: 10,
     padding: 16,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+  optionText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  correctOption: {
+    backgroundColor: '#e8f5e9',
+    borderColor: '#4caf50',
+  },
+  incorrectOption: {
+    backgroundColor: '#ffebee',
+    borderColor: '#f44336',
+    opacity: 0.7,
+  },
+  correctOptionText: {
+    color: '#2e7d32',
+    fontWeight: '500',
+  },
+  incorrectOptionText: {
+    color: '#c62828',
+    textDecorationLine: 'line-through',
   },
   loadingContainer: {
     flex: 1,
@@ -257,159 +579,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8f9fa',
   },
   loadingText: {
-    marginTop: 16,
-    fontSize: 16,
+    marginTop: 15,
     color: '#666',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 15,
-    backgroundColor: 'white',
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-  },
-  backButton: {
-    marginRight: 10,
-  },
-  headerContent: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  headerRight: {
-    width: 34,
-  },
-  progress: {
     fontSize: 16,
-    color: '#666',
-  },
-  score: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#FF3333',
-  },
-  quizContainer: {
-    backgroundColor: 'white',
-    borderRadius: 12,
-    padding: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  quizMode: {
-    fontSize: 14,
-    color: '#666',
-    fontStyle: 'italic',
-    marginBottom: 10,
-    textAlign: 'center',
-  },
-  contextContainer: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 20,
-  },
-  contextTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#555',
-    marginBottom: 8,
-  },
-  contextLine: {
-    marginBottom: 6,
-  },
-  kannadaText: {
-    fontSize: 15,
-    fontFamily: 'KannadaSangamMN-Bold',
-    color: '#333',
-  },
-  englishText: {
-    fontSize: 14,
-    color: '#666',
-    fontStyle: 'italic',
-    marginLeft: 10,
-  },
-  questionContainer: {
-    marginBottom: 24,
-  },
-  questionText: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 8,
-  },
-  question: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#333',
-    fontFamily: 'KannadaSangamMN-Bold',
-  },
-  optionsContainer: {
-    marginBottom: 20,
-  },
-  optionButton: {
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    padding: 16,
-    marginBottom: 12,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-  },
-  optionText: {
-    fontSize: 16,
-    color: '#333',
-    flex: 1,
-  },
-  resultIcon: {
-    marginLeft: 8,
-  },
-  correctOption: {
-    backgroundColor: '#E8F5E9',
-    borderColor: '#4CAF50',
-  },
-  incorrectOption: {
-    backgroundColor: '#FFEBEE',
-    borderColor: '#F44336',
-  },
-  inputContainer: {
-    marginBottom: 20,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#e0e0e0',
-    borderRadius: 8,
-    padding: 14,
-    fontSize: 16,
-    marginBottom: 12,
-    backgroundColor: '#f9f9f9',
-  },
-  submitButton: {
-    backgroundColor: '#FF3333',
-    borderRadius: 8,
-    padding: 14,
-    alignItems: 'center',
-  },
-  submitButtonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  resultContainer: {
-    marginTop: 16,
-    padding: 12,
-    borderRadius: 8,
-    backgroundColor: '#E3F2FD',
-  },
-  resultText: {
-    fontSize: 16,
-    textAlign: 'center',
-    color: '#1976D2',
   },
 });
 

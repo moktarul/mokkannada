@@ -6,22 +6,22 @@
     "conversations": [
       {
         "id": "conv1",
-        "title": "Conversation 1",
+        "title": "Basic Greetings and Introductions",
         "lines": [
-          {"speaker":"A","kannada":"namaskaara","english":"Good Morning"},
-          {"speaker":"B","kannada":"Namaskaara","english":"Good Morning"},
-          {"speaker":"A","kannada":"Naanu raju","english":"I am Raju."},
-          {"speaker":"B","kannada":"ivaru moohan","english":"He is Mohan"},
+          {"speaker":"A","kannada":"namaskaara","english":"Good Morning","hindi":"सुप्रभात","bengali":"সুপ্রভাত"},
+          {"speaker":"B","kannada":"Namaskaara","english":"Good Morning","hindi":"सुप्रभात","bengali":"সুপ্রভাত"},
+          {"speaker":"A","kannada":"Naanu raju","english":"I am Raju.","hindi":"मैं राजू हूँ।","bengali":"আমি রাজু।"},
+          {"speaker":"B","kannada":"ivaru moohan","english":"He is Mohan","hindi":"वह मोहन हैं","bengali":"ইনি মোহন"},
           {"speaker":"A","kannada":"niivu yaaru?","english":"Who are you?"},
-          {"speaker":"B","kannada":"Naanu seekhar","english":"I am Shekhar"},
-          {"speaker":"A","kannada":"Avaru yaaru?","english":"Who is she?"},
-          {"speaker":"B","kannada":"avaru shiila","english":"She is Sheela."},
-          {"speaker":"", "kannada":"ivaru shankar","english":"He is Shankar."}
+          {"speaker":"B","kannada":"Naanu seekhar","english":"I am Shekhar","hindi":"मैं शेखर हूँ","bengali":"আমি শেখর"},
+          {"speaker":"A","kannada":"Avaru yaaru?","english":"Who is she?","hindi":"वह कौन हैं?","bengali":"তিনি কে?"},
+          {"speaker":"B","kannada":"avaru shiila","english":"She is Sheela.","hindi":"वह शीला हैं।","bengali":"তিনি শীলা।"},
+          {"speaker":"", "kannada":"ivaru shankar","english":"He is Shankar.","hindi":"ये शंकर हैं।","bengali":"ইনি শঙ্কর।"}
         ]
       },
       {
         "id": "conv2",
-        "title": "Conversation 2",
+        "title": "Sharing Names and Professions",
         "lines": [
           {"speaker":"A","kannada":"nanna hesaru raaju","english":"My name is Raju."},
           {"speaker":"A","kannada":"naanu kannada meeṣtru","english":"I am a Kannada teacher."},
@@ -41,7 +41,7 @@
       },
       {
         "id": "conv3",
-        "title": "Conversation 3",
+        "title": "Family Relationships and Questions",
         "lines": [
           {"speaker":"A","kannada":"ninna hesaru eenu, magu?","english":"What’s your name, child?"},
           {"speaker":"B","kannada":"nanna hesaru kiran","english":"My name is Kiran."},
@@ -58,57 +58,62 @@
       }
     ],
     "vocabulary": [
-      {"kannada":"naanu","english":"I"},
-      {"kannada":"naavu","english":"we"},
-      {"kannada":"niinu","english":"you (sg)"},
-      {"kannada":"niivu","english":"you"},
-      {"kannada":"ivanu","english":"he"},
-      {"kannada":"ivaḷu","english":"she"},
-      {"kannada":"ivaru","english":"they / he / she"},
-      {"kannada":"hesaru","english":"name"},
-      {"kannada":"magu","english":"child"},
-      {"kannada":"maga","english":"son"},
-      {"kannada":"yaaru","english":"who"},
-      {"kannada":"nanna","english":"my"},
-      {"kannada":"namma","english":"our"},
-      {"kannada":"ninna","english":"your (sg)"},
-      {"kannada":"nimma","english":"your"},
-      {"kannada":"avana","english":"his"},
-      {"kannada":"avaḷa","english":"her"},
-      {"kannada":"avara","english":"their / his / her"},
-      {"kannada":"tangi","english":"sister (younger)"},
-      {"kannada":"tande","english":"father"},
-      {"kannada":"eenu","english":"what"},
-      {"kannada":"snehitru","english":"friends"}
+      {"kannada":"naanu","english":"I","hindi":"मैं","bengali":"আমি"},
+      {"kannada":"naavu","english":"we","hindi":"हम","bengali":"আমরা"},
+      {"kannada":"niinu","english":"you (sg)","hindi":"तू (एकवचन)","bengali":"তুই (একজনকে)"},
+      {"kannada":"niivu","english":"you","hindi":"तुम/आप (बहुवचन/आदरसूचक)","bengali":"তুমি/আপনি"},
+      {"kannada":"ivanu","english":"he","hindi":"यह (पुल्लिंग)","bengali":"এ (পুরুষ)"},
+      {"kannada":"ivaḷu","english":"she","hindi":"यह (स्त्रीलिंग)","bengali":"এ (মহিলা)"},
+      {"kannada":"ivaru","english":"they / he / she","hindi":"वे / वह (आदरसूचक)","bengali":"তিনি / তারা (সম্মানসূচক)"},
+      {"kannada":"hesaru","english":"name","hindi":"नाम","bengali":"নাম"},
+      {"kannada":"magu","english":"child","hindi":"बच्चा","bengali":"শিশু"},
+      {"kannada":"maga","english":"son","hindi":"बेटा","bengali":"ছেলে"},
+      {"kannada":"yaaru","english":"who","hindi":"कौन","bengali":"কে"},
+      {"kannada":"nanna","english":"my","hindi":"मेरा/मेरी/मेरे","bengali":"আমার"},
+      {"kannada":"namma","english":"our","hindi":"हमारा/हमारी/हमारे","bengali":"আমাদের"},
+      {"kannada":"ninna","english":"your (sg)","hindi":"तेरा/तेरी/तेरे (अनौपचारिक)","bengali":"তোর (অনানুষ্ঠানিক)"},
+      {"kannada":"nimma","english":"your","hindi":"आपका/आपकी/आपके (औपचारिक)","bengali":"আপনার/তোমার (আনুষ্ঠানিক/অনানুষ্ঠানিক)"},
+      {"kannada":"avana","english":"his","hindi":"उसका (पुल्लिंग)","bengali":"তার (পুরুষ)"},
+      {"kannada":"avaḷa","english":"her","hindi":"उसकी (स्त्रीलिंग)","bengali":"তার (মহিলা)"},
+      {"kannada":"avara","english":"their / his / her","hindi":"उनका/उनकी/उनके (आदरसूचक)","bengali":"তাদের / তাঁর (সম্মানসূচক)"},
+      {"kannada":"tangi","english":"sister (younger)","hindi":"छोटी बहन","bengali":"ছোট বোন"},
+      {"kannada":"tande","english":"father","hindi":"पिताजी","bengali":"বাবা"},
+      {"kannada":"eenu","english":"what","hindi":"क्या","bengali":"কি"},
+      {"kannada":"snehitru","english":"friends","hindi":"दोस्त","bengali":"বন্ধুরা"}
     ],
-    "exercises": [
+    "exercise": [
       {
-        "id":"ex1",
-        "type":"fill_blanks",
-        "parts": {
-          "A": [
-            {"q":"________ yaaru?","answer":"niivu"},
-            {"q":"________ shiila","answer":"avaḷu"},
-            {"q":"Ivaru ________ tande","answer":"namma"},
-            {"q":"________ hesaru murty","answer":"nanna"},
-            {"q":"nimma hesaru ______?","answer":"eenu"},
-            {"q":"________ shankar","answer":"avanu"},
-            {"q":"________ daaktru","answer":"naanu"},
-            {"q":"niivu ________?","answer":"yaaru"}
-          ],
-          "B": [
-            {"q":"Ivaru nanna ________","answer":"snehitru"},
-            {"q":"nanna ________ moona","answer":"hesaru"},
-            {"q":"ivaru nanna ________","answer":"meeṣtru"},
-            {"q":"Sarooja avana ________","answer":"tangi"},
-            {"q":"avaru namma ________","answer":"tande"}
-          ]
-        }
+        "id": "exercise-1",
+        "title": "Fill in the Blanks - Part 1",
+        "type": "fill_blanks",
+        "items": [
+          {"q":"________ yaaru?","answer":"niivu"},
+          {"q":"________ shiila","answer":"avaḷu"},
+          {"q":"Ivaru ________ tande","answer":"namma"},
+          {"q":"________ hesaru murty","answer":"nanna"},
+          {"q":"nimma hesaru ______?","answer":"eenu"},
+          {"q":"________ shankar","answer":"avanu"},
+          {"q":"________ daaktru","answer":"naanu"},
+          {"q":"niivu ________?","answer":"yaaru"}
+        ]
       },
       {
-        "id":"ex2",
-        "type":"transform",
-        "items":[
+        "id": "exercise-2",
+        "title": "Fill in the Blanks - Part 2",
+        "type": "fill_blanks",
+        "items": [
+          {"q":"Ivaru nanna ________","answer":"snehitru"},
+          {"q":"nanna ________ moona","answer":"hesaru"},
+          {"q":"ivaru nanna ________","answer":"meeṣtru"},
+          {"q":"Sarooja avana ________","answer":"tangi"},
+          {"q":"avaru namma ________","answer":"tande"}
+        ]
+      },
+      {
+        "id": "exercise-3",
+        "title": "Sentence Transformation",
+        "type": "transform",
+        "items": [
           {"input":"naanu shiila.","output_model":"nanna hesaru shiila."},
           {"input":"avaru raaju.","output_model":"ivaru hesaru raaju."},
           {"input":"avanu ramesa.","output_model":"avara hesaru ramesa."},
@@ -116,9 +121,10 @@
         ]
       },
       {
-        "id":"ex3",
-        "type":"yes_no_answers",
-        "items":[
+        "id": "exercise-4",
+        "title": "Yes/No Questions",
+        "type": "yes_no_answers",
+        "items": [
           {"q":"shankar nimma snehitaraa?","answers":["haudu","alla"]},
           {"q":"shiila daaktraa?","answers":["haudu","alla"]},
           {"q":"avaḷu ninna tanginaa?","answers":["haudu","alla"]},
@@ -127,9 +133,10 @@
         ]
       },
       {
-        "id":"ex4",
-        "type":"short_answers",
-        "items":[
+        "id": "exercise-5",
+        "title": "Short Answers",
+        "type": "short_answers",
+        "items": [
           {"q":"niivu yaaru?","modelAnswer":"naanu ..."},
           {"q":"nimma hesaru eenu?","modelAnswer":"nanna hesaru ..."},
           {"q":"nimma meeṣtru yaaru?","modelAnswer":"meeṣtru ..."},
