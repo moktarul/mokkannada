@@ -5,10 +5,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Dimensions,
+  Modal,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View
 } from 'react-native';
 
@@ -134,6 +136,8 @@ const NumbersScreen = () => {
   const [showKannada, setShowKannada] = useState(true);
   const [showKannadaInRef, setShowKannadaInRef] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [numberRange, setNumberRange] = useState(100); // Default to 1-100
+  const [isRangeModalVisible, setIsRangeModalVisible] = useState(false);
   const scaleAnim = useRef(new Animated.Value(1)).current;
 
   const numberToKannada = (num) => {
@@ -184,9 +188,20 @@ const NumbersScreen = () => {
   };
 
   const generateRandomNumber = () => {
-    const randomNum = Math.floor(Math.random() * 100) + 1;
+    const randomNum = Math.floor(Math.random() * numberRange) + 1;
     setCurrentNumber(randomNum);
     setIsSpeaking(false);
+  };
+
+  const handleRangeChange = (range) => {
+    setNumberRange(range);
+    const newNum = Math.floor(Math.random() * range) + 1;
+    setCurrentNumber(newNum);
+    setIsRangeModalVisible(false);
+  };
+
+  const openRangeModal = () => {
+    setIsRangeModalVisible(true);
   };
 
   useEffect(() => {
@@ -249,6 +264,53 @@ const NumbersScreen = () => {
 
       {activeTab === 'learn' && (
         <View style={styles.learnContainer}>
+          <View style={styles.rangeSelector}>
+            <TouchableOpacity 
+              style={styles.rangeSelectorButton}
+              onPress={openRangeModal}
+            >
+              <Ionicons name="options" size={18} color="#FF6B6B" style={styles.rangeIcon} />
+              <Text style={styles.rangeLabel}>Number Range (1-{numberRange})</Text>
+              <Ionicons name="chevron-down" size={16} color="#666" style={styles.chevronIcon} />
+            </TouchableOpacity>
+
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={isRangeModalVisible}
+              onRequestClose={() => setIsRangeModalVisible(false)}
+            >
+              <TouchableWithoutFeedback onPress={() => setIsRangeModalVisible(false)}>
+                <View style={styles.modalOverlay} />
+              </TouchableWithoutFeedback>
+              
+              <View style={styles.modalContent}>
+                <Text style={styles.modalTitle}>Select Number Range</Text>
+                <ScrollView style={styles.modalScrollView}>
+                  {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((range) => (
+                    <TouchableOpacity
+                      key={range}
+                      style={[
+                        styles.modalButton,
+                        numberRange === range && styles.modalButtonActive,
+                      ]}
+                      onPress={() => handleRangeChange(range)}
+                    >
+                      <Text style={[
+                        styles.modalButtonText,
+                        numberRange === range && styles.modalButtonTextActive
+                      ]}>
+                        1-{range}
+                      </Text>
+                      {numberRange === range && (
+                        <Ionicons name="checkmark" size={20} color="#FF6B6B" />
+                      )}
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
+              </View>
+            </Modal>
+          </View>
           <View style={styles.numberCard}>
             <View style={styles.numberRow}>
               <Text style={styles.numberDisplay}>{currentNumber}</Text>
@@ -343,6 +405,138 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
+  },
+  rangeSelector: {
+    marginBottom: 20,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
+    padding: 0,
+    shadowColor: 'rgba(0,0,0,0.05)',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+    overflow: 'hidden',
+  },
+  rangeSelectorButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    width: '100%',
+  },
+  rangeIcon: {
+    marginRight: 10,
+    fontSize: 20,
+    color: '#FF6B6B',
+  },
+  rangeLabel: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#2D3748',
+    flex: 1,
+  },
+  chevronIcon: {
+    marginLeft: 8,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 24,
+    maxHeight: '60%',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#2D3748',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  modalScrollView: {
+    maxHeight: '80%',
+  },
+  modalButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F5',
+  },
+  modalButtonActive: {
+    backgroundColor: '#FFF5F5',
+  },
+  modalButtonText: {
+    fontSize: 16,
+    color: '#4A5568',
+  },
+  modalButtonTextActive: {
+    color: '#FF6B6B',
+    fontWeight: '600',
+  },
+  rangeButtonsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    padding: 8,
+    gap: 8,
+  },
+  rangeButton: {
+    backgroundColor: '#F8F9FC',
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderWidth: 1.5,
+    borderColor: 'transparent',
+    minWidth: 90,
+    height: 46,
+    marginRight: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: 'rgba(0,0,0,0.05)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  rangeButtonActive: {
+    backgroundColor: '#FF6B6B',
+    borderColor: '#FF6B6B',
+    shadowColor: 'rgba(255, 107, 107, 0.3)',
+    transform: [{ translateY: -2 }],
+  },
+  rangeButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#4A5568',
+    textAlign: 'center',
+    width: '100%',
+  },
+  rangeButtonTextActive: {
+    color: '#FFFFFF',
+    fontWeight: '700',
+  },
+  activeIndicator: {
+    position: 'absolute',
+    bottom: 6,
+    width: 24,
+    height: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    borderRadius: 3,
+  },
+  learnContainer: {
+    flex: 1,
+    padding: 15,
   },
   header: {
     flexDirection: 'row',

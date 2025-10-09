@@ -27,24 +27,178 @@ const roleOptions = [
   { id: 'provider', label: 'Be Service Provider', description: 'AI is the customer, you play shopkeeper/driver' },
 ];
 
-// Sample conversations for each context and role
+// Enhanced conversation bank with more natural dialogues and English translations
 const conversationBank = {
   taxi: {
     customer: [
-      { role: 'ai', text: 'ನಮಸ್ಕಾರ, ಎಲ್ಲಿಗೆ ಹೋಗಬೇಕು?', english: 'Hello, where would you like to go?' },
-      { role: 'ai', text: 'ಸರಿ, 200 ರೂಪಾಯಿ ಆಗುತ್ತದೆ', english: 'Okay, that will be 200 rupees' },
-      { role: 'ai', text: 'ಧನ್ಯವಾದಗಳು, ಶುಭ ದಿನ!', english: 'Thank you, have a nice day!' },
+      { 
+        role: 'ai', 
+        text: 'ನಮಸ್ಕಾರ ಸಾರ್, ಎಲ್ಲಿಗೆ ಹೋಗಬೇಕು?', 
+        english: 'Hello sir, where would you like to go?',
+        suggestions: ['ಮೈಸೂರು ರೋಡ್ಗೆ (To Mysore Road)', 'ರಾಜಾಜಿನಗರ (To Rajajinagar)', 'ನಿಲ್ದಾಣಕ್ಕೆ (To the station)']
+      },
+      { 
+        role: 'ai', 
+        text: 'ಸರಿ ಸಾರ್, 250 ರೂಪಾಯಿ ಆಗುತ್ತದೆ. ಟ್ರಾಫಿಕ್ ಹೆಚ್ಚು ಇದೆ.', 
+        english: 'Okay sir, it will be 250 rupees. There is heavy traffic.'
+      },
+      { 
+        role: 'ai', 
+        text: 'ತಲುಪಿದ್ದೇವೆ ಸಾರ್. ಒಟ್ಟು 280 ರೂಪಾಯಿ ಆಯ್ತು.', 
+        english: 'We have arrived sir. The total is 280 rupees.'
+      },
     ],
     provider: [
-      { role: 'ai', text: 'ನಮಸ್ಕಾರ, ನಾನು ಮೈಸೂರು ರೋಡ್ಗೆ ಹೋಗಬೇಕು', english: 'Hello, I need to go to Mysore Road' },
-      { role: 'ai', text: 'ಇಲ್ಲಿಗೆ ನಿಲ್ಲಿಸಿ, ದಯವಿಟ್ಟು', english: 'Please stop here' },
-      { role: 'ai', text: 'ಇದು ಹಣ, ಧನ್ಯವಾದಗಳು', english: 'Here is the money, thank you' },
+      { 
+        role: 'ai', 
+        text: 'ನಮಸ್ಕಾರ ಸಾರ್, ಈಗ ಎಲ್ಲಿಂದ ಬಂದ್ರಿ?', 
+        english: 'Hello sir, where are you coming from now?',
+        suggestions: ['ನಾನು ಬೆಂಗಳೂರಿನಿಂದ ಬಂದಿದ್ದೇನೆ (I came from Bangalore)', 'ನಾನು ಇಲ್ಲೇ ಸುತ್ತಮುತ್ತಲೇ ಇದ್ದೇನೆ (I am from nearby)']
+      },
+      { 
+        role: 'ai', 
+        text: 'ಇಲ್ಲಿಗೆ ಸ್ವಲ್ಪ ನಿಧಾನವಾಗಿ ಹೋಗಿ. ಇಲ್ಲಿ ನಿಲ್ಲಿಸಿ.', 
+        english: 'Go slowly here. Stop here.'
+      },
+      { 
+        role: 'ai', 
+        text: 'ಇದು ಹಣ, ಬಾಕಿ ಇದೆಯೇ?', 
+        english: 'Here is the money, is there any change?'
+      },
     ]
   },
-  // Add more contexts with sample conversations
+  vegetable: {
+    customer: [
+      {
+        role: 'ai',
+        text: 'ನಮಸ್ಕಾರ, ಈ ದಿನಕ್ಕೆ ಏನು ತರಲಿ?',
+        english: 'Hello, what should I get today?',
+        suggestions: ['ಒಂದು ಕೆ.ಜಿ ಟೊಮೇಟೊ (1kg tomatoes)', 'ಎರಡು ಕೆ.ಜಿ ಬದನೆ (2kg brinjal)', 'ಒಂದು ಕೆ.ಜಿ ಆಲೂಗಡ್ಡೆ (1kg potato)']
+      },
+      {
+        role: 'ai',
+        text: 'ಇದರ ಬೆಲೆ ಎಷ್ಟು?',
+        english: 'How much does this cost?'
+      },
+      {
+        role: 'ai',
+        text: 'ಸ್ವಲ್ಪ ಕಡಿಮೆ ಬೆಲೆ ಮಾಡಿ ದಯವಿಟ್ಟು',
+        english: 'Please reduce the price a little'
+      }
+    ],
+    provider: [
+      {
+        role: 'ai',
+        text: 'ಬನ್ನಿ ಮಾಡಿ, ತಾಜಾ ತರಕಾರಿಗಳು ಬಂದಿವೆ. ಏನು ಬೇಕು?',
+        english: 'Please come, fresh vegetables have arrived. What do you need?',
+        suggestions: ['ಇವುಗಳ ಬೆಲೆ ಎಷ್ಟು? (How much are these?)', 'ಒಂದು ಕೆ.ಜಿ ಕ್ಯಾರೆಟ್ ಕೊಡಿ (Give me 1kg carrots)']
+      },
+      {
+        role: 'ai',
+        text: 'ಟೊಮೇಟೊ ಕಿಲೋ 40 ರೂಪಾಯಿ, ಮಡಿಕೇರಿ ಕೋಸು ಕಿಲೋ 30 ರೂಪಾಯಿ',
+        english: 'Tomatoes are 40 rupees per kg, Cabbage is 30 rupees per kg'
+      },
+      {
+        role: 'ai',
+        text: 'ಮತ್ತೆ ಬನ್ನಿ, ಧನ್ಯವಾದಗಳು!',
+        english: 'Come again, thank you!'
+      }
+    ]
+  },
+  restaurant: {
+    customer: [
+      {
+        role: 'ai',
+        text: 'ಮೆನು ಕಾರ್ಡ್ ತೋರಿಸಿ ದಯವಿಟ್ಟು',
+        english: 'Please show me the menu',
+        suggestions: ['ಇವತ್ತಿನ ಸ್ಪೆಷಲ್ ಏನಿದೆ? (What is today\'s special?)', 'ಎರಡು ಜನಕ್ಕೆ ಟೇಬಲ್ ಬೇಕು (I need a table for two)']
+      },
+      {
+        role: 'ai',
+        text: 'ಒಂದು ಮಸಾಲೆ ದೋಸೆ ಮತ್ತು ಒಂದು ಕಾಫಿ ತರಿ',
+        english: 'Get me one masala dosa and one coffee'
+      },
+      {
+        role: 'ai',
+        text: 'ಬಿಲ್ ಕೊಡಿ',
+        english: 'Give me the bill'
+      }
+    ],
+    provider: [
+      {
+        role: 'ai',
+        text: 'ಸ್ವಾಗತ! ಎಷ್ಟು ಜನ?',
+        english: 'Welcome! How many people?',
+        suggestions: ['ಒಬ್ಬರಿಗೆ (For one)', 'ಎರಡು ಜನ (Two people)']
+      },
+      {
+        role: 'ai',
+        text: 'ಇವತ್ತಿನ ಸ್ಪೆಷಲ್ ಬಿಸಿಬೇಳೆ-ಭಾತ್ ಮತ್ತು ಸಾಂಬಾರ್',
+        english: 'Today\'s special is bisi bele bath and sambar'
+      },
+      {
+        role: 'ai',
+        text: 'ಒಟ್ಟು 250 ರೂಪಾಯಿ ಆಗುತ್ತದೆ. ಮತ್ತೆ ಬನ್ನಿ!',
+        english: 'The total is 250 rupees. Please come again!'
+      }
+    ]
+  },
+  clinic: {
+    customer: [
+      {
+        role: 'ai',
+        text: 'ನನಗೆ ತಲೆನೋವು ಮತ್ತು ಜ್ವರ ಬಂದಿದೆ',
+        english: 'I have a headache and fever',
+        suggestions: ['ನಾನು ಎರಡು ದಿನದಿಂದ ಅನಾರೋಗ್ಯದಲ್ಲಿದ್ದೇನೆ (I have been unwell for two days)', 'ನನ್ನ ಹೊಟ್ಟೆ ನೋಯುತ್ತಿದೆ (I have stomach ache)']
+      },
+      {
+        role: 'ai',
+        text: 'ನೀವು ಯಾವ ಮಾತ್ರೆ ಕೊಟ್ಟಿರಿ?',
+        english: 'What medicine did you prescribe?'
+      },
+      {
+        role: 'ai',
+        text: 'ಧನ್ಯವಾದಗಳು ಡಾಕ್ಟರ್',
+        english: 'Thank you doctor'
+      }
+    ],
+    provider: [
+      {
+        role: 'ai',
+        text: 'ನಿಮಗೆ ಏನಾದರೂ ಆಲರ್ಜಿ ಇದೆಯೇ?',
+        english: 'Do you have any allergies?',
+        suggestions: ['ಇಲ್ಲ (No)', 'ಹೌದು, ಪೆನ್ಸಿಲಿನ್ಗೆ ಆಲರ್ಜಿ ಇದೆ (Yes, allergic to penicillin)']
+      },
+      {
+        role: 'ai',
+        text: 'ನೀವು ಮೂರು ದಿನ ಈ ಮಾತ್ರೆಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ',
+        english: 'Take these medicines for three days'
+      },
+      {
+        role: 'ai',
+        text: 'ನಾಳೆ ನನ್ನನ್ನು ಮತ್ತೆ ಭೇಟಿ ಮಾಡಿ',
+        english: 'Visit me again tomorrow'
+      }
+    ]
+  }
 };
 
 export default function ConversationPractice({ navigation }) {
+  // Set navigation options
+  React.useEffect(() => {
+    navigation.setOptions({
+      title: 'AI Practice',
+      headerStyle: {
+        backgroundColor: '#FF3333',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      headerBackTitle: 'Back',
+    });
+  }, [navigation]);
+
   const [selectedContext, setSelectedContext] = useState(null);
   const [selectedRole, setSelectedRole] = useState(null);
   const [conversation, setConversation] = useState([]);
@@ -136,13 +290,22 @@ export default function ConversationPractice({ navigation }) {
     const lastAiMessage = [...conversation].reverse().find(msg => msg.role === 'ai');
     if (!lastAiMessage) return;
     
-    // Generate some sample suggestions (in a real app, these would be more context-aware)
-    const suggestions = [
-      'ಹೌದು', // Yes
-      'ಇಲ್ಲ', // No
-      'ದಯವಿಟ್ಟು ಪುನಃ ಹೇಳಿ', // Please say that again
-      'ನಾನು ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೇನೆ', // I understand
-    ];
+    // Get context-specific suggestions if available, otherwise use default ones
+    let suggestions = [];
+    
+    // Check if we have predefined suggestions for this message
+    if (lastAiMessage.suggestions && lastAiMessage.suggestions.length > 0) {
+      suggestions = lastAiMessage.suggestions;
+    } else {
+      // Fallback to general suggestions
+      suggestions = [
+        'ಹೌದು (Yes)',
+        'ಇಲ್ಲ (No)',
+        'ದಯವಿಟ್ಟು ಪುನಃ ಹೇಳಿ (Please say that again)',
+        'ನಾನು ಅರ್ಥಮಾಡಿಕೊಂಡಿದ್ದೇನೆ (I understand)',
+        'ಇನ್ನಷ್ಟು ವಿವರಿಸಿ (Explain more)'
+      ];
+    }
     
     setSuggestedReplies(suggestions);
     setShowHelp(true);

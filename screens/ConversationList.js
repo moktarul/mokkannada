@@ -3,6 +3,19 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput } from 'r
 import { MaterialIcons } from '@expo/vector-icons';
 
 const ConversationList = ({ navigation }) => {
+  // Set navigation options
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      headerTitle: '',
+      headerBackTitle: 'Back',
+      headerStyle: {
+        backgroundColor: '#FF3333',
+      },
+      headerTintColor: '#fff',
+    });
+  }, [navigation]);
+
   const [conversations, setConversations] = useState([]);
   const [userName, setUserName] = useState('You');
   const [friendName, setFriendName] = useState('Friend');
@@ -98,8 +111,14 @@ const ConversationList = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Conversations</Text>
-        <TouchableOpacity onPress={() => setIsEditing(!isEditing)}>
+        <View>
+          <Text style={styles.headerTitle}>Practice Conversations</Text>
+          <Text style={styles.headerSubtitle}>Select a conversation to start practicing</Text>
+        </View>
+        <TouchableOpacity 
+          onPress={() => setIsEditing(!isEditing)}
+          style={styles.editButton}
+        >
           <MaterialIcons name="edit" size={24} color="#FF3333" />
         </TouchableOpacity>
       </View>
@@ -147,17 +166,31 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 16,
-    backgroundColor: 'white',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: '#f0f0f0',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 2,
   },
   headerTitle: {
-    fontSize: 20,
-    fontWeight: '600',
+    fontSize: 22,
+    fontWeight: '700',
     color: '#333',
+    marginBottom: 4,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: '#666',
+  },
+  editButton: {
+    padding: 8,
+    marginRight: -8,
   },
   listContent: {
     padding: 16,

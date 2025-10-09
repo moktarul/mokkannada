@@ -26,8 +26,16 @@ const ConversationDetail = ({ route, navigation }) => {
   useEffect(() => {
     navigation.setOptions({
       title: conversation.title || 'Conversation',
+      headerStyle: {
+        backgroundColor: '#FF3333',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+      headerBackTitle: 'Back',
     });
-  }, [conversation.title]);
+  }, [conversation.title, navigation]);
 
   useEffect(() => {
     // Auto-scroll to bottom when messages change
@@ -197,7 +205,6 @@ const ConversationDetail = ({ route, navigation }) => {
     <View style={styles.container}>
       {/* Language Toggle Button */}
 
-      =========hiiii
       <View style={styles.languageButtonContainer}>
         <TouchableOpacity 
           style={styles.languageButton}
