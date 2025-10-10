@@ -1,0 +1,47 @@
+{
+  "id": "lesson-6",
+  "title": "Lesson 6 — Health & Emergencies",
+  "description": "Essential medical phrases and emergency situations",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "At the Hospital",
+      "lines": [
+        {"speaker":"A","kannada":"Nanu hudukutteene, doctor ige hogabeku","english":"I'm feeling sick, I need to see a doctor","hindi":"मैं बीमार महसूस कर रहा हूँ, मुझे डॉक्टर को दिखाना है","bengali":"আমি অসুস্থ বোধ করছি, আমাকে ডাক্তারের কাছে যেতে হবে"},
+        {"speaker":"B","kannada":"Enu aayitu?","english":"What happened?","hindi":"क्या हुआ?","bengali":"কি হয়েছে?"},
+        {"speaker":"A","kannada":"Tumba tale noDutte, jvara barutte","english":"I have a bad headache and fever","hindi":"मुझे तेज सिरदर्द और बुखार है","bengali":"আমার খুব মাথা ব্যাথা আর জ্বর এসেছে"},
+        {"speaker":"B","kannada":"Registration madabeku, aadre doctor iro time alli nodona","english":"You need to register first, but let me check if the doctor is available","hindi":"आपको पहले रजिस्ट्रेशन कराना होगा, लेकिन मैं देखता हूं कि डॉक्टर उपलब्ध हैं या नहीं","bengali":"আপনাকে আগে রেজিস্ট্রেশন করতে হবে, তবে দেখি ডাক্তার আছেন কিনা"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Describing Symptoms",
+      "lines": [
+        {"speaker":"A","kannada":"Nanu tumba bekku aagutteene","english":"I feel very tired","hindi":"मैं बहुत थक गया हूँ","bengali":"আমি খুব ক্লান্ত বোধ করছি"},
+        {"speaker":"B","kannada":"Kai-kalige beLigeyu noDalla","english":"I have body ache","hindi":"मेरे हाथ-पैरों में दर्द है","bengali":"সারা শরীরে ব্যথা"},
+        {"speaker":"A","kannada":"Nenapu baralla","english":"I feel dizzy","hindi":"मुझे चक्कर आ रहे हैं","bengali":"মাথা ঘুরছে"},
+        {"speaker":"B","kannada":"Hale roga ideya?","english":"Do you have any existing medical conditions?","hindi":"क्या आपको कोई पुरानी बीमारी है?","bengali":"আপনার কোন পুরনো রোগ আছে?"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "At the Pharmacy",
+      "lines": [
+        {"speaker":"A","kannada":"Doctor prescription ide","english":"Here is the doctor's prescription","hindi":"यह डॉक्टर का प्रिस्क्रिप्शन है","bengali":"এটি ডাক্তারের প্রেসক্রিপশন"},
+        {"speaker":"B","kannada":"Idu dina kelasa madabeku","english":"This medicine should be taken daily","hindi":"यह दवा रोज लेनी है","bengali":"এই ওষুধ প্রতিদিন খেতে হবে"},
+        {"speaker":"A","kannada":"Tumba noota aagutteya?","english":"Will it make me drowsy?","hindi":"क्या इससे नींद आएगी?","bengali":"এটা খেলে ঘুম পাবে?"},
+        {"speaker":"B","kannada":"Beku andre nidde barutte","english":"Yes, it may cause sleepiness","hindi":"हाँ, इससे नींद आ सकती है","bengali":"হ্যাঁ, ঘুম পেতে পারে"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Emergency Situations",
+      "lines": [
+        {"speaker":"A","kannada":"Daya maDi, ambulance kareyiri!","english":"Please call an ambulance!","hindi":"कृपया एम्बुलेंस बुलाइए!","bengali":"দয়া করে অ্যাম্বুলেন্স ডাকুন!"},
+        {"speaker":"B","kannada":"Police ge kareyiri","english":"Call the police","hindi":"पुलिस को बुलाओ","bengali":"পুলিশ ডাকুন"},
+        {"speaker":"A","kannada":"Nanna jeevanada hatra ide","english":"My life is in danger","hindi":"मेरी जान को खतरा है","bengali":"আমার জীবন বিপন্ন"},
+        {"speaker":"B","kannada":"Nanna jothe mataduvudu yaaru?","english":"Is there someone I can talk to?","hindi":"क्या कोई है जिससे मैं बात कर सकूं?","bengali":"আমি কার সাথে কথা বলতে পারি?"}
+      ]
+    }
+  ]
+}

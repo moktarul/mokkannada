@@ -1,0 +1,47 @@
+{
+  "id": "lesson-10",
+  "title": "Lesson 10 — Technology & Communication",
+  "description": "Tech-related phrases and digital communication",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Using Smartphones",
+      "lines": [
+        {"speaker":"A","kannada":"Nanna phone charge aagide","english":"My phone is charged","hindi":"मेरा फ़ोन चार्ज हो गया है","bengali":"আমার ফোন চার্জ হয়েছে"},
+        {"speaker":"B","kannada":"Nanna phone battery low ide","english":"My phone battery is low","hindi":"मेरी फ़ोन की बैटरी कम है","bengali":"আমার ফোনের ব্যাটারি কম"},
+        {"speaker":"A","kannada":"Nanna phone nalli problem ide","english":"There's a problem with my phone","hindi":"मेरे फ़ोन में कोई समस्या है","bengali":"আমার ফোনে সমস্যা আছে"},
+        {"speaker":"B","kannada":"Nanna phone ge screen guard haakona?","english":"Shall I put a screen guard on my phone?","hindi":"क्या मैं अपने फ़ोन पर स्क्रीन गार्ड लगाऊँ?","bengali":"আমি কি আমার ফোনে স্ক্রিন গার্ড লাগাব?"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Social Media",
+      "lines": [
+        {"speaker":"A","kannada":"Nivu Facebook alli iddira?","english":"Are you on Facebook?","hindi":"क्या आप फेसबुक पर हैं?","bengali":"আপনি কি ফেসবুকে আছেন?"},
+        {"speaker":"B","kannada":"Naanu Instagram alli active irlilla","english":"I'm not active on Instagram","hindi":"मैं इंस्टाग्राम पर सक्रिय नहीं हूँ","bengali":"আমি ইনস্টাগ্রামে সক্রিয় নই"},
+        {"speaker":"A","kannada":"Nanna post ge like maadi","english":"Like my post","hindi":"मेरी पोस्ट को लाइक करें","bengali":"আমার পোস্টে লাইক দিন"},
+        {"speaker":"B","kannada":"Nimma WhatsApp number kodi","english":"Give me your WhatsApp number","hindi":"मुझे अपना व्हाट्सएप नंबर दीजिए","bengali":"আমাকে আপনার হোয়াটসঅ্যাপ নম্বর দিন"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Troubleshooting",
+      "lines": [
+        {"speaker":"A","kannada":"Nanna laptop slow aagide","english":"My laptop is running slow","hindi":"मेरा लैपटॉप धीरे चल रहा है","bengali":"আমার ল্যাপটপ ধীরে চলছে"},
+        {"speaker":"B","kannada":"Internet connection bagge idda?","english":"Is the internet working?","hindi":"क्या इंटरनेट चल रहा है?","bengali":"ইন্টারনেট কাজ করছে?"},
+        {"speaker":"A","kannada":"Nanna email check maDabeku","english":"I need to check my email","hindi":"मुझे अपना ईमेल चेक करना है","bengali":"আমার ইমেইল চেক করতে হবে"},
+        {"speaker":"B","kannada":"Nanna password mareyitu","english":"I forgot my password","hindi":"मैं अपना पासवर्ड भूल गया","bengali":"আমি আমার পাসওয়ার্ড ভুলে গেছি"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Online Shopping",
+      "lines": [
+        {"speaker":"A","kannada":"Naanu online alli order maDabeku","english":"I want to order online","hindi":"मैं ऑनलाइन ऑर्डर करना चाहता हूँ","bengali":"আমি অনলাইনে অর্ডার করতে চাই"},
+        {"speaker":"B","kannada":"Delivery time eshtu?","english":"What's the delivery time?","hindi":"डिलीवरी का समय क्या है?","bengali":"ডেলিভারি টাইম কত?"},
+        {"speaker":"A","kannada":"Return policy enu?","english":"What's the return policy?","hindi":"रिटर्न पॉलिसी क्या है?","bengali":"রিটার্ন পলিসি কি?"},
+        {"speaker":"B","kannada":"Cash on delivery ideya?","english":"Is cash on delivery available?","hindi":"क्या कैश ऑन डिलीवरी उपलब्ध है?","bengali":"ক্যাশ অন ডেলিভারি আছে?"}
+      ]
+    }
+  ]
+}

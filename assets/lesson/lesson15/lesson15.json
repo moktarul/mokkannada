@@ -1,0 +1,47 @@
+{
+  "id": "lesson-15",
+  "title": "Lesson 15 — Advanced Conversations",
+  "description": "Engaging in complex discussions and expressing nuanced thoughts",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Current Affairs",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma abhipraya, i varshadalli enadaru chennagideya?","english":"In your opinion, what positive developments have happened this year?","hindi":"आपकी राय में, इस साल क्या अच्छा हुआ है?","bengali":"আপনার মতে, এই বছর কি ভালো হয়েছে?"},
+        {"speaker":"B","kannada":"Nanna dRushtiyalli, technology alli bahala vriddhi aagide, aadre manassastravu matte samasyegalu kooda jasti aive","english":"In my view, there's been significant growth in technology, but mental health issues have also increased","hindi":"मेरी नज़र में, प्रौद्योगिकी में बहुत वृद्धि हुई है, लेकिन मानसिक स्वास्थ्य की समस्याएँ भी बढ़ी हैं","bengali":"আমার মতে, প্রযুক্তিতে অনেক উন্নতি হয়েছে, কিন্তু মানসিক স্বাস্থ্য সমস্যাও বেড়েছে"},
+        {"speaker":"A","kannada":"Nija, aadre e vishayadalli nam'ma samajadalli matte chanagalu beku","english":"True, but our society needs to improve in this regard","hindi":"सच है, लेकिन इस मामले में हमारे समाज को और सुधार करने की आवश्यकता है","bengali":"সত্যি, কিন্তু এই বিষয়ে আমাদের সমাজকে আরও উন্নতি করতে হবে"},
+        {"speaker":"B","kannada":"Nija, namma pratyekaru awareness create maDabeku","english":"True, each of us needs to create awareness","hindi":"सच है, हम सभी को जागरूकता फैलानी चाहिए","bengali":"সত্যি, আমাদের সবারই সচেতনতা তৈরি করা উচিত"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Debating Topics",
+      "lines": [
+        {"speaker":"A","kannada":"Naanu technology nammavara jeevanadalli tumba mukhyavada badalavanne tandide anta nambutteene","english":"I believe technology has brought significant changes to our lives","hindi":"मेरा मानना है कि प्रौद्योगिकी ने हमारे जीवन में बड़े बदलाव लाए हैं","bengali":"আমি বিশ্বাস করি প্রযুক্তি আমাদের জীবনে বড় পরিবর্তন এনেছে"},
+        {"speaker":"B","kannada":"Naanu nim'ma jote samanvayisabahudu, aadre adara dushpariNama kooda ive","english":"I can agree with you, but it has its disadvantages too","hindi":"मैं आपसे सहमत हो सकता हूँ, लेकिन इसके नुकसान भी हैं","bengali":"আমি আপনার সাথে একমত হতে পারি, কিন্তু এর অসুবিধাগুলিও আছে"},
+        {"speaker":"A","kannada":"Nija, aadre technology nammavara jeevanavannu sulabhavagiside","english":"True, but technology has made our lives easier","hindi":"सच है, लेकिन प्रौद्योगिकी ने हमारा जीवन आसान बना दिया है","bengali":"সত্যি, কিন্তু প্রযুক্তি আমাদের জীবনকে সহজ করে দিয়েছে"},
+        {"speaker":"B","kannada":"Adu khandita, aadre namma adannu yochisi prayogisabeku","english":"That's true, but we should use it wisely","hindi":"यह सच है, लेकिन हमें इसका विवेकपूर्ण उपयोग करना चाहिए","bengali":"এটা সত্যি, কিন্তু আমাদের এটা বিচক্ষণতার সাথে ব্যবহার করা উচিত"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Expressing Complex Ideas",
+      "lines": [
+        {"speaker":"A","kannada":"Nanna tande tayi nanna jeevanadalli bahala pramukha patra vaahisidare","english":"My father played a very important role in my life","hindi":"मेरे पिता ने मेरे जीवन में बहुत महत्वपूर्ण भूमिका निभाई है","bengali":"আমার বাবা আমার জীবনে অত্যন্ত গুরুত্বপূর্ণ ভূমিকা পালন করেছেন"},
+        {"speaker":"B","kannada":"Avaru nim'mannu enenu bodhisidaru?","english":"What did they teach you?","hindi":"उन्होंने आपको क्या सिखाया?","bengali":"তিনি আপনাকে কি শিখিয়েছেন?"},
+        {"speaker":"A","kannada":"Avaru nannannu nijavadaagi nambuvudannu, kastagalannu edurugoLuvudannu matte parakramavagiruva vyaktiyaagi belaguvudannu kalitisidaru","english":"They taught me to believe in myself, face challenges, and be a courageous person","hindi":"उन्होंने मुझे खुद पर विश्वास करना, चुनौतियों का सामना करना और साहसी व्यक्ति बनना सिखाया","bengali":"তিনি আমাকে নিজের উপর বিশ্বাস রাখতে, চ্যালেঞ্জ মোকাবেলা করতে এবং সাহসী ব্যক্তি হতে শিখিয়েছেন"},
+        {"speaker":"B","kannada":"Nijavagalu avaru olleya shikshaneyannu kottiddare, adu nimage jeevanadalli tumba upayogavagide","english":"Truly, they've given you great guidance which is very useful in life","hindi":"वास्तव में, उन्होंने आपको बहुत अच्छी सीख दी है जो जीवन में बहुत उपयोगी है","bengali":"সত্যিই, তিনি আপনাকে দুর্দান্ত দিকনির্দেশনা দিয়েছেন যা জীবনে খুবই উপকারী"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Idiomatic Expressions",
+      "lines": [
+        {"speaker":"A","kannada":"Nanna project tumba kashtakaramagide, aadre naanu kai kai kattikollutteene","english":"My project is very challenging, but I'm managing somehow","hindi":"मेरा प्रोजेक्ट बहुत चुनौतीपूर्ण है, लेकिन मैं किसी तरह संभाल रहा हूँ","bengali":"আমার প্রকল্পটি খুবই চ্যালেঞ্জিং, কিন্তু আমি কোনওভাবে সামলাচ্ছি"},
+        {"speaker":"B","kannada":"Nimage gottu, ellavannu belagge kattikollabahudu","english":"You know, you can take it easy","hindi":"आप जानते हैं, आप इसे आराम से ले सकते हैं","bengali":"আপনি জানেন, আপনি এটা সহজভাবে নিতে পারেন"},
+        {"speaker":"A","kannada":"Naanu kai tattikondu iddene, aadre yavaagadaru mugiyutte","english":"I'm working hard, but it will be over someday","hindi":"मैं कड़ी मेहनत कर रहा हूँ, लेकिन एक दिन यह खत्म हो जाएगा","bengali":"আমি কঠোর পরিশ্রম করছি, কিন্তু একদিন এটা শেষ হবে"},
+        {"speaker":"B","kannada":"Nija, ellavu belagge aagutte, nambikari","english":"True, everything will be fine, believe me","hindi":"सच है, सब ठीक हो जाएगा, मेरा विश्वास करो","bengali":"সত্যি, সব ঠিক হয়ে যাবে, আমার কথা বিশ্বাস করুন"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": "lesson-14",
+  "title": "Lesson 14 — Cultural Events & Festivals",
+  "description": "Celebrating traditions, festivals, and cultural heritage",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Major Festivals",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma ishtada habba yavudu?","english":"What's your favorite festival?","hindi":"आपका पसंदीदा त्योहार कौन सा है?","bengali":"আপনার প্রিয় উৎসব কোনটি?"},
+        {"speaker":"B","kannada":"Nange Dasara tumba ista, neevu?","english":"I love Dasara, and you?","hindi":"मुझे दशहरा बहुत पसंद है, और आप?","bengali":"আমি দশেরা খুব পছন্দ করি, আপনি?"},
+        {"speaker":"A","kannada":"Naanu Deepavali tumba celebrate maadutteene, deepagalu, pataaka matte khara undadu","english":"I celebrate Deepavali with great enthusiasm, with lamps, fireworks, and lots of snacks","hindi":"मैं दीपावली बड़े उत्साह से मनाता हूँ, दीयों, पटाखों और ढेर सारे नमकीन के साथ","bengali":"আমি দীপাবলি বড় উৎসাহের সাথে উদযাপন করি, প্রদীপ, আতশবাজি আর নানান খাবারের সাথে"},
+        {"speaker":"B","kannada":"Naanu Ugadi preetisutte, hosa varshada shubhashayagalu","english":"I love Ugadi, happy new year!","hindi":"मुझे उगादी बहुत पसंद है, नववर्ष की शुभकामनाएँ!","bengali":"আমি উগাদি খুব পছন্দ করি, নববর্ষের শুভেচ্ছা!"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Traditional Customs",
+      "lines": [
+        {"speaker":"A","kannada":"Ee habbadalli enenu maaduvudu?","english":"What do we do in this festival?","hindi":"इस त्योहार में हम क्या करते हैं?","bengali":"এই উৎসবে আমরা কি করি?"},
+        {"speaker":"B","kannada":"Namma manege bandu, ellaru kalisikolli habba madona?","english":"Come to our house, shall we celebrate the festival together?","hindi":"हमारे घर आइए, क्या हम साथ में त्योहार मनाएँगे?","bengali":"আমাদের বাড়িতে আসুন, আমরা কি একসাথে উৎসব পালন করব?"},
+        {"speaker":"A","kannada":"Dhanyavadagalu, naanu barutteene. Naanu nimma jothe saha oota maadikollutteene","english":"Thank you, I'll come. I'll have lunch with you all","hindi":"धन्यवाद, मैं आऊंगा। मैं आप सबके साथ भोजन करूंगा","bengali":"ধন্যবাদ, আমি আসব। আমি আপনাদের সবার সাথে খাবার খাব"},
+        {"speaker":"B","kannada":"Chennagide! Namma saha traditional aagi bisi bele bath tini","english":"Great! Let's eat bisi bele bath together in the traditional way","hindi":"बढ़िया! चलिए हम साथ में पारंपरिक तरीके से बिसी बेले बाथ खाते हैं","bengali":"দারুণ! চলুন আমরা একসাথে ঐতিহ্যবাহী ভাবে বিসি বেলে ভাত খাই"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Festival Greetings",
+      "lines": [
+        {"speaker":"A","kannada":"Ugadi habbada hardika shubhashayagalu!","english":"Happy Ugadi festival!","hindi":"उगादी की हार्दिक शुभकामनाएँ!","bengali":"উগাদি উৎসবের শুভেচ্ছা!"},
+        {"speaker":"B","kannada":"Nimma huttida dina shubhashayagalu!","english":"Happy birthday to you!","hindi":"आपको जन्मदिन की शुभकामनाएँ!","bengali":"আপনার জন্মদিনের শুভেচ্ছা!"},
+        {"speaker":"A","kannada":"Hosa varshada shubhashayagalu! Hosa varshadalli bahala saubhagya sigali","english":"Happy new year! May this new year bring you lots of happiness","hindi":"नए साल की शुभकामनाएँ! यह नया साल आपके लिए ढेर सारी खुशियाँ लेकर आए","bengali":"নববর্ষের শুভেচ্ছা! এই নতুন বছর আপনার জীবনে প্রচুর সুখ বয়ে আনুক"},
+        {"speaker":"B","kannada":"Dhanyavadagalu, nimagalu kooda! Ellaru saha habba madona?","english":"Thank you, same to you! Shall we celebrate with everyone?","hindi":"धन्यवाद, आपको भी! क्या हम सब मिलकर उत्सव मनाएँ?","bengali":"ধন্যবাদ, আপনাকেও! আমরা কি সবাই মিলে উৎসব পালন করব?"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Gift-Giving Traditions",
+      "lines": [
+        {"speaker":"A","kannada":"Idu nimage ondu upahaara","english":"This is a gift for you","hindi":"यह आपके लिए एक उपहार है","bengali":"এটি আপনার জন্য একটি উপহার"},
+        {"speaker":"B","kannada":"Dhanyavadagalu, tumba khushi aayitu. Naanu yenu thagolikondilla","english":"Thank you, I'm very happy. I didn't bring anything for you","hindi":"धन्यवाद, मैं बहुत खुश हूँ। मैं आपके लिए कुछ नहीं लाया","bengali":"ধন্যবাদ, আমি খুব খুশি। আমি আপনার জন্য কিছু আনিনি"},
+        {"speaker":"A","kannada":"Paravagilla, nimage nodalu sigabeku anta bittidde","english":"No problem, I just wanted to give you something","hindi":"कोई बात नहीं, मैं बस आपको कुछ देना चाहता था","bengali":"কোন সমস্যা নেই, আমি শুধু আপনাকে কিছু দিতে চেয়েছিলাম"},
+        {"speaker":"B","kannada":"Nimma uddeshada mele nanna anugraha irali","english":"May God bless you for your kindness","hindi":"आपकी दयालुता के लिए भगवान आपको आशीर्वाद दें","bengali":"আপনার দয়ার জন্য ঈশ্বর আপনাকে আশীর্বাদ করুন"}
+      ]
+    }
+  ]
+}

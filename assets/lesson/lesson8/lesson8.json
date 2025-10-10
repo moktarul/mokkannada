@@ -1,0 +1,47 @@
+{
+  "id": "lesson-8",
+  "title": "Lesson 8 — Making Plans & Invitations",
+  "description": "Phrases for making plans, extending invitations, and scheduling",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Extending Invitations",
+      "lines": [
+        {"speaker":"A","kannada":"Nimge weekend alli plans ideya?","english":"Do you have plans for the weekend?","hindi":"क्या आपके वीकेंड के कोई प्लान हैं?","bengali":"সপ্তাহান্তে আপনার কোন পরিকল্পনা আছে?"},
+        {"speaker":"B","kannada":"Illilla, enu plan illa","english":"No, I don't have any plans","hindi":"नहीं, मेरे कोई प्लान नहीं हैं","bengali":"না, আমার কোন পরিকল্পনা নেই"},
+        {"speaker":"A","kannada":"Namma movie ge hogona?","english":"Shall we go for a movie?","hindi":"क्या हम फिल्म देखने चलें?","bengali":"আমরা কি সিনেমা দেখতে যাব?"},
+        {"speaker":"B","kannada":"Chennagide, yavaga?","english":"That sounds good, when?","hindi":"अच्छा है, कब?","bengali":"ভালো, কখন?"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Making Appointments",
+      "lines": [
+        {"speaker":"A","kannada":"Nanu nimmannu meet maDabahuduva?","english":"Can I meet you?","hindi":"क्या मैं आपसे मिल सकता हूँ?","bengali":"আমি কি আপনার সাথে দেখা করতে পারি?"},
+        {"speaker":"B","kannada":"Nimage yavaga sari?","english":"When are you free?","hindi":"आपको कब सुविधा है?","bengali":"আপনার কখন সুবিধা হবে?"},
+        {"speaker":"A","kannada":"Nale beligge 10:00 ge barabahudha?","english":"Can you come tomorrow at 10 AM?","hindi":"क्या आप कल सुबह 10 बजे आ सकते हैं?","bengali":"আপনি কি আগামীকাল সকাল ১০টায় আসতে পারবেন?"},
+        {"speaker":"B","kannada":"Sari, nimage sambhava?","english":"Okay, is that okay with you?","hindi":"ठीक है, क्या आपको सही रहेगा?","bengali":"ঠিক আছে, আপনার জন্য কি এটা ঠিক আছে?"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Accepting & Declining",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma janmadina uparige barabahudha?","english":"Can you come to my birthday party?","hindi":"क्या आप मेरी जन्मदिन की पार्टी में आ सकते हैं?","bengali":"আপনি কি আমার জন্মদিনের পার্টিতে আসতে পারবেন?"},
+        {"speaker":"B","kannada":"Khandita, nanna kade inda","english":"Definitely, count me in","hindi":"ज़रूर, मुझे शामिल कर लीजिए","bengali":"নিশ্চয়ই, আমাকে নিয়ে নিন"},
+        {"speaker":"A","kannada":"Nanage kshamisi, naanu bariyagilla","english":"I'm sorry, I'm busy that day","hindi":"माफ़ कीजिए, मैं उस दिन व्यस्त हूँ","bengali":"দুঃখিত, আমি সেদিন ব্যস্ত"},
+        {"speaker":"B","kannada":"Paravagilla, matte sala banni","english":"No problem, come next time","hindi":"कोई बात नहीं, अगली बार आइएगा","bengali":"কোন সমস্যা নেই, পরের বার আসবেন"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Rescheduling Plans",
+      "lines": [
+        {"speaker":"A","kannada":"Nanna kade ondu emergency ide","english":"I have an emergency","hindi":"मेरे यहाँ एक इमरजेंसी है","bengali":"আমার একটি জরুরি কাজ আছে"},
+        {"speaker":"B","kannada":"Namma meeting ni matte dinage maDabahuda?","english":"Can we reschedule our meeting?","hindi":"क्या हम अपनी मीटिंग दूसरे दिन के लिए शिफ्ट कर सकते हैं?","bengali":"আমরা কি আমাদের মিটিংটি অন্য দিনে সরিয়ে নিতে পারি?"},
+        {"speaker":"A","kannada":"Nale 3:00 ge sariya?","english":"Is tomorrow at 3 PM okay?","hindi":"क्या कल दोपहर 3 बजे ठीक रहेगा?","bengali":"আগামীকাল বিকাল ৩টা কি ঠিক আছে?"},
+        {"speaker":"B","kannada":"Sari, nanna kade iruva samayavannu badalayisi kollutteene","english":"Okay, I'll adjust my schedule","hindi":"ठीक है, मैं अपना समय निकाल लूंगा","bengali":"ঠিক আছে, আমি আমার সময় ঠিক করে নিচ্ছি"}
+      ]
+    }
+  ]
+}

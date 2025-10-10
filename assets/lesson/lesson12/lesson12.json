@@ -1,0 +1,47 @@
+{
+  "id": "lesson-12",
+  "title": "Lesson 12 — Weather & Seasons",
+  "description": "Talking about weather conditions and seasonal changes",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Describing Weather",
+      "lines": [
+        {"speaker":"A","kannada":"Ivvattu beligge eshtu shita?","english":"How cold is it this morning?","hindi":"आज सुबह कितनी ठंड है?","bengali":"আজ সকালে কত ঠান্ডা?"},
+        {"speaker":"B","kannada":"Tumba shita ide, 15°C matra","english":"It's very cold, only 15°C","hindi":"बहुत ठंड है, केवल 15°C","bengali":"খুব ঠান্ডা, মাত্র ১৫° সে."},
+        {"speaker":"A","kannada":"Bari barpattide","english":"It's raining heavily","hindi":"भारी बारिश हो रही है","bengali":"জোর বৃষ্টি হচ্ছে"},
+        {"speaker":"B","kannada":"Chathri tagondu hogi","english":"Take an umbrella with you","hindi":"अपने साथ छाता ले जाइए","bengali":"ছাতা নিয়ে যান"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Seasons",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma ishtada ruthu yavudu?","english":"What's your favorite season?","hindi":"आपका पसंदीदा मौसम कौन सा है?","bengali":"আপনার প্রিয় ঋতু কোনটি?"},
+        {"speaker":"B","kannada":"Nange huttu ritu ista, hageye varsha ritu kooda","english":"I like summer, and also the rainy season","hindi":"मुझे गर्मी पसंद है, और बारिश का मौसम भी","bengali":"আমি গ্রীষ্ম পছন্দ করি, আর বর্ষাকালও"},
+        {"speaker":"A","kannada":"Hagibidu ritu alli eshtu sanna kaalagalive?","english":"How many months are there in winter?","hindi":"सर्दी के मौसम में कितने महीने होते हैं?","bengali":"শীতকালে কত মাস হয়?"},
+        {"speaker":"B","kannada":"November nimmavara december, january matre","english":"From mid-November to January only","hindi":"नवंबर के मध्य से जनवरी तक ही","bengali":"নভেম্বরের মাঝামাঝি থেকে জানুয়ারি পর্যন্ত"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Weather Forecast",
+      "lines": [
+        {"speaker":"A","kannada":"Nale baratte enu?","english":"What's the forecast for tomorrow?","hindi":"कल का मौसम कैसा रहेगा?","bengali":"কালকের আবহাওয়া কেমন হবে?"},
+        {"speaker":"B","kannada":"Beligge maleyuntu, aamele belaggege baratte","english":"It will be cloudy in the morning, then sunny in the afternoon","hindi":"सुबह बादल छाए रहेंगे, फिर दोपहर को धूप निकलेगी","bengali":"সকালে মেঘলা থাকবে, তারপর বিকেলে রোদ উঠবে"},
+        {"speaker":"A","kannada":"Tempereture enu untade?","english":"What will be the temperature?","hindi":"तापमान कितना रहेगा?","bengali":"তাপমাত্রা কত থাকবে?"},
+        {"speaker":"B","kannada":"25°C nintu 32°C varegiruvudu","english":"It will range between 25°C to 32°C","hindi":"25°C से 32°C के बीच रहेगा","bengali":"২৫° সে. থেকে ৩২° সে. এর মধ্যে থাকবে"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Weather Warnings",
+      "lines": [
+        {"speaker":"A","kannada":"Cyclone alert ide, horatu hogabeda","english":"There's a cyclone alert, don't go out","hindi":"चक्रवात की चेतावनी है, बाहर मत जाइए","bengali":"ঘূর্ণিঝড়ের সতর্কতা আছে, বাইরে যাবেন না"},
+        {"speaker":"B","kannada":"Malanada meghagalu barutteve?","english":"Will there be thunderstorms?","hindi":"क्या आंधी-तूफ़ान आएगा?","bengali":"বজ্রবৃষ্টি হবে কি?"},
+        {"speaker":"A","kannada":"Hagilla, aadre bari barabahudu","english":"No, but it might rain","hindi":"नहीं, लेकिन बारिश हो सकती है","bengali":"না, তবে বৃষ্টি হতে পারে"},
+        {"speaker":"B","kannada":"Naanu chathri tagondu hogtini","english":"I'll take an umbrella then","hindi":"तो मैं छाता लेकर जाता हूँ","bengali":"তাহলে আমি ছাতা নিয়ে যাব"}
+      ]
+    }
+  ]
+}

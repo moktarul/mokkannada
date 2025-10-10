@@ -1,0 +1,47 @@
+{
+  "id": "lesson-13",
+  "title": "Lesson 13 — Hobbies & Interests",
+  "description": "Discussing leisure activities and personal interests",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Sports & Games",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma ishtada kreede enu?","english":"What's your favorite sport?","hindi":"आपका पसंदीदा खेल कौन सा है?","bengali":"আপনার প্রিয় খেলা কি?"},
+        {"speaker":"B","kannada":"Nanu cricket aadutteene, neevu?","english":"I play cricket, and you?","hindi":"मैं क्रिकेट खेलता हूँ, और आप?","bengali":"আমি ক্রিকেট খেলি, আপনি?"},
+        {"speaker":"A","kannada":"Naanu badminton aadutteene, tournament kooda barediddini","english":"I play badminton, I've even participated in tournaments","hindi":"मैं बैडमिंटन खेलता हूँ, मैंने टूर्नामेंट में भी भाग लिया है","bengali":"আমি ব্যাডমিন্টন খেলি, টুর্নামেন্টেও খেলেছি"},
+        {"speaker":"B","kannada":"Naanu weekend allu aadutteene, nammoorige kalisi aadona?","english":"I play on weekends too, shall we play together sometime?","hindi":"मैं भी वीकेंड पर खेलता हूँ, क्या हम कभी साथ खेलेंगे?","bengali":"আমিও সপ্তাহান্তে খেলি, আমরা কি একসাথে খেলব?"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Music & Arts",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma ishtada haaduvaagaara yaru?","english":"Who is your favorite singer?","hindi":"आपका पसंदीदा गायक कौन है?","bengali":"আপনার প্রিয় গায়ক কে?"},
+        {"speaker":"B","kannada":"Nange C. Ashwath avara haadu ista, neevu?","english":"I like C. Ashwath's songs, and you?","hindi":"मुझे सी. अश्वथ के गाने पसंद हैं, और आप?","bengali":"আমি সি. অশ্বথের গান পছন্দ করি, আপনি?"},
+        {"speaker":"A","kannada":"Naanu guitar haakikondiddini, neevu yaavdhaadru vaadikolluttira?","english":"I'm learning guitar, do you play any instrument?","hindi":"मैं गिटार सीख रहा हूँ, क्या आप कोई वाद्ययंत्र बजाते हैं?","bengali":"আমি গিটার শিখছি, আপনি কি কোন বাদ্যযন্ত্র বাজান?"},
+        {"speaker":"B","kannada":"Haudu, naanu keyboard vaadikollutteene, 5 varshadinda","english":"Yes, I've been playing keyboard for 5 years","hindi":"हाँ, मैं 5 साल से कीबोर्ड बजा रहा हूँ","bengali":"হ্যাঁ, আমি ৫ বছর ধরে কী-বোর্ড বাজাচ্ছি"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Reading & Learning",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma ishtada pustaka yavudu?","english":"What's your favorite book?","hindi":"आपकी पसंदीदा किताब कौन सी है?","bengali":"আপনার প্রিয় বই কোনটি?"},
+        {"speaker":"B","kannada":"Nanna ishtada pustaka 'Karnataka Sangeeta Sastra' matte 'Mookajjiya Kanasugalu'","english":"My favorite books are 'Karnataka Sangeeta Sastra' and 'Mookajjiya Kanasugalu'","hindi":"मेरी पसंदीदा किताबें हैं 'कर्नाटक संगीत शास्त्र' और 'मूकज्जिय कनसुगलु'","bengali":"আমার প্রিয় বইগুলি হল 'কর্ণাটক সঙ্গীত শাস্ত্র' এবং 'মূকাজ্জিয় কানাসুগালু'"},
+        {"speaker":"A","kannada":"Naanu padyagalannu bareyuttiddene, nimma kavitegalannu oodidini","english":"I write poems, I've read your poems","hindi":"मैं कविताएँ लिखता हूँ, मैंने आपकी कविताएँ पढ़ी हैं","bengali":"আমি কবিতা লিখি, আমি আপনার কবিতা পড়েছি"},
+        {"speaker":"B","kannada":"Dhanyavadagalu, nimma kavitegalannu kooda oodabahudha?","english":"Thank you, can I read your poems too?","hindi":"धन्यवाद, क्या मैं भी आपकी कविताएँ पढ़ सकता हूँ?","bengali":"ধন্যবাদ, আমিও কি আপনার কবিতা পড়তে পারি?"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Outdoor Activities",
+      "lines": [
+        {"speaker":"A","kannada":"Weekend alli enu maaduttira?","english":"What do you do on weekends?","hindi":"आप वीकेंड पर क्या करते हैं?","bengali":"আপনি সপ্তাহান্তে কি করেন?"},
+        {"speaker":"B","kannada":"Naanu photo edukoLtini, nature photography nanna hobby","english":"I take photos, nature photography is my hobby","hindi":"मैं फोटो खींचता हूँ, प्रकृति की फोटोग्राफी मेरा शौक है","bengali":"আমি ছবি তুলি, প্রকৃতি ফটোগ্রাফি আমার শখ"},
+        {"speaker":"A","kannada":"Chennagide! Naanu cycling maadutteene, nature trails alli","english":"That's nice! I go cycling on nature trails","hindi":"बहुत अच्छा! मैं प्रकृति के रास्तों पर साइकिल चलाता हूँ","bengali":"ভালো! আমি প্রকৃতির পথে সাইকেল চালাই"},
+        {"speaker":"B","kannada":"Nammella kalisikollona? Naanu nimma jothe barutteene","english":"Shall we go together? I'll join you","hindi":"क्या हम साथ चलें? मैं आपके साथ आऊंगा","bengali":"আমরা কি একসাথে যাব? আমি আপনার সাথে আসব"}
+      ]
+    }
+  ]
+}

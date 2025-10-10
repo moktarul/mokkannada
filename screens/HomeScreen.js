@@ -22,26 +22,10 @@ const navCards = [
   {
     id: 'lessons',
     title: 'Lessons',
-    description: 'Learn basic to advanced Kannada',
+    description: 'Structured learning path',
     icon: 'book',
     color: '#FF6B6B',
     screen: 'LessonList',
-  },
-  {
-    id: 'conversations',
-    title: 'Conversations',
-    description: 'Practice speaking with a friend',
-    icon: 'chat',
-    color: '#9C27B0',
-    screen: 'ConversationList',
-  },
-  {
-    id: 'conversation-practice',
-    title: 'AI Practice',
-    description: 'Practice with AI in real scenarios',
-    icon: 'robot',
-    color: '#2196F3',
-    screen: 'ConversationPractice',
   },
   {
     id: 'basics',
@@ -58,6 +42,22 @@ const navCards = [
     icon: 'sort-numeric-up',
     color: '#2196F3',
     screen: 'Numbers',
+  },
+  {
+    id: 'conversations',
+    title: 'Conversations',
+    description: 'Practice common dialogues',
+    icon: 'chat',
+    color: '#9C27B0',
+    screen: 'ConversationList',
+  },
+  {
+    id: 'ai-practice',
+    title: 'AI Practice',
+    description: 'Practice with AI',
+    icon: 'robot',
+    color: '#FF9800',
+    screen: 'ConversationPractice',
   },
 ];
 

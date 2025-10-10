@@ -1,0 +1,47 @@
+{
+  "id": "lesson-11",
+  "title": "Lesson 11 — Work & Business",
+  "description": "Professional communication and workplace vocabulary",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Job Interview",
+      "lines": [
+        {"speaker":"A","kannada":"Nanna parichaya kodi","english":"Please introduce yourself","hindi":"कृपया अपना परिचय दीजिए","bengali":"দয়া করে নিজের পরিচয় দিন"},
+        {"speaker":"B","kannada":"Nanna anubhava enu?","english":"What is your experience?","hindi":"आपका अनुभव क्या है?","bengali":"আপনার অভিজ্ঞতা কি?"},
+        {"speaker":"A","kannada":"Nimma salary expectation enu?","english":"What is your salary expectation?","hindi":"आपकी वेतन अपेक्षा क्या है?","bengali":"আপনার বেতনের প্রত্যাশা কত?"},
+        {"speaker":"B","kannada":"Nimma CV alli update maDi kodi","english":"Please update your resume","hindi":"कृपया अपना रिज्यूम अपडेट करें","bengali":"দয়া করে আপনার সিভি আপডেট করুন"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Office Communication",
+      "lines": [
+        {"speaker":"A","kannada":"Meeting yavaga?","english":"When is the meeting?","hindi":"मीटिंग कब है?","bengali":"মিটিং কখন?"},
+        {"speaker":"B","kannada":"Naanu late aagutteene","english":"I'll be late","hindi":"मुझे देर हो जाएगी","bengali":"আমি দেরি করব"},
+        {"speaker":"A","kannada":"Project deadline enu?","english":"What's the project deadline?","hindi":"प्रोजेक्ट की डेडलाइन क्या है?","bengali":"প্রজেক্টের ডেডলাইন কখন?"},
+        {"speaker":"B","kannada":"Naanu nimma help maDabahuda?","english":"Can I help you?","hindi":"क्या मैं आपकी मदद कर सकता हूँ?","bengali":"আমি কি আপনাকে সাহায্য করতে পারি?"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Business Meetings",
+      "lines": [
+        {"speaker":"A","kannada":"Namage agenda enu?","english":"What's our agenda?","hindi":"हमारा एजेंडा क्या है?","bengali":"আমাদের এজেন্ডা কি?"},
+        {"speaker":"B","kannada":"Nanna presentation nodi","english":"Please see my presentation","hindi":"कृपया मेरी प्रेजेंटेशन देखें","bengali":"আমার উপস্থাপনা দেখুন"},
+        {"speaker":"A","kannada":"Idea chennagide","english":"That's a good idea","hindi":"यह एक अच्छा विचार है","bengali":"এটি একটি ভালো ধারণা"},
+        {"speaker":"B","kannada":"Naanu disagree","english":"I disagree","hindi":"मैं असहमत हूँ","bengali":"আমি একমত নই"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Workplace Vocabulary",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma designation enu?","english":"What is your designation?","hindi":"आपका पद क्या है?","bengali":"আপনার পদবী কি?"},
+        {"speaker":"B","kannada":"Naanu software engineer","english":"I am a software engineer","hindi":"मैं एक सॉफ्टवेयर इंजीनियर हूँ","bengali":"আমি একজন সফটওয়্যার ইঞ্জিনিয়ার"},
+        {"speaker":"A","kannada":"Nimma company alli openings ideya?","english":"Are there any openings in your company?","hindi":"क्या आपकी कंपनी में कोई वैकेंसी है?","bengali":"আপনার কোম্পানিতে কি কোন খালি পদ আছে?"},
+        {"speaker":"B","kannada":"Naanu reference kodi","english":"I can give a reference","hindi":"मैं रेफरेंस दे सकता हूँ","bengali":"আমি রেফারেন্স দিতে পারি"}
+      ]
+    }
+  ]
+}

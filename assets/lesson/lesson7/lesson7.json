@@ -1,0 +1,47 @@
+{
+  "id": "lesson-7",
+  "title": "Lesson 7 — Bank & Post Office",
+  "description": "Essential banking and postal service phrases",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "At the Bank",
+      "lines": [
+        {"speaker":"A","kannada":"Nanu account open maDabeku","english":"I want to open an account","hindi":"मुझे खाता खोलना है","bengali":"আমার অ্যাকাউন্ট খুলতে হবে"},
+        {"speaker":"B","kannada":"Nimma ID proof matte address proof kodi","english":"Please provide your ID and address proof","hindi":"कृपया अपना आईडी और एड्रेस प्रूफ दीजिए","bengali":"আপনার আইডি এবং ঠিকানার প্রমাণ দিন"},
+        {"speaker":"A","kannada":"Minimum balance eshtu?","english":"What is the minimum balance?","hindi":"न्यूनतम शेष राशि कितनी है?","bengali":"ন্যূনতম ব্যালেন্স কত?"},
+        {"speaker":"B","kannada":"Nanu passbook print beku","english":"I need a passbook print","hindi":"मुझे पासबुक प्रिंट चाहिए","bengali":"আমার পাসবুক প্রিন্ট দরকার"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Money Transactions",
+      "lines": [
+        {"speaker":"A","kannada":"Nanu cash deposit maDabeku","english":"I want to deposit cash","hindi":"मुझे नकद जमा करना है","bengali":"আমার নগদ জমা দিতে হবে"},
+        {"speaker":"B","kannada":"Account number heli","english":"Please tell your account number","hindi":"कृपया अपना खाता नंबर बताएं","bengali":"আপনার অ্যাকাউন্ট নম্বর বলুন"},
+        {"speaker":"A","kannada":"Nanu 5000 rupayi withdraw maDabeku","english":"I want to withdraw 5000 rupees","hindi":"मैं 5000 रुपये निकालना चाहता हूँ","bengali":"আমি ৫০০০ টাকা তুলতে চাই"},
+        {"speaker":"B","kannada":"Nimma signature kodi","english":"Please sign here","hindi":"कृपया यहाँ हस्ताक्षर करें","bengali":"এখানে সই করুন"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "At the Post Office",
+      "lines": [
+        {"speaker":"A","kannada":"Idu speed post alli kalisabahudha?","english":"Can I send this by speed post?","hindi":"क्या मैं इसे स्पीड पोस्ट से भेज सकता हूँ?","bengali":"আমি কি এটি স্পীড পোস্টে পাঠাতে পারি?"},
+        {"speaker":"B","kannada":"Eshtu belagutte?","english":"How much does it cost?","hindi":"इसका किराया कितना है?","bengali":"কত খরচ হবে?"},
+        {"speaker":"A","kannada":"Registered post maDi","english":"Make it registered post","hindi":"इसे रजिस्टर्ड पोस्ट कर दीजिए","bengali":"এটি রেজিস্টার্ড পোস্ট করুন"},
+        {"speaker":"B","kannada":"Receipt kodi","english":"Please give me the receipt","hindi":"कृपया रसीद दीजिए","bengali":"রসিদটি দিন"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Currency Exchange",
+      "lines": [
+        {"speaker":"A","kannada":"I dollar eshtu rupayi?","english":"How many rupees for 1 dollar?","hindi":"एक डॉलर में कितने रुपये?","bengali":"এক ডলারে কত টাকা?"},
+        {"speaker":"B","kannada":"Nanu 100 dollar exchange maDabeku","english":"I want to exchange 100 dollars","hindi":"मैं 100 डॉलर बदलना चाहता हूँ","bengali":"আমি ১০০ ডলার বদলাতে চাই"},
+        {"speaker":"A","kannada":"Nimma passport kodi","english":"Please show your passport","hindi":"कृपया अपना पासपोर्ट दिखाएं","bengali":"আপনার পাসপোর্ট দেখান"},
+        {"speaker":"B","kannada":"Ee form fill maDi","english":"Please fill this form","hindi":"कृपया यह फॉर्म भरें","bengali":"এই ফর্মটি পূরণ করুন"}
+      ]
+    }
+  ]
+}

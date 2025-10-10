@@ -20,12 +20,43 @@ const LessonList = () => {
         const lesson4 = require('../assets/lesson/lesson4.json');
         const lesson5 = require('../assets/lesson/lesson5.json');
         
+        const lesson6 = require('../assets/lesson/lesson6.json');
+
+        const lesson7 = require('../assets/lesson/lesson7.json');
+
+        const lesson8 = require('../assets/lesson/lesson8.json');
+
+        const lesson9 = require('../assets/lesson/lesson9.json');
+
+        const lesson10 = require('../assets/lesson/lesson10.json');
+
+        const lesson11 = require('../assets/lesson/lesson11.json');
+
+        const lesson12 = require('../assets/lesson/lesson12.json');
+
+        const lesson13 = require('../assets/lesson/lesson13.json');
+
+        const lesson14 = require('../assets/lesson/lesson14.json');
+
+        const lesson15 = require('../assets/lesson/lesson15.json');
+
+
         setLessons([
           { ...lesson1, id: '1' },
           { ...lesson2, id: '2' },
           { ...lesson3, id: '3' },
           { ...lesson4, id: '4' },
-          { ...lesson5, id: '5' }
+            { ...lesson5, id: '5' },
+            { ...lesson6, id: '6' },
+            { ...lesson7, id: '7' },
+            { ...lesson8, id: '8' },
+            { ...lesson9, id: '9' },
+            { ...lesson10, id: '10' },
+            { ...lesson11, id: '11' },
+            { ...lesson12, id: '12' },
+            { ...lesson13, id: '13' },
+            { ...lesson14, id: '14' },
+            { ...lesson15, id: '15' }
         ]);
       } catch (error) {
         console.error('Error loading lessons:', error);

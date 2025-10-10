@@ -1,0 +1,47 @@
+{
+  "id": "lesson-9",
+  "title": "Lesson 9 — Expressing Opinions & Feelings",
+  "description": "Phrases for sharing thoughts, feelings, and opinions",
+  "conversations": [
+    {
+      "id": "conv1",
+      "title": "Agreeing & Disagreeing",
+      "lines": [
+        {"speaker":"A","kannada":"Naanu nimage sathya heluttiddene","english":"I agree with you","hindi":"मैं आपसे सहमत हूँ","bengali":"আমি আপনার সাথে একমত"},
+        {"speaker":"B","kannada":"Naanu nimage sariyagi heluttiddene","english":"I completely agree with you","hindi":"मैं आपसे पूरी तरह सहमत हूँ","bengali":"আমি সম্পূর্ণভাবে আপনার সাথে একমত"},
+        {"speaker":"A","kannada":"Naanu nimage oppabahudilla","english":"I don't agree with you","hindi":"मैं आपसे सहमत नहीं हूँ","bengali":"আমি আপনার সাথে একমত নই"},
+        {"speaker":"B","kannada":"Nanna abhipraya matte bariyuttade","english":"I have a different opinion","hindi":"मेरी अलग राय है","bengali":"আমার ভিন্ন মত আছে"}
+      ]
+    },
+    {
+      "id": "conv2",
+      "title": "Expressing Preferences",
+      "lines": [
+        {"speaker":"A","kannada":"Nange coffee tea kinta ista","english":"I prefer coffee over tea","hindi":"मुझे चाय से ज़्यादा कॉफ़ी पसंद है","bengali":"আমি চায়ের চেয়ে কফি বেশি পছন্দ করি"},
+        {"speaker":"B","kannada":"Nange hindi jasti ista","english":"I like Hindi more","hindi":"मुझे हिंदी ज़्यादा पसंद है","bengali":"আমি হিন্দি বেশি পছন্দ করি"},
+        {"speaker":"A","kannada":"Nange yavaagaadaru sari","english":"Anytime is fine with me","hindi":"मुझे कभी भी ठीक है","bengali":"আমার যে কোন সময় ঠিক আছে"},
+        {"speaker":"B","kannada":"Nange innu chennagide","english":"I like this better","hindi":"मुझे यह ज़्यादा अच्छा लगा","bengali":"আমার এটা বেশি ভালো লাগছে"}
+      ]
+    },
+    {
+      "id": "conv3",
+      "title": "Describing Emotions",
+      "lines": [
+        {"speaker":"A","kannada":"Nanu khushi idini","english":"I am happy","hindi":"मैं खुश हूँ","bengali":"আমি খুশি"},
+        {"speaker":"B","kannada":"Nanu badavana agiddeeni","english":"I was worried","hindi":"मैं चिंतित था","bengali":"আমি চিন্তিত ছিলাম"},
+        {"speaker":"A","kannada":"Nanu bhayapadtiddene","english":"I am scared","hindi":"मुझे डर लग रहा है","bengali":"আমি ভয় পাচ্ছি"},
+        {"speaker":"B","kannada":"Nanu nirasharaagiddene","english":"I am disappointed","hindi":"मैं निराश हूँ","bengali":"আমি হতাশ"}
+      ]
+    },
+    {
+      "id": "conv4",
+      "title": "Giving Compliments",
+      "lines": [
+        {"speaker":"A","kannada":"Nimma baagina hesaru enu?","english":"What's your good name?","hindi":"आपका अच्छा नाम क्या है?","bengali":"আপনার ভালো নাম কি?"},
+        {"speaker":"B","kannada":"Nimma kannada tumba chennagide","english":"Your Kannada is very good","hindi":"आपकी कन्नड़ बहुत अच्छी है","bengali":"আপনার কন্নড় খুব ভালো"},
+        {"speaker":"A","kannada":"Nimma baagina abhipraya","english":"Your opinion is valuable","hindi":"आपकी राय महत्वपूर्ण है","bengali":"আপনার মতামত মূল্যবান"},
+        {"speaker":"B","kannada":"Nimma sahaya bahala upayukthavagide","english":"Your help is very useful","hindi":"आपकी मदद बहुत उपयोगी है","bengali":"আপনার সাহায্য খুব উপকারী"}
+      ]
+    }
+  ]
+}
