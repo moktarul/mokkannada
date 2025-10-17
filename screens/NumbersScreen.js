@@ -1,6 +1,5 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import * as Speech from 'expo-speech';
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Animated,
@@ -13,6 +12,7 @@ import {
   TouchableWithoutFeedback,
   View
 } from 'react-native';
+import { speakKannada } from '../utils/tts';
 
 const { width } = Dimensions.get('window');
 
@@ -152,12 +152,10 @@ const NumbersScreen = () => {
 
   const speakNumber = async () => {
     if (isSpeaking) {
-      await Speech.stop();
       setIsSpeaking(false);
       return;
     }
     
-    setIsSpeaking(true);
     const numObj = Object.values(numbers).flat().find(n => n.english === currentNumber.toString());
     if (numObj) {
       Animated.sequence([
@@ -174,14 +172,11 @@ const NumbersScreen = () => {
       ]).start();
 
       try {
-        await Speech.speak(numObj.kannada, {
-          language: 'kn-IN',
-          onDone: () => setIsSpeaking(false),
-          onStopped: () => setIsSpeaking(false),
-          onError: () => setIsSpeaking(false),
-        });
+        setIsSpeaking(true);
+        await speakKannada(numObj.kannada);
       } catch (error) {
         console.log('Error speaking:', error);
+      } finally {
         setIsSpeaking(false);
       }
     }
