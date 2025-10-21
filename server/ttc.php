@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 // Configuration
 $config = [
-    'api_key' => 'AIzaSyDKRBKBOw2w4NCNP5dlyGd3WNT0d3iaL2g', // Replace with your actual API key
+    'api_key' => '', // Replace with your actual API key
     'cache_dir' => __DIR__ . '/cache',
     'base_url' => 'http://104.248.202.152/kn/asset/',
     'tts_url' => 'https://texttospeech.googleapis.com/v1/text:synthesize',
